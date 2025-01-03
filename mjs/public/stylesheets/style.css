@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
+@import url(header.css);
+@import url(footer.css);
+
+*{
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-a {
-  color: #00B7FF;
+body{
+  width: 100%;
 }
