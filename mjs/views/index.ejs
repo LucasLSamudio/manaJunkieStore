@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('partial/head') %>
   <body>
     <%- include('partial/header') %>
-    <h1><%= title %></h1>
-    <p>Welcome a<%= title %></p>
+    <main>
+      <h1><%= title %></h1>
+      <div class="banner-index">
+        <img src="" alt="banner">
+      </div>
+      <div>
+      <section>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+      </section>
+      <h4>Opiniones de nuestros clientes</h4>
+      <section>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+      </section>
+    </div>
+    </main>
     <%- include('partial/footer') %>
   </body>
 </html>
