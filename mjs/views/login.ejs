@@ -4,7 +4,16 @@
     <body>
         <%- include('partial/header') %>
         <main>
-            
+            <form action="" method="get">
+            <h2>iniciar sesion</h2>
+            <label for="correo">ingrese su correo</label>
+            <input type="email" placeholder="ingrese su correo" name="correo" id="correo">
+            <label for="password">ingrese su contraseña</label>
+            <input type="password" name="password" placeholder="contraseña" id="password">
+            <a href="#">¿No tenes cuenta? Registrate </a>
+            <a href="#">Olvide mi contraseña </a>
+            <button type="submit">inciar sesion</button>
+        </form>
         </main>
         <%- include('partial/footer') %>
     </body>
