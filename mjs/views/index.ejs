@@ -4,28 +4,22 @@
   <body>
     <%- include('partial/header') %>
     <main>
-      <h1><%= title %></h1>
-      <div class="banner-index">
-        <img src="" alt="banner">
+      <div class="div-main">
+        <h1><%= title %></h1>
+        <h2>Productos Recomendados</h2>
+        <div class="banner-index">
+          <img src="" alt="banner">
+        </div>
+        <section class="article-product-section">
+          <%- include('partial/articleProduct') %>
+          <%- include('partial/articleProduct') %>
+        </section>
+        <h2>Opiniones de nuestros clientes</h4>
+          <section class="article-opinion-section">
+              <%- include('partial/articleOpinion') %>
+              <%- include('partial/articleOpinion') %>
+          </section>
       </div>
-      <div>
-      <section>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-      </section>
-      <h4>Opiniones de nuestros clientes</h4>
-      <section>
-        <article></article>
-        <article></article>
-        <article></article>
-        <article></article>
-      </section>
     </div>
     </main>
     <%- include('partial/footer') %>

@@ -1,15 +1,43 @@
 @import url(header.css);
 @import url(footer.css);
+@import url(section-article-product.css);
+@import url(section-article-opinion.css);
 
 *{
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  background-color: darkolivegreen;
 }
 body{
   width: 100%;
 }
 
+ul{
+  list-style: none;
+}
+
 main{
+  width: 100%;
   padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .div-main{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+h2{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.banner-index{
+  width: 100%;
 }
