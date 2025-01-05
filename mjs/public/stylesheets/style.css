@@ -6,11 +6,17 @@
 *{
   padding: 0;
   margin: 0;
-  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font: 26px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: darkolivegreen;
 }
+
 body{
   width: 100%;
+}
+
+img{
+  max-width: 250px;
+  height: 250px;
 }
 
 ul{
