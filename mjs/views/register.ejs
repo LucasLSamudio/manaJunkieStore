@@ -4,7 +4,27 @@
     <body>
         <%- include('partial/header') %>
         <main>
-            
+            <form action="" method="get"> 
+                <h2>Registro De Usuario</h2>
+                <label for="correo">ingrese su correo</label>
+                <input type="email" placeholder="ingrese su correo" name="correo" id="correo">
+                <label for="password">ingrese una contraseña</label>
+                <input type="password" name="password" id="password">
+                <label for="password2">confirmar contraseña</label>
+                <input type="password" name="password2" id="password2" required>
+                <label for="usuario">ingrese nombre de usuario</label>
+                <input type="text" placeholder="usuario" name="usuario" id="usuario">
+                <label for="nombre">ingrese su nombre</label>
+                <input type="text" name="nombre" id="nombre">
+                <label for="apellido">ingrese su apellido</label>
+                <input type="text" name="apellido" id="apellido">
+                <label for="DNI">ingrese su DNI</label>
+                <input type="number" name="DNI" id="DNI">
+                <label for="telefono">ingrese su numero de telefono</label>
+                <input type="number" name="telefono" id="telefono">
+                <button type="submit">Registrarse</button>
+                <button type="reset">Cancelar</button>
+            </form>
         </main>
         <%- include('partial/footer') %>
     </body>
