@@ -4,9 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+/* RUTAS CONST */
 
+var indexRouter = require('./routes/indexRoute');
+var usersRouter = require('./routes/usersRoute');
+/*
+const carritoRouter = require('./routes/carritoRoute');
+const homeRouter = require('./routes/homeRoute');
+const loginRouter = require('./routes/loginRoute');
+const registerRouter = require('./routes/registerRoute');
+const productDetailRouter = require('./routes/productDetailRoute');
+*/
 var app = express();
 
 // view engine setup
@@ -19,8 +27,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/* RUTAS USE */
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+/*
+app.use('/carrito',carritoRouter)
+app.use('/home', homeRouter)
+app.use('/login', loginRouter)
+app.use('/register', registerRouter)
+app.use('/productDetail', productDetailRouter)
+*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

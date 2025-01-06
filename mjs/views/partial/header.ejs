@@ -1,7 +1,5 @@
 <header id="id-header">
-    <div class="img-logo">
-        <img src="/public/images/logoMJS.jpeg" alt="MJS Foto">
-    </div>
+        <img src="<%- foto %>" alt="MJS Foto" class="img-logo">
     <nav class="nav-bar-header">
         <ul>
             <li><a href="#">Productos</a></li>
@@ -10,15 +8,18 @@
             <li><a href="#">Armá Tu PC</a></li>
         </ul>
     </nav>
+    <div class="burguer-button">
+        <i class="fa-solid fa-bars"></i>
+    </div>
     <div class="barra-icon-busqueda">
         <label for="barra-busqueda"></label>
         <input type="text" id="barra-busqueda" placeholder="Placas de video...">
         <button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <div class="user-button">
-        <button><i>Carro</i></button>
+        <button><i class="fa-solid fa-cart-plus"></i></button>
         <button>Ingresar</button>
         <button>Registrarse</button>
-        <i>Icono usuario</i>
+        <i class="fa-regular fa-circle-user"></i>
     </div>
 </header>
