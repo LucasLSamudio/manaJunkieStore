@@ -8,13 +8,13 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/indexRoute');
 var usersRouter = require('./routes/usersRoute');
-/*
+
 const carritoRouter = require('./routes/carritoRoute');
 const homeRouter = require('./routes/homeRoute');
 const loginRouter = require('./routes/loginRoute');
 const registerRouter = require('./routes/registerRoute');
-const productDetailRouter = require('./routes/productDetailRoute');
-*/
+const productDetailRouter = require('./routes/producDetailRoute');
+
 var app = express();
 
 // view engine setup
@@ -31,13 +31,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-/*
+
 app.use('/carrito',carritoRouter)
 app.use('/home', homeRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/productDetail', productDetailRouter)
-*/
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,5 +54,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+let puerto = "http://localhost:3000/"
+console.log(`Página corriendo en: ${puerto}`);
+
 
 module.exports = app;
