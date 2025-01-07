@@ -1,13 +1,9 @@
-/*var express = require('express');
+var express = require('express');
 var router = express.Router();
-const objTienda = require('../db/logo')
+
+const registerController = require('../controller/registerController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: objTienda.name,
-    foto: objTienda.foto
-  });
-});
+router.get('/', registerController.index);
 
 module.exports = router;
