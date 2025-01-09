@@ -6,11 +6,11 @@
 *{
   padding: 0;
   margin: 0;
-  font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #BCAC79
+  font: 50px "Inconsolata", Helvetica, Arial, sans-serif;
 }
 
 body{
+  background-color: #BCAC79;
   width: 100%;
 }
 
