@@ -17,26 +17,36 @@
     flex-wrap: wrap;
 }
 
-.img-article{
-    width: 90%;
+.div-img-articulo{
+    width: 100%;
     height: 50%;
+}
+
+.img-article{
+    width: auto;
+    height: auto;
 }
 
 .description-article{
+    border-top: 1px solid black;
     width: 100%;
-    height: 50%;
-    background-color: aqua;
+    height: auto;
+    /* background-color: aqua; */
 }
 
 .title-article-product{
-    font-size: 23px;
+    font-size: 60px;
+    padding: 5px 15px;
     color: rgb(0, 46, 46);
 }
 
 .precio-article{
-    font-size: 20px;
+    font-size: 45px;
+    padding: 5px 15px;
 }
 
 .description-product{
-    font-size: 16px;
+    font-size: 35px;
+    padding: 5px 15px;
+    text-transform: lowercase;
 }
