@@ -1,5 +1,6 @@
 @import url(header.css);
 @import url(footer.css);
+@import url(index.css);
 @import url(section-article-product.css);
 @import url(section-article-opinion.css);
 
@@ -38,13 +39,6 @@ main{
     justify-content: center;
     flex-wrap: wrap;
   }
-}
-
-h2{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 30px;
 }
 
 .banner-index{
