@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 25px 0;
+    /* margin: 25px 0; */
 }
 
 .article-product{
@@ -17,7 +17,7 @@
     justify-content: center;
     flex-wrap: wrap;
     background: linear-gradient(#051218, #088192, #088192);
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .img-article{
