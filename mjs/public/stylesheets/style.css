@@ -3,6 +3,9 @@
 @import url(index.css);
 @import url(section-article-product.css);
 @import url(section-article-opinion.css);
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+
 
 *{
   padding: 0;
