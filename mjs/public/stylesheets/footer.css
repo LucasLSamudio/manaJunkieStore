@@ -20,7 +20,7 @@
     justify-content: center;
     gap: 40px;
     h4{
-        font: 40px 'sans-serif';
+        /* font: 40px 'sans-serif'; */
         width: auto;
         text-transform: uppercase;
         font-weight: bolder;
@@ -37,7 +37,7 @@
 
 .subtitle-footer{
     width: 100%;
-    font: 40px 'sans-serif';
+    /* font: 40px 'sans-serif'; */
     text-align: center;
     text-decoration: 2px underline ;
     text-transform: uppercase;
@@ -51,16 +51,16 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 20px;
-    i{
+    /* i{
         a{
             font: 45px 'sans-serif';
         }
-    }
+    } */
 }
 
 .copyright{
     padding-top: 50px;
-    font: 30px 'sans-serif';
+    /* font: 30px 'sans-serif'; */
     color: #3a3a3ac6;
 }
 
@@ -73,7 +73,7 @@ ul{
         text-align: center;
         transform: all 0.5s ease;
         a{
-            font: 40px 'sans-serif';
+            /* font: 40px 'sans-serif'; */
             text-decoration: none;
             color: black;
         }

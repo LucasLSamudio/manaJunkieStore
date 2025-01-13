@@ -5,19 +5,34 @@
     <%- include('partial/header') %>
     <main>
       <div class="div-main">
+        
         <h1><%= title %></h1>
-        <h2>Productos Recomendados</h2>
-        <div class="banner-index">
+        
+        
+        <!-- <div class="banner-index">
           <img src="<%- carousel %>" alt="banner">
-        </div>
+        </div> -->
+        
+        <h2 class="titulo">Productos Recomendados</h2>
+        
         <section class="article-product-section">
           <%- include('partial/articleProduct') %>
+          <%- include('partial/articleProduct') %>
+          <%- include('partial/articleProduct') %>
+          <%- include('partial/articleProduct') %>
         </section>
-        <h2>Opiniones de nuestros clientes</h4>
+
+        <h2 class="titulo">Opiniones de nuestros clientes</h4>
+
           <section class="article-opinion-section">
               <%- include('partial/articleOpinion') %>
+              <%- include('partial/articleOpinion') %>
+              <%- include('partial/articleOpinion') %>
+              <%- include('partial/articleOpinion') %>
           </section>
+
       </div>
+
     </div>
     </main>
     <%- include('partial/footer') %>
