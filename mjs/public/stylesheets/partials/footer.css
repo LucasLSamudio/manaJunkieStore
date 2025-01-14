@@ -9,59 +9,9 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     padding: 15px 0;
-}
-
-.truck-h4-fb1{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
     justify-content: center;
-    gap: 40px;
-    h4{
-        /* font: 40px 'sans-serif'; */
-        width: auto;
-        text-transform: uppercase;
-        font-weight: bolder;
-    }
-}
-
-.credit-cards-footer{
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.subtitle-footer{
-    width: 100%;
-    /* font: 40px 'sans-serif'; */
-    text-align: center;
-    text-decoration: 2px underline ;
-    text-transform: uppercase;
-    font-weight: bolder;
-}
-
-.icons-footer{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    /* i{
-        a{
-            font: 45px 'sans-serif';
-        }
-    } */
-}
-
-.copyright{
-    padding-top: 50px;
-    /* font: 30px 'sans-serif'; */
-    color: #3a3a3ac6;
 }
 
 ul{
@@ -79,6 +29,90 @@ ul{
         }
     }
 }
+.truck-h4-fb1{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    /* border-bottom: 1px solid black; */
+    h4{
+        /* font: 40px 'sans-serif'; */
+        width: auto;
+        text-transform: uppercase;
+        font-weight: bolder;
+    }
+}
+
+.credit-cards-footer{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
+}
+.fa-solid.fa-solid.fa-credit-card{
+    font-size: 20px ;
+}
+.fa-brands.fa-cc-visa{
+    font-size: 20px;
+}
+.fa-brands.fa-cc-mastercard{
+    font-size: 20px;
+}
+.fa-brands.fa-cc-amex{
+    font-size: 20px;
+}
+.fa-brands.fa-cc-paypal{
+    font-size: 20px;
+}
+.fa-solid.fa-lock{
+    font-size: 20px;
+}
+.button-footer{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    
+    border: solid 1px black;
+}
+.fa-solid.fa-envelope{
+    font-size: 20px;
+}
+.subtitle-footer{
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: 2px underline ;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.icons-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+        a{
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+    } 
+
+.copyright{
+    padding: 10px;
+    font-size: 15px;
+    /* font: 30px 'sans-serif'; */
+    color: #3a3a3ac6;
+}
+
 
 h6{
     width: 100%;
