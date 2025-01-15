@@ -1,6 +1,7 @@
 .div-form-login {
     padding: 10px;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 15px;
 }
 
 .forms-login {
@@ -8,17 +9,22 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
 }
 
 #correo {
     border: 2px solid black;
     border-radius: 5px;
     font-size: 15px;
-    align-it
 }
 
 #password {
     border: 2px solid black;
     border-radius: 5px;
+    font-size: 15px;
+}
+.button-login{
+    border: 2px solid black;
+    border-radius: 3px;
     font-size: 15px;
 }
