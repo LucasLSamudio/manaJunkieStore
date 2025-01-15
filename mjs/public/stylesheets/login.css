@@ -1,6 +1,30 @@
-.forms-login{
+.div-form-login {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.forms-login {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
+}
+
+#correo {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#password {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.button-login{
+    border: 2px solid black;
+    border-radius: 3px;
+    font-size: 15px;
 }

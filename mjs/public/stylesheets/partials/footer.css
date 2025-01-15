@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#088192 0%, #0f0892 50%, #088192 100%);
+    background: linear-gradient(#399AA7 10%, #088192 21%,#055A66 65%);
 }
 
 .footer-block{
@@ -110,7 +110,8 @@ ul{
     padding: 10px;
     font-size: 15px;
     /* font: 30px 'sans-serif'; */
-    color: #3a3a3ac6;
+    /* color: #3a3a3ac6; */
+    color: black;
 }
 
 
