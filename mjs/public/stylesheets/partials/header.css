@@ -6,11 +6,16 @@
     flex-direction: row;    
     justify-content: space-around;
     background: linear-gradient(90deg, #FFD700, #FFC107, #FF8C00);
-    button{
-        background-color: #BCAC79;
-        border: 0;
-    }
 }
+
+#id-header button{
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 .img-logo-div{
     width: 25%;
     display: flex;
@@ -27,13 +32,6 @@
 
 .nav-bar-header{
     display: none;
-
-    /* .nav-ul a{
-        margin-left: 60px;
-        font-size: 15px;
-        font-weight: 600;
-        border-bottom: solid 2px transparent; /* Subrayado transparente */
-        /* transition: all .5s ease; para transicionar todas las caracteristicas del nav-ul */
     }
 
 .barra-icon-busqueda{
@@ -49,12 +47,25 @@
     background-color: #0a5b68a9;
 }
 
+.lupa{
+    height: 2em;
+    width: 2em;
+    padding: 1px;
+    border: 2px solid black;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 .login-button{
-    display: none;
+    border-bottom: 1px solid transparent;
+    transition: all .5s ease;
 }
 
 .register-button{
-    display: none;
+    border-bottom: 1px solid transparent;
+    transition: all .5s ease;
 }
 
 .user-button{
@@ -76,6 +87,7 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     border: 1px solid #00000000;
     border-radius: 100%;
+    cursor: pointer;
     transition: box-shadow 0.3s ease;
 }
 
@@ -144,4 +156,44 @@
 
 .fa-bars:active{
     box-shadow: 0px 0px 10px rgb(30, 30, 30)
+}
+
+@media (min-width: 600px) {
+    .burguer-button{
+        display: none;
+    }
+
+    .nav-bar-header{
+        display: flex;
+    }
+    .nav-bar-header ul{
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: 14px;
+        gap: 1em;
+    }
+    .nav-bar-header li{
+        display: flex;
+        align-items: center;
+
+    }
+    .nav-bar-header a{
+        text-wrap-mode: nowrap;
+        color: #051218;
+        border-bottom: 2px solid transparent;
+        transition: all .5s ease;
+    }
+
+    .nav-bar-header a:hover{
+        border-bottom: 2px solid #051218;
+    }
+}
+
+@media (min-width: 768px){
+    .login-button:hover{
+        border-bottom: 2px solid black;
+    }
+    .register-button:hover{
+        border-bottom: 2px solid black;
+    }
 }
