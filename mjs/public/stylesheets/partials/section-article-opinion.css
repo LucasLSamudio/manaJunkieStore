@@ -11,7 +11,7 @@
 .opinion-product{
     border: 3px solid black;
     border-radius: 5%;
-    width: 100%;
+    width: 90%;
     height: auto;
     background-color: aliceblue;
     display: flex;
@@ -47,30 +47,52 @@
 }
 
 @media (min-width: 600px){
+
+    .opinion-product{
+        width: 40%;
+    }
+
     .article-opinion-section{
         gap: 2rem;
     }
 
     .title-opinion-product{
-        font-size: 25px;
+        font-size: 22px;
+    }
+    .value-opinion-product{
+        font-size: 16px;
+    }
+    .description-opinion-article{
+        font-size: 15px;
     }
 }
 
 @media (min-width: 768px){
-    
-    .opinion-product{
-        width: 45%;
-    }
 
     .title-opinion-product{
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .value-opinion-product{
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .description-opinion-article{
-        font-size: 18px;
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 1024px){
+    .opinion-product{
+        width: 22%;
+    }
+
+    .title-opinion-product{
+        font-size: 25px;
+    }
+    
+    .value-opinion-product{
+        display: flex;
+        gap: 5px;
     }
 }
