@@ -3,16 +3,16 @@
     <%- include('partial/head') %>
     <body>
         <%- include('partial/header') %>
-        <main>
+        <main class="main main-login">
             <div class="div-form-login">
                 <form action="" method="get" class="forms-login">
-                <h2>iniciar sesion</h2>
-                <label for="correo">ingrese su correo</label>
+                <h2 class="titulo-login">Iniciar sesion</h2>
+                <label for="correo" class="label-login-email">Ingrese su correo</label>
                 <input type="email" placeholder="ingrese su correo" name="correo" id="correo">
-                <label for="password">ingrese su contraseña</label>
+                <label for="password" class="label-login-password">Ingrese su contraseña</label>
                 <input type="password" name="password" placeholder="contraseña" id="password">
-                <a href="#">¿No tenes cuenta? Registrate </a>
-                <a href="#">Olvide mi contraseña </a>
+                <a href="#" class="a-login">¿No tenes cuenta? Registrate </a>
+                <a href="#" class="a-login" >Olvide mi contraseña </a>
                 <button type="submit" class="button-login">inciar sesion</button>
             </form>
             </div>
