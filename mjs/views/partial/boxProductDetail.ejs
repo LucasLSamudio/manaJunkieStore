@@ -1,0 +1,72 @@
+<div class="box-producto-descripcion">
+    <div class="producto-precio">
+
+        <div class="box-img-producto">
+            <div class="img-principal-icon">
+                <div class="img-wrapper">
+                    <img src=" <%- foto %> " alt="">
+
+                </div>
+                <button class="icon-heart"><i class="fa-regular fa-heart"></i></button>
+            </div>
+
+            <div class="slider-box-img">
+                <img src=" <%- foto %> " alt="">
+                <img src=" <%- foto %> " alt="">
+                <img src=" <%- foto %> " alt="">
+                <img src=" <%- foto %> " alt="">
+            </div>
+        </div>
+        
+        <div class="box-precio-calificacion">
+            <h3 class="title-product-detail">Nombre del producto</h3>
+            
+            <div class="precio-descuento">
+                <p class="price"> $1.000.000 </p>
+                <p class="discount"> %20 OFF</p>
+            </div>
+
+            <div class="compra-agregar-carrito">
+                <%- include('carritoMasMenos') %>
+                <!-- <div class="btn-mas-menos-carrito">
+                    <button class="btn-mas-menos sumar">-</button>
+                    <p class="num-carrito">1</p>
+                    <button class="btn-mas-menos reducir">+</button>
+                </div> -->
+            
+                <div class="div-agregar-comprar">
+                    <button class="btn-comprar">Comprar</button>
+                    <button class="btn-add-carrito">Agregar al carrito</button>
+                </div>
+            </div>
+            
+            <div class="box-calificar-producto">
+                <p>Reseña: 1.5 / 5</p>
+                <div class="stars-icon">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="descripcion-producto-detail">
+        <h3 class="especificaciones ">Especificaciones del producto</h3>
+
+        <div class="box-texto-especificacion">
+            <h3 class="title-detail">Texto 1</h3>
+            <p class="texto-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem distinctio ducimus itaque vel dicta? Cum nesciunt, corrupti deserunt voluptatibus repudiandae officiis temporibus unde id ab quod ea quisquam ipsum esse!</p>
+        </div>
+        <div class="box-texto-especificacion">
+            <h3 class="title-detail">Texto 2</h3>
+                <p class="texto-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quas quod! Quasi similique architecto, aut sunt debitis tenetur fugiat totam quos exercitationem ullam amet, dolores reprehenderit vel nesciunt placeat odio!</p>
+        </div>
+        <div class="box-texto-especificacion box-txt-spec-none-border">
+            <h3 class="title-detail">Texto 3</h3>
+            <p class="texto-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique officia asperiores, veniam corrupti, nam expedita magnam obcaecati vel corporis numquam temporibus pariatur doloribus molestias quasi repellendus ducimus deleniti voluptatum voluptatem.</p>
+        </div>
+    </div>
+</div>

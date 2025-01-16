@@ -1,0 +1,229 @@
+    /* CONTENEDOR PRINCIPAL QUE ABARCA TODO  */
+.box-producto-descripcion{
+    width: 90%;
+    position: relative;
+    margin: 1rem 0;
+    padding: 1rem 1rem;
+    border: 0.1rem solid black;
+}
+
+/* BOX DE LAS IMAGENES  */
+
+.producto-precio{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 0.3rem solid red;
+}
+
+.img-principal-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper{
+    width: 25rem;
+}
+
+.icon-heart{
+    background-color: white;
+    border-radius: 2rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3rem;
+    left: 1rem;
+}
+
+.box-img-producto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider-box-img{
+    width: 100%;
+    border: 0.1rem solid #ececec;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.slider-box-img img{
+    max-width: 4rem;
+    height: auto;
+    margin: 0.3rem 0;
+    border: 0.2rem solid #eac1c1;
+    border-radius: 0.5rem;
+}
+
+        /* BOX DE TITULO PRECIO CANTIDAD  */
+
+.title-product-detail{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.box-precio-calificacion{
+    width: 100%;
+    margin: 1rem 0;
+    border: 0.2rem solid green;
+}
+
+.box-precio-calificacion p{
+    width: fit-content;
+}
+
+.precio-descuento{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border: .3rem solid darkorange;
+}
+
+.price{
+    font-size: 2rem;
+}
+.discount{
+    font-size: 1.6rem;
+    text-align: center;
+    color: green;
+}
+
+.compra-agregar-carrito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.div-agregar-comprar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-comprar,
+.btn-add-carrito{
+    width: fit-content;
+}
+
+.btn-mas-menos-carrito{
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+}
+.num-carrito{
+    width: fit-content;
+    padding: 1rem 2rem;
+}
+.btn-mas-menos{
+    width: 1.5rem;
+}
+
+.box-calificar-producto{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.box-calificar-producto p{
+    width: fit-content;
+    font-size: 1.5rem;
+}
+
+.stars-icon{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+}
+.stars-icon i{
+    width: fit-content;
+    text-wrap-mode: nowrap;
+    cursor: pointer;
+}
+
+/* DESCRIPCION  */
+
+.descripcion-producto-detail{
+    width: 100%;
+    height: auto;
+    border: 0.1rem solid white;
+}
+
+.especificaciones{
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.box-texto-especificacion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: .3rem dotted black;
+}
+.box-txt-spec-none-border{
+    border-bottom: none;
+}
+
+.title-detail{
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+
+}
+
+.texto-detail{
+    width: 100%;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+    /* MEDIA QUERIES  */
+
+@media (min-width:600px){
+    .producto-precio{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .box-img-producto{
+        width: 40%;
+    }
+    .box-precio-calificacion{
+        width: 60%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .descripcion-producto-detail{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .especificaciones{
+        width: 100%;
+        font-size: 2rem;
+    }
+    .box-texto-especificacion{
+        width: 32%;
+        border-bottom: 0;
+        padding-right: 1rem;
+        border-right: .2rem dotted black;
+    }
+    .box-txt-spec-none-border{
+        border-right: none;
+    }
+}

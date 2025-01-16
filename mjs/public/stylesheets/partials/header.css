@@ -6,18 +6,22 @@
     flex-direction: row;    
     justify-content: space-around;
     background: linear-gradient( #399AA7 10%, #088192 21%,#055A66 65%);
-    button{
-        background-color: #BCAC79;
-        border: 0;
-    }
 }
 
-#id-header button{
-    width: 100%;
-    background-color: transparent;
+.btn-header{
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-self: center;
+    width: fit-content;
+    padding: 0.8rem;
+    border: 0.2rem solid black;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #053944;
+    color:#bf930d;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+    transition: all .5s ease;
 }
 
 .img-logo-div{
@@ -25,13 +29,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 0.5rem;
 }
 
 .img-logo{
-    max-width: 60px;
-    max-height: 60px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    max-width: 6rem;
+    max-height: 6rem;
+    box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
 }
 
@@ -48,54 +52,30 @@
 
 #barra-busqueda{
     width: 80%;
-    font-size: 12px;
+    font-size: 1.2rem;
     /* background-color:#A99A6C; */
 }
-.fa-brands.fa-sistrix{
-    color:#bf930d;
-}
-.fa-solid.fa-cart-plus{
-    color:#bf930d;
-}
 
-.login-button{
-    border-bottom: 1px solid transparent;
-    transition: all .5s ease;
-}
-
-.register-button{
-    border-bottom: 1px solid transparent;
-    transition: all .5s ease;
-}
-.fa-regular.fa-circle-user{
+/* .fa-brands.fa-sistrix{
     color:#bf930d;
-}
-
-.fa-solid.fa-bars{
-    color:#bf930d;
-}
-
+} */
+/* .fa-sistrix{
+    /* width: 15%; */
+    /* border-radius: 100%; */
+    /* text-align: center; */
+    /* transition: box-shadow 0.3s ease; */
+    
 .user-button{
-    width: 20%;
+    width: 25%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 4px;
+    gap: 0.4rem;
 }
 
-/* .carrito-button-icon{
-    border: none;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-} */
-
-.user-button-icon{
-    border: none;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    border: 1px solid #00000000;
-    border-radius: 100%;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
+.login-button,
+.register-button{
+    display: none;
 }
 
 .burguer-button{
@@ -105,101 +85,74 @@
     align-items: center;
 }
 
-    /* ICONOS */
-
-.fa-circle-user{
-    border-radius: 100%;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    font-size: 22px;
-    transition: all 0.5s ease;
-}
-
-.fa-sistrix{
-    width: 15%;
-    font-size: 22px;
-    border-radius: 100%;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: box-shadow 0.3s ease;
-}
-
-.fa-cart-plus{
-    border-radius: 20%;
-    font-size: 22px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-}
-
-.fa-bars{
-    border: 2px solid #bf930d;
-    border-radius: 20%;
-    padding: 4px;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-}
 
 /* -------- HOVER -------- */
+
+.btn-header:hover{
+    background-color: #088192;
+    border: 0.2rem solid #bf930d;
+    color: #ececec;
+}
+
 .img-logo:hover{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
-}
-
-.fa-sistrix:hover{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
-}
-
-.fa-circle-user:hover{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
-}
-
-.fa-cart-plus:hover{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
-}
-
-.fa-bars:hover{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
+    box-shadow: 0 0 1rem rgb(30, 30, 30)
 }
 
     /* ACTIVE  */
 
 .fa-bars:active{
-    box-shadow: 0px 0px 10px rgb(30, 30, 30)
+    box-shadow: 0px 0px 1rem rgb(30, 30, 30)
 }
 
 @media (min-width: 600px) {
     .burguer-button{
         display: none;
     }
-
+    
     .nav-bar-header{
         display: flex;
     }
     .nav-bar-header ul{
         display: flex;
         flex-wrap: nowrap;
-        font-size: 14px;
-        gap: 1em;
+        font-size: 1.4rem;
+        gap: 1rem;
     }
     .nav-bar-header li{
         display: flex;
         align-items: center;
-
+        
     }
     .nav-bar-header a{
         text-wrap-mode: nowrap;
-        color: #051218;
-        border-bottom: 2px solid transparent;
+        color: #bf930d;
+        border-bottom: .2rem solid #bf930d;
         transition: all .5s ease;
     }
-
+    
     .nav-bar-header a:hover{
-        border-bottom: 2px solid #051218;
+        /* color: #bf930d;
+        border-bottom: .2rem solid #bf930d; */
+        color: #051218;
+        border-bottom: .2rem solid #051218;
     }
 }
 
 @media (min-width: 768px){
-    .login-button:hover{
-        border-bottom: 2px solid black;
+    .img-logo-div{
+        width: 18%;
     }
+
+    .login-button,
+    .register-button{
+        display: flex;
+    }
+
+    .user-button-icon{
+        display: none;
+    }
+    
+    .login-button:hover,
     .register-button:hover{
         border-bottom: 2px solid black;
     }

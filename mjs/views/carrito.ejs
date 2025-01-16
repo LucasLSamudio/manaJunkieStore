@@ -4,7 +4,53 @@
     <body>
         <%- include('partial/header') %>
         <main>
-            
+            <div class="div-carrito-principal">
+
+                <div class="div-img-prod-price">
+
+                    <div class="carrito-img-btn">
+                            <img src="" alt="">
+                            <button>Eliminar</button>
+                    </div>
+
+                    <div class="title-p-carrito">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+
+                    <div class="div-carritoMasMenos-price">
+                        <%- include('./partial/carritoMasMenos') %>
+                        <p>$123.456</p>    
+                    </div>
+
+                </div>
+
+
+
+                <div class="div-compra-price-">
+                    <h4>Resumen de compra</h4>
+                    <div class="div-resumen-compra">
+                        <p>Producto</p>
+                        <p>%2000</p>
+                    </div>
+                    <div class="div-resumen-compra">
+                        <p>Envío</p>
+                        <p>$1000</p>
+                    </div>
+                    <div class="div-resumen-compra">
+                        <b>Total</b>
+                        <b>$3000</b>
+                    </div>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </div>
+            <h3 class="titulo">Productos recomendados</h3>
+            <section class="article-product-section">
+                <%- include('partial/articleProduct') %>
+                <%- include('partial/articleProduct') %>
+                <%- include('partial/articleProduct') %>
+                <%- include('partial/articleProduct') %>
+            </section>
         </main>
         <%- include('partial/footer') %>
     </body>

@@ -6,10 +6,10 @@ h1{
 
 .banner-index{
     width: 100%;
-    margin: 10px 0;
+    margin: 1rem 0;
     text-align: center;
     img{
-        max-width: 400px;
+        max-width: 40rem;
         width: 100%;
     }
 }
@@ -17,11 +17,8 @@ h1{
 .titulo{
     width: 100%;
     text-align: center;
-    padding: 5px 0 5px 0;
-    font-family: 23px 'Roboto', sans-serif;
+    padding: .5rem 0 .5rem 0;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
     text-decoration: underline;
-}
-
-@media (min-width: 600px) {
-    
 }
