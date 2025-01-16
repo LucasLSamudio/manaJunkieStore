@@ -3,36 +3,43 @@
 @import url(index.css);
 @import url(./partials/section-article-product.css);
 @import url(./partials/section-article-opinion.css);
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url(./partials/productDetail.css);
+@import url(carrito.css);
 @import url(login.css);
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @import url(register.css);
+
 
 
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  border: 0;
-  font-family: "Inconsolata", Helvetica, Arial, sans-serif;
   list-style: none;
   text-decoration: none;
 }
+
+/* El navegador web tiene font size de 16px predeterminado. 
+El %62.5 de eso equivale a 10px. Esto es igual a:
+1rem = 10px */
 html{
   font-size: 62.5%;
+  font-family: "Inconsolata", Helvetica, Arial, sans-serif;
 }
+
 body{
   background: linear-gradient(#bcac79 0%, #A99A6C 20%, #968960 35%, #837854 50%, #706748 75%, #5D563C 100%);
   width: 100%;
 }
 
 img{
-  max-width: 250px;
-  max-height: 250px;
+  width: 100%;
+  height: 100%;
 }
 
 main{
   width: 100%;
-  padding-top: 4em;
+  /* padding-top: 4em; */
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -42,5 +49,23 @@ main{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 600px){
+  html{
+    font-size: 62.5%; /* Font 10px*/
+  }
+}
+
+@media (min-width: 768px){
+  html{
+    font-size: 68.75%; /* Font 11px */
+  }
+}
+
+@media (min-width: 1024px){
+  html{
+    font-size: 87.5%; /* Font 14px*/
   }
 }

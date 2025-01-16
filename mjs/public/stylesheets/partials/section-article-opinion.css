@@ -1,49 +1,58 @@
 .article-opinion-section{
     width: 100%;
-    margin: 5px 0;
+    margin: .5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .opinion-product{
-    border: 3px solid black;
-    border-radius: 5%;
+    border: .3rem solid black;
     width: 90%;
     height: auto;
-    background-color: aliceblue;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border-radius: 5%;
+    background-color: aliceblue;
     background: linear-gradient(#051218, #088192, #088192);
 }
 
 .description-opinion-article{
-    border-top: 1px solid black;
-    border-radius: 11px;
+    border-top: .1rem solid black;
+    border-radius: 1.1rem;
     width: 100%;
     height: auto;
     background: linear-gradient(#088192, #051218);
 }
 
 .title-opinion-product{
-    padding: 5px 15px;
+    font-size: 2.5rem;
+    padding: .5rem 1.5rem;
     color: #bf930d;
 }
 
 .value-opinion-product{
-    padding: 5px 15px;
+    padding: .5rem 1.5rem;
     color: #bf930d;
     font-weight: bold;
 }
 
-.description-opinion-product{
-    font-weight: bold;
-    padding: 5px 15px;
-    text-transform: capitalize;
+.btn-star{
+    font-size: 2rem;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
     color: #bf930d;
+}
+
+.description-opinion-product{
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    color: #bf930d;
+    text-transform: capitalize;
 }
 
 @media (min-width: 600px){
@@ -57,28 +66,32 @@
     }
 
     .title-opinion-product{
-        font-size: 22px;
+        font-size: 2.2rem;
     }
     .value-opinion-product{
-        font-size: 16px;
+        font-size: 1rem;
     }
-    .description-opinion-article{
-        font-size: 15px;
+    .description-opinion-product{
+        font-size: 1.5rem;
     }
 }
 
 @media (min-width: 768px){
 
+    .description-opinion-article{
+        border-radius: .6rem;
+    }
+
     .title-opinion-product{
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 
     .value-opinion-product{
-        font-size: 20px;
+        font-size: 2rem;
     }
 
-    .description-opinion-article{
-        font-size: 17px;
+    .description-opinion-product{
+        font-size: 1.7rem;
     }
 }
 
@@ -87,12 +100,27 @@
         width: 22%;
     }
 
+    .description-opinion-article{
+        border-radius: .3rem;
+    }
+
+    .btn-star{
+        font-size: 1.7rem;
+    }
+
     .title-opinion-product{
-        font-size: 25px;
+        font-size: 1.5rem;
     }
     
     .value-opinion-product{
         display: flex;
-        gap: 5px;
+        justify-content: space-evenly;
+        padding: .5rem .5rem;
+        font-size: 1.5rem;
+        gap: 0 .15rem;
+    }
+
+    .description-opinion-product{
+        font-size: 1rem;
     }
 }

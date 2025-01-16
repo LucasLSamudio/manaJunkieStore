@@ -1,15 +1,15 @@
 .article-product-section{
     width: 100%;
-    margin: 5px 0;
+    margin: .5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .article-product{
-    border: 2px solid black;   
+    border: .2rem solid black;   
     border-radius: 5%; 
     width: 90%;
     height: auto;
@@ -23,33 +23,33 @@
 .img-article{
     width: 75%;
     height: auto;
-    padding: 5px 0;
+    padding: .5rem 0;
 }
 
 .description-article{
-    border-top: 1px solid black;
-    border-radius: 11px;
+    border-top: .1rem solid black;
+    border-radius: 1.1rem;
     width: 100%;
     height: auto;
     background: linear-gradient(#088192, #051218);
 }
 
 .title-article-product{
-    font-size: 25px;
-    padding: 5px 10px;
+    font-size: 2.5rem;
+    padding: .5rem 1rem;
     color: #bf930d;
 }
 
 .precio-article{
-    font-size: 20px;
-    padding: 5px 15px;
+    font-size: 2rem;
+    padding: .5rem 1.5rem;
     color: #bf930d;
     font-weight: bold;
 }
 
 .description-product{
-    font-size: 15px;
-    padding: 5px 10px;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
     text-transform: uppercase;
     color: #bf930d;
 }
@@ -64,7 +64,7 @@
     }
 
     .title-article-product{
-        font-size: 25px;
+        font-size: 2.5rem;
     }
 }
 
@@ -72,24 +72,34 @@
 
     .img-article{
         width: 80%;
-        padding: 10px 0;
+        padding: 1rem 0;
     }
 
     .title-article-product{
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 
     .precio-article{
-        font-size: 18px;
+        font-size: 1.8rem;
     }
 
     .description-product{
-        font-size: 15px;
+        font-size: 1.5rem;
     }
 }
 
 @media (min-width: 1024px){
     .article-product{
         width: 22%;
+    }
+    .title-article-product{
+        font-size: 1.5rem;
+    }
+    .precio-article{
+        font-size: 1.3rem;
+    }
+
+    .description-product{
+        font-size: 1rem;
     }
 }
