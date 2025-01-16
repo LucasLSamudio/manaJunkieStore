@@ -1,47 +1,43 @@
-.main-login{
+.main-register{
     padding: 2rem;
 }
-.div-form-login {
+.div-forms-register{
     padding: 1rem;
     border: 0.2rem solid black;
     border-radius: 1.5rem;
 }
-
-.forms-login {
+.forms-register{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
-.titulo-login{
+.titulo-register{
     font-size: 2rem;
 }
-.label-login-email{
+.label-register{
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-#correo {
+.input-register{
     padding: 0.5rem;
     border: 0.2rem solid black;
     border-radius: 0.5rem;
     font-size: 1.5rem;
     justify-items: center;
 }
-.label-login-password{
-    font-weight: bold;
-    font-size: 1.5rem;
+.div-button-register{
+    display: flex;
+    gap: 1.5rem;
 }
-#password {
+.button-register-submit{
     padding: 0.5rem;
     border: 0.2rem solid black;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     font-size: 1.5rem;
 }
-.a-login{
-    font-size: 1.5rem;
-}
-.button-login{
+.button-register-reset{
     padding: 0.5rem;
     border: 0.2rem solid black;
     border-radius: 0.3rem;
