@@ -32,3 +32,8 @@
 .txta-reg-desc{
     field-sizing: content;
 }
+
+.btn-mas-menos:hover{
+    background-image: linear-gradient(90deg, #D4AF37, #F8F4E6);
+    color: black;
+}

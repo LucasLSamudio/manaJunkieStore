@@ -4,7 +4,7 @@
     </div>
     <nav class="nav-bar-header">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href=" <%- index %> ">Home</a></li>
             <li><a href="#">Productos</a></li>
             <li><a href="#">Servicios</a></li>
             <li><a href="#">Categorías</a></li>
@@ -20,10 +20,16 @@
     </div>
     <div class="user-button">
         <div class="lupa">
-            <button class="btn-header"><i class="fa-solid fa-cart-plus"></button></i>
+            <a href=" <%- carrito %> ">
+                <button class="btn-header"><i class="fa-solid fa-cart-plus"></button></i>
+            </a>
         </div>
-        <button class="btn-header login-button" id="ingresar">Ingresar</button>
-        <button class="btn-header register-button" id="registrar">Registrarse</button>
+        <a href=" <%- login %> ">
+            <button class="btn-header login-button" id="ingresar">Ingresar</button>
+        </a>
+        <a href=" <%- register %> ">
+            <button class="btn-header register-button" id="registrar">Registrarse</button>
+        </a>
         <button class="btn-header user-button-icon"><i class="fa-solid fa-user"></i></button>
     </div>
     <div class="burguer-button">

@@ -5,7 +5,14 @@ const productAddController = {
         res.render('products/productAdd',{
             title: objTienda.name,
             foto: objTienda.foto,
-            carousel: objTienda.carousel
+            carousel: objTienda.carousel,
+            index: objTienda.index,
+            login: objTienda.login,
+            register: objTienda.register,
+            carrito: objTienda.carrito,
+            productAdd: objTienda.productAdd,
+            productDetail: objTienda.productDetail,
+            productEdit: objTienda.productEdit
         })
     }
 }
