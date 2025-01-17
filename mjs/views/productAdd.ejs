@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partial/head') %>
+<body>
+    <%- include('./partial/header') %>
+    <main>
+        <form action="" method="get" class="forms-register"> 
+            <h2 class="titulo-register">Registro De Usuario</h2>
+            <label for="correo" class="label-register">Ingrese su correo</label>
+
+            <input type="email" placeholder="ingrese su correo" name="correo" id="correo">
+            
+            <label for="password" class="label-register" >Ingrese una contraseña</label>
+            
+            <input type="password" name="password" id="password"placeholder="contraseña">
+            
+            <label for="password2" class="label-register" >Confirmar contraseña</label>
+            
+            <input type="password" placeholder="contraseña" name="password2" id="password2" required class="input-register">
+            
+            <label for="usuario" class="label-register" >Ingrese nombre de usuario</label>
+            
+            <input type="text" placeholder="usuario" name="usuario" id="usuario" class="input-register">
+            
+            <label for="nombre" class="label-register" >Ingrese su nombre</label>
+            
+            <input type="text" placeholder="nombre" name="nombre" id="nombre" class="input-register">
+            
+            <label for="apellido" class="label-register" >Ingrese su apellido</label>
+            
+            <input type="text" placeholder="apellido" name="apellido" id="apellido" class="input-register">
+            
+            <label for="DNI" class="label-register" >Ingrese su DNI</label>
+            
+            <input type="number" placeholder="numero de DNI"name="DNI" id="DNI" class="input-register">
+            
+            <label for="telefono" class="label-register" >Ingrese su numero de telefono</label>
+            
+            <input type="number" name="telefono" id="telefono" class="input-register" placeholder="numero de telefono">
+            
+            <div class="div-button-register">
+                <button type="submit" class="button-register-submit">Registrarse</button>
+                <button type="reset" class="button-register-reset">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    </main>
+    <%- include('./partial/footer') %>
+</body>
+</html>
