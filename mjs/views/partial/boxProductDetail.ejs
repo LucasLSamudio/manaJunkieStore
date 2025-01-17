@@ -11,10 +11,10 @@
             </div>
 
             <div class="slider-box-img">
-                <img src=" <%- foto %> " alt="">
-                <img src=" <%- foto %> " alt="">
-                <img src=" <%- foto %> " alt="">
-                <img src=" <%- foto %> " alt="">
+                <img src=" <%- foto %> " alt="" class="slider-box-img-min">
+                <img src=" <%- foto %> " alt="" class="slider-box-img-min">
+                <img src=" <%- foto %> " alt="" class="slider-box-img-min">
+                <img src=" <%- foto %> " alt="" class="slider-box-img-min">
             </div>
         </div>
         
@@ -28,15 +28,14 @@
 
             <div class="compra-agregar-carrito">
                 <%- include('carritoMasMenos') %>
-                <!-- <div class="btn-mas-menos-carrito">
-                    <button class="btn-mas-menos sumar">-</button>
-                    <p class="num-carrito">1</p>
-                    <button class="btn-mas-menos reducir">+</button>
-                </div> -->
             
                 <div class="div-agregar-comprar">
-                    <button class="btn-comprar">Comprar</button>
-                    <button class="btn-add-carrito">Agregar al carrito</button>
+                    <button class="btn-mas-menos btn-comprar">
+                        <span>Comprar</span>
+                    </button>
+                    <button class="btn-mas-menos btn-comprar btn-add-carrito">
+                        <span>Agregar al Carrito</span>
+                    </button>
                 </div>
             </div>
             
@@ -54,11 +53,11 @@
     </div>
 
     <div class="descripcion-producto-detail">
-        <h3 class="especificaciones ">Especificaciones del producto</h3>
+        <h3 class="especificaciones">Especificaciones del producto</h3>
 
         <div class="box-texto-especificacion">
             <h3 class="title-detail">Texto 1</h3>
-            <p class="texto-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem distinctio ducimus itaque vel dicta? Cum nesciunt, corrupti deserunt voluptatibus repudiandae officiis temporibus unde id ab quod ea quisquam ipsum esse!</p>
+            <p class="texto-detail txt-d-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem distinctio ducimus itaque vel dicta? Cum nesciunt, corrupti deserunt voluptatibus repudiandae officiis temporibus unde id ab quod ea quisquam ipsum esse!</p>
         </div>
         <div class="box-texto-especificacion">
             <h3 class="title-detail">Texto 2</h3>
