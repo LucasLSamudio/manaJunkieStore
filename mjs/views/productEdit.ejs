@@ -5,41 +5,43 @@
     <%- include('./partial/header') %>
     <main>
         <form action="" method="get" class="forms-register"> 
-            <h2 class="titulo-register">Registro De Usuario</h2>
-            <label for="correo" class="label-register">Ingrese su correo</label>
-
-            <input type="email" placeholder="ingrese su correo" name="correo" id="correo">
+            <h2 class="titulo-register">Ingreso de producto</h2>
             
-            <label for="password" class="label-register" >Ingrese una contraseña</label>
+            <label for="producto" class="label-register">Nombre del producto</label>
             
-            <input type="password" name="password" id="password"placeholder="contraseña">
+            <input type="text" placeholder="producto" name="producto" id="producto" class="input-register">
             
-            <label for="password2" class="label-register" >Confirmar contraseña</label>
+            <label for="precio" class="label-register" >Precio</label>
             
-            <input type="password" placeholder="contraseña" name="password2" id="password2" required class="input-register">
+            <input type="number" name="precio" id="precio"placeholder="$10.000" class="input-register">
             
-            <label for="usuario" class="label-register" >Ingrese nombre de usuario</label>
+            <label for="categoria" class="label-register" >Categoria</label>
             
-            <input type="text" placeholder="usuario" name="usuario" id="usuario" class="input-register">
+            <input type="text"  name="categoria" id="categoria"  class="input-register">
             
-            <label for="nombre" class="label-register" >Ingrese su nombre</label>
+            <label for="marca" class="label-register" >Marca</label>
             
-            <input type="text" placeholder="nombre" name="nombre" id="nombre" class="input-register">
+            <input type="text" placeholder="AMD" name="marca" id="marca" class="input-register">
             
-            <label for="apellido" class="label-register" >Ingrese su apellido</label>
+            <label for="modelo" class="label-register" >Modelo</label>
             
-            <input type="text" placeholder="apellido" name="apellido" id="apellido" class="input-register">
+            <input type="text" placeholder="AMD" name="modelo" id="modelo" class="input-register">
             
-            <label for="DNI" class="label-register" >Ingrese su DNI</label>
+            <label for="fotoDeProducto" class="label-register" >Fotos del producto</label>
             
-            <input type="number" placeholder="numero de DNI"name="DNI" id="DNI" class="input-register">
+            <input type="file"  name="fotoDelProducto" id="fotoDeProducto" class="input-register" accept=".png, .jpg">
             
-            <label for="telefono" class="label-register" >Ingrese su numero de telefono</label>
+            <label for="cantidadDeProductos" class="label-register" >Cantidad de productos disponibles</label>
             
-            <input type="number" name="telefono" id="telefono" class="input-register" placeholder="numero de telefono">
+            <input type="number" name="cantidadDeProductos" id="cantidadDeProductos" class="input-register">
+            
+            <label for="descripcion" class="label-register" >Descripcion</label>
+            
+            <textarea name="descripcion" name="descripcion" id="descripcion" class="input-register" placeholder="agrega una descripcion"> 
+            </textarea>  
             
             <div class="div-button-register">
-                <button type="submit" class="button-register-submit">Registrarse</button>
+                <button type="submit" class="button-register-submit">Publicar producto</button>
                 <button type="reset" class="button-register-reset">Cancelar</button>
             </div>
         </form>
