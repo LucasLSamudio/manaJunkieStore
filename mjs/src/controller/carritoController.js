@@ -1,8 +1,8 @@
-const objTienda = require('../db/logo');
+const objTienda = require('../../db/logo');
 
 const carritoController = {
     index:(req, res) => {
-        res.render('carrito',{
+        res.render('users/carrito',{
             title: objTienda.name,
             foto: objTienda.foto
         })

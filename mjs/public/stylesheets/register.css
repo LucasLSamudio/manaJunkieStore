@@ -1,6 +1,7 @@
 .main-register{
     padding: 2rem;
 }
+
 .div-forms-register{
     padding: 1rem;
     border: 0.2rem solid black;
@@ -15,17 +16,18 @@
 .titulo-register{
     font-size: 2rem;
 }
+
 .label-register{
     font-weight: bold;
     font-size: 1.5rem;
 }
 
 .input-register{
-    padding: 0.5rem;
-    border: 0.2rem solid black;
-    border-radius: 0.5rem;
+    width: 100%;
     font-size: 1.5rem;
-    justify-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid black;
 }
 .div-button-register{
     display: flex;

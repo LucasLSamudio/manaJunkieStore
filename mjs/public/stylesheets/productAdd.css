@@ -1,0 +1,34 @@
+.div-register{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.div-reg-imgProd{
+    align-items: center;
+    text-align: center;
+}
+
+.input-reg-file{
+    display: none;
+}
+
+.label-reg-file{
+    height: 100px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: .2rem dashed #111;
+}
+
+.label-reg-file:hover{
+    color: #BCAC79;
+    border: 1px dashed #bf930d;
+}
+
+.txta-reg-desc{
+    field-sizing: content;
+}

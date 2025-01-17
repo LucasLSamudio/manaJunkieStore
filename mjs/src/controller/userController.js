@@ -1,4 +1,4 @@
-const objTienda = require('../db/logo')
+const objTienda = require('../../db/logo')
 
 const userController = {
     index:(req, res) => {
