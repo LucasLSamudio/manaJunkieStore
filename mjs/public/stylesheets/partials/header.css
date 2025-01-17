@@ -151,9 +151,7 @@
     .user-button-icon{
         display: none;
     }
-    
-    .login-button:hover,
-    .register-button:hover{
-        border-bottom: 2px solid black;
+    .btn-header:active{
+        transform: scale(0.9);
     }
 }

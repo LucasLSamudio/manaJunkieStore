@@ -4,7 +4,7 @@
     position: relative;
     margin: 1rem 0;
     padding: 1rem 1rem;
-    border: 0.1rem solid black;
+    /* border: 0.1rem solid black; */
 }
 
 /* BOX DE LAS IMAGENES  */
@@ -15,7 +15,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 0.3rem solid red;
+    background: linear-gradient(90deg, #053944, #0A5C68, #088192);
+    border: .2rem solid black;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
 }
 
 .img-principal-icon{
@@ -26,18 +29,20 @@
 
 .img-wrapper{
     width: 25rem;
+    padding: .5rem;
 }
 
 .icon-heart{
-    background-color: white;
+    position: absolute;
+    top: 2rem;
+    left: 2.6rem;
     border-radius: 2rem;
     padding: 0.3rem;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 3rem;
-    left: 1rem;
+    font-size: 1.6rem;
+    background-color: #eac1c1;
 }
 
 .box-img-producto{
@@ -45,21 +50,26 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    border-right: .1rem solid black ;
 }
 
 .slider-box-img{
     width: 100%;
-    border: 0.1rem solid #ececec;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom: .2rem solid #051218;
+}
+
+.slider-box-img-min{
+    border: .2rem solid black;
+    padding: .2rem;
 }
 
 .slider-box-img img{
     max-width: 4rem;
     height: auto;
     margin: 0.3rem 0;
-    border: 0.2rem solid #eac1c1;
     border-radius: 0.5rem;
 }
 
@@ -75,7 +85,6 @@
 .box-precio-calificacion{
     width: 100%;
     margin: 1rem 0;
-    border: 0.2rem solid green;
 }
 
 .box-precio-calificacion p{
@@ -86,7 +95,6 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    border: .3rem solid darkorange;
 }
 
 .price{
@@ -95,7 +103,7 @@
 .discount{
     font-size: 1.6rem;
     text-align: center;
-    color: green;
+    color: #ececec;
 }
 
 .compra-agregar-carrito{
@@ -106,26 +114,59 @@
 .div-agregar-comprar{
     width: 100%;
     display: flex;
+    padding: .5rem 0;
     justify-content: space-around;
 }
 
-.btn-comprar,
-.btn-add-carrito{
-    width: fit-content;
-}
+    /* BOTON MAS MENOS CARRITO  */
 
 .btn-mas-menos-carrito{
-    border: 1px solid blue;
     display: flex;
     justify-content: center;
+    padding: .5rem 0;
+}
+
+.btn-proDet-border{
+    width: fit-content;
+    display: flex;
+    border: .2rem solid black;
+    border-radius: .7rem;
 }
 .num-carrito{
     width: fit-content;
-    padding: 1rem 2rem;
+    padding: .5rem 2rem;
+    font-size: 1.7rem;
+    background-color: #ececec;
 }
 .btn-mas-menos{
-    width: 1.5rem;
+    /* width: 1.5rem; */
+    border: 0;
+    background-image: linear-gradient(150deg,  #BCAC79, #0A5C68, #051218);
+    border-radius: .5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: .2rem;
+    cursor: pointer;
+    transition: .3s;
 }
+.btn-mas-menos span{
+    background-color: #111;
+    padding: .4rem .5rem;
+    border-radius: .5rem;
+    transition: .2s;
+}
+
+.btn-mas-menos:hover span{
+    background: none;
+}
+
+.btn-mas-menos:active{
+    transform: scale(0.9);
+}
+
+/* --------------------------------------- */
 
 .box-calificar-producto{
     width: 100%;
@@ -154,7 +195,9 @@
 .descripcion-producto-detail{
     width: 100%;
     height: auto;
-    border: 0.1rem solid white;
+    background: linear-gradient(120deg, #A99A6C, #95855F, #80724E, #6C5F40);
+    border: 0.1rem solid #053944;
+    border-radius: 1rem;
 }
 
 .especificaciones{
@@ -191,6 +234,18 @@
 
     /* MEDIA QUERIES  */
 
+@media (min-width: 375px){
+    .icon-heart{
+        left: 4.7rem;
+    }
+}
+
+@media (min-width: 425px){
+    .icon-heart{
+        left: 7.4rem;
+    }
+}
+
 @media (min-width:600px){
     .producto-precio{
         flex-direction: row;
@@ -198,6 +253,9 @@
     }
     .box-img-producto{
         width: 40%;
+    }
+    .slider-box-img{
+        border-bottom: none;
     }
     .box-precio-calificacion{
         width: 60%;
@@ -225,5 +283,11 @@
     }
     .box-txt-spec-none-border{
         border-right: none;
+    }
+    .txt-d-1{
+        padding-left: 1rem;
+    }
+    .icon-heart{
+        left: 2.1rem;
     }
 }

@@ -9,39 +9,42 @@
                 <div class="div-img-prod-price">
 
                     <div class="carrito-img-btn">
-                            <img src="" alt="">
-                            <button>Eliminar</button>
+                            <img class="img-carrito" src=" <%- foto %>" alt="">
+                            <div class="div-btn-span">
+                                <button class="btn-mas-menos btn-carrito"><span>Seguir comprando</span></button>
+                                <button class="btn-mas-menos btn-carrito"><span>Eliminar</span></button>
+                            </div>
                     </div>
 
                     <div class="title-p-carrito">
-                        <h3></h3>
-                        <p></p>
+                        <h3 class="titulo">Producto</h3>
+                        <p class="description-product p-carrito-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum repudiandae aut, necessitatibus tempore iusto voluptates nostrum sed, alias, molestiae eligendi consectetur! Officia veniam dolore sapiente exercitationem necessitatibus temporibus. Iusto, quisquam? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur doloribus, nihil quia eius ducimus nam quae non consequuntur magnam dignissimos odio, cum sint natus rem reiciendis earum inventore aperiam porro?</p>
                     </div>
 
                     <div class="div-carritoMasMenos-price">
                         <%- include('./partial/carritoMasMenos') %>
-                        <p>$123.456</p>    
+                        <p class="precio-article p-carrito-precio">$123.456</p>    
                     </div>
 
                 </div>
 
 
 
-                <div class="div-compra-price-">
-                    <h4>Resumen de compra</h4>
+                <div class="div-compra-price">
+                    <h4 class="titulo h-resumen-compra">Resumen de compra</h4>
                     <div class="div-resumen-compra">
-                        <p>Producto</p>
-                        <p>%2000</p>
+                        <p class="p-resumen-compra">Producto</p>
+                        <p class="p-resumen-compra">%2000</p>
                     </div>
                     <div class="div-resumen-compra">
-                        <p>Envío</p>
-                        <p>$1000</p>
+                        <p class="p-resumen-compra">Envío</p>
+                        <p class="p-resumen-compra">$1000</p>
                     </div>
                     <div class="div-resumen-compra">
-                        <b>Total</b>
-                        <b>$3000</b>
+                        <b class="p-resumen-compra">Total</b>
+                        <b class="p-resumen-compra">$3000</b>
                     </div>
-                    <button class="btn-comprar">Comprar</button>
+                    <button class="btn-mas-menos btn-comprar"><span>Comprar</span></button>
                 </div>
             </div>
             <h3 class="titulo">Productos recomendados</h3>
