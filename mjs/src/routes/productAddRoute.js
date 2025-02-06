@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 
-const productAddController = require('../controller/productAddController');
+// const productAddController = require('../controller/productAddController');
 
-/* GET home page. */
-router.get('/', productAddController.index);
+// /* GET home page. */
+// router.get('/', productAddController.index); 
 
-module.exports = router;
+// module.exports = router;

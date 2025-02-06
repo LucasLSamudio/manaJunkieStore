@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 
-const productEditController = require('../controller/productEditController');
+// const productEditController = require('../controller/productEditController');
 
-/* GET home page. */
-router.get('/', productEditController.index);
+// /* GET home page. */
+// router.get('/', productEditController.index);
 
-module.exports = router;
+// module.exports = router;

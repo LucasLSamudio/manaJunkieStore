@@ -1,8 +1,18 @@
 const objTienda = require('../../db/logo')
 
+const usersJson = require('../../db/users.json')
+
 const userController = {
-    index:(req, res) => {
-        res.send('respond with a resource');
+    login: (req, res) => {
+        res.render('users/login', {
+            ...objTienda
+        })
+    },
+
+    register: (req, res) => {
+        res.render('users/register', {
+            ...objTienda
+        })
     }
 }
 

@@ -7,15 +7,19 @@ var logger = require('morgan');
 /* RUTAS CONST */
 
 var indexRouter = require('./routes/indexRoute');
-var usersRouter = require('./routes/usersRoute');
+
+const usersRouter = require('./routes/usersRoute');
+const productsRouter= require('./routes/productsRoute');
 
 const carritoRouter = require('./routes/carritoRoute');
-const homeRouter = require('./routes/homeRoute');
-const loginRouter = require('./routes/loginRoute');
-const registerRouter = require('./routes/registerRoute');
-const productDetailRouter = require('./routes/producDetailRoute');
-const productAddRouter = require('./routes/productAddRoute');
-const productEditRouter = require('./routes/productEditRoute');
+const allProductsRouter = require('./routes/allProductsRoute');
+
+// const loginRouter = require('./routes/loginRoute');
+// const registerRouter = require('./routes/registerRoute');
+
+// const productDetailRouter = require('./routes/producDetailRoute');
+// const productAddRouter = require('./routes/productAddRoute');
+// const productEditRouter = require('./routes/productEditRoute');
 
 var app = express();
 
@@ -32,16 +36,20 @@ app.use(express.static(path.join(__dirname, '../public')));
 /* RUTAS USE */
 
 app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
+app.use('/products', productsRouter)
 
 app.use('/carrito',carritoRouter)
-app.use('/home', homeRouter)
-app.use('/login', loginRouter)
-app.use('/register', registerRouter)
-app.use('/productDetail', productDetailRouter)
-app.use('/productAdd', productAddRouter)
-app.use('/productEdit', productEditRouter)
+app.use('/store', allProductsRouter)
 
+// app.use('/login', loginRouter)
+// app.use('/register', registerRouter)
+// **********************
+// app.use('/productDetail', productDetailRouter)
+// app.use('/productAdd', productAddRouter)
+// app.use('/productEdit', productEditRouter)
+// **********************
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
