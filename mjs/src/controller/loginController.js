@@ -1,3 +1,4 @@
+/*
 const objTienda = require('../../db/logo')
 
 const loginController = {
@@ -22,3 +23,4 @@ const loginController = {
 }
 
 module.exports = loginController;
+*/

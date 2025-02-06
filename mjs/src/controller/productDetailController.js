@@ -1,3 +1,4 @@
+/*
 const objTienda = require('../../db/logo')
 
 const productDetailController={
@@ -22,3 +23,4 @@ const productDetailController={
 }
 
 module.exports = productDetailController;
+*/

@@ -1,3 +1,4 @@
+/*
 const objTienda = require('../../db/logo')
 
 const productAddController = {
@@ -18,8 +19,9 @@ const productAddController = {
             img3: objTienda.img3,
             img4: objTienda.img4,
             img5: objTienda.img5
-        })
+        }) 
     }
 }
 
 module.exports = productAddController;
+*/
