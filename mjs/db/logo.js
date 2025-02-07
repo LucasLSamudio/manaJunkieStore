@@ -15,6 +15,6 @@ const objTienda = {
     img3: 'images/img3.jpg',
     img4: 'images/img4.jpg',
     img5: 'images/img5.jpg'
-}
+} 
 
 module.exports = objTienda;

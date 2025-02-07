@@ -1,9 +1,9 @@
 <article class="opinion-product">
-    <img src="<%- img2 %>" alt="img-prod-op" class="img-article">
+    <img src="/images/products/<%- image %>" alt="img-prod-op" class="img-article">
     <div class="description-opinion-article">
-            <a href=" <%- productDetail %> ">
+            <a href="/products/<%= id %>">
                 <h3 class="title-opinion-product h3-username">Username</h3>
-                <h3 class="title-opinion-product">Titulo producto</h3>
+                <h3 class="title-opinion-product"><%= name %></h3>
                 <div class="value-opinion-product">
                     <button class="btn-star"><i class="fa-regular fa-star"></i></button>
                     <button class="btn-star"><i class="fa-regular fa-star"></i></button>
@@ -11,7 +11,7 @@
                     <button class="btn-star"><i class="fa-regular fa-star"></i></button>
                     <button class="btn-star"><i class="fa-regular fa-star"></i></button>
                 </div>
-            <p class="description-opinion-product">Descripcion Descripcion</p>
+            <p class="description-opinion-product"> <%= description %> </p>
         </a>    
     </div>
 </article>

@@ -2,14 +2,14 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header') %>
+        <%- include('../partial/header',{...dataBasic}) %>
         <main>
             <div class="div-carrito-principal">
 
                 <div class="div-img-prod-price">
 
                     <div class="carrito-img-btn">
-                            <img class="img-carrito" src=" <%- img4 %>" alt="">
+                            <img class="img-carrito" src="/images/products/<%-prod.image %>" alt="">
                             <div class="div-btn-span">
                                 <button class="btn-mas-menos btn-carrito"><span>Seguir comprando</span></button>
                                 <button class="btn-mas-menos btn-carrito"><span>Eliminar</span></button>
@@ -17,13 +17,13 @@
                     </div>
 
                     <div class="title-p-carrito">
-                        <h3 class="titulo">Producto</h3>
-                        <p class="description-product p-carrito-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum repudiandae aut, necessitatibus tempore iusto voluptates nostrum sed, alias, molestiae eligendi consectetur! Officia veniam dolore sapiente exercitationem necessitatibus temporibus. Iusto, quisquam? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur doloribus, nihil quia eius ducimus nam quae non consequuntur magnam dignissimos odio, cum sint natus rem reiciendis earum inventore aperiam porro?</p>
+                        <h3 class="titulo"> <%= prod.name %> </h3>
+                        <p class="description-product p-carrito-desc"> <%= prod.description %> </p>
                     </div>
 
                     <div class="div-carritoMasMenos-price">
                         <%- include('../partial/carritoMasMenos') %>
-                        <p class="precio-article p-carrito-precio">$123.456</p>    
+                        <p class="precio-article p-carrito-precio">$<%= toThousand(prod.price) %></p>    
                     </div>
 
                 </div>
@@ -34,7 +34,7 @@
                     <h4 class="titulo h-resumen-compra">Resumen de compra</h4>
                     <div class="div-resumen-compra">
                         <p class="p-resumen-compra">Producto</p>
-                        <p class="p-resumen-compra">%2000</p>
+                        <p class="p-resumen-compra">$<%= toThousand(prod.price) %></p>
                     </div>
                     <div class="div-resumen-compra">
                         <p class="p-resumen-compra">Envío</p>
@@ -49,10 +49,22 @@
             </div>
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
+                <%- include('../partial/articleProduct',{
+                    ...prod,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...prod,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...prod,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...prod,
+                    ...dataBasic
+                }) %>
             </section>
         </main>
         <%- include('../partial/footer') %>

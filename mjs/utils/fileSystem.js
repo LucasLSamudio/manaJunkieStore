@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { productDetail } = require('../db/logo');
 
 const readFile = (pathFile) => {
     return fs.readFileSync(pathFile, "utf-8");
@@ -16,9 +17,19 @@ const stringifyFile = (objeto) => {
     return JSON.stringify(objeto);
 }
 
+dataBasic = {
+    logo: "logoMJS.jpeg",
+    index: "/",
+    allProducts: '/products',
+    register:'/users/register',
+    login:'/users/login',
+    carrito:'/carrito',
+}
+
 module.exports = {
     readFile,
     writeFile,
     parseFile,
     stringifyFile,
+    dataBasic
 }

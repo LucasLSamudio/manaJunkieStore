@@ -4,26 +4,26 @@
         <div class="box-img-producto">
             <div class="img-principal-icon">
                 <div class="img-wrapper">
-                    <img src=" <%- img3 %> " alt="">
+                    <img src=" /images/products/<%- image %> " alt="">
 
                 </div>
                 <button class="icon-heart"><i class="fa-regular fa-heart"></i></button>
             </div>
 
             <div class="slider-box-img">
-                <img src=" <%- img3 %> " alt="" class="slider-box-img-min">
-                <img src=" <%- img3 %> " alt="" class="slider-box-img-min">
-                <img src=" <%- img3 %> " alt="" class="slider-box-img-min">
-                <img src=" <%- img3 %> " alt="" class="slider-box-img-min">
+                <img src="/images/products/<%- image %>" alt="" class="slider-box-img-min">
+                <img src="/images/products/<%- image %>" alt="" class="slider-box-img-min">
+                <img src="/images/products/<%- image %>" alt="" class="slider-box-img-min">
+                <img src="/images/products/<%- image %>" alt="" class="slider-box-img-min">
             </div>
         </div>
         
         <div class="box-precio-calificacion">
-            <h3 class="title-product-detail">Nombre del producto</h3>
+            <h3 class="title-product-detail"> <%- name %></h3>
             
             <div class="precio-descuento">
-                <p class="price"> $1.000.000 </p>
-                <p class="discount"> %20 OFF</p>
+                <p class="price"> $<%- toThousand(price) %> </p>
+                <p class="discount"> %<%- discount %> OFF</p>
             </div>
 
             <div class="compra-agregar-carrito">

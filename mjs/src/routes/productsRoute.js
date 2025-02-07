@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const productsController = require('../co   ntroller/productsController');
+const productsController = require('../controller/productsController');
 
 // localhost:3000/products/...
 

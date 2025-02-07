@@ -2,32 +2,50 @@
 <html>
   <%- include('partial/head') %>
   <body>
-    <%- include('partial/header') %>
+    <%- include('partial/header',{...dataBasic}) %>
     <main class="div-main">
         
         <h1> <%= title %></h1>
             
         <div class="banner-index">
-          <img src="<%- carousel %>" alt="banner">
+          <img src="" alt="banner">
         </div>
         
         <h2 class="titulo">Productos Recomendados</h2>
         
         <section class="article-product-section">
-          <%- include('partial/articleProduct') %>
-          <%- include('partial/articleProduct') %>
-          <%- include('partial/articleProduct') %>
-          <%- include('partial/articleProduct') %>
+
+          <%- include('partial/articleProduct',{
+            ...prod
+          }) %>
+          <%- include('partial/articleProduct',{
+            ...prod
+          }) %>
+          <%- include('partial/articleProduct',{
+            ...prod
+          }) %>
+          <%- include('partial/articleProduct',{
+            ...prod
+          }) %>
         </section>
 
         <h2 class="titulo">Opiniones de nuestros clientes</h4>
 
-          <section class="article-opinion-section">
-              <%- include('partial/articleOpinion') %>
-              <%- include('partial/articleOpinion') %>
-              <%- include('partial/articleOpinion') %>
-              <%- include('partial/articleOpinion') %>
-          </section>
+
+        <section class="article-opinion-section">
+            <%- include('partial/articleOpinion',{
+              ...prod2
+            }) %>
+            <%- include('partial/articleOpinion',{
+              ...prod2
+            }) %>
+            <%- include('partial/articleOpinion',{
+              ...prod2
+            }) %>
+            <%- include('partial/articleOpinion',{
+              ...prod2
+            }) %>
+        </section>          
 
       </div>
 
