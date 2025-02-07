@@ -1,34 +1,37 @@
 const objTienda = require('../../db/logo');
-const fs = require('fs')
-const partialJson = require('../../utils/fileSystem')
+const {readFile, writeFile, parseFile, stringifyFile, dataBasic} = require('../../utils/fileSystem')
 
 const path = require('path')
-const {toThousand} = require('../../utils')
+const {toThousand, } = require('../../utils')
 
 const productJson = require('../../db/products.json');
-const { stringify } = require('querystring');
 
 const productsController = {
     list:(req, res) => {
         res.render('products/allProducts', { 
-            ...productJson,
-            ...objTienda
+            dataBasic,
+            productJson,
+            title: "Mana Junkie Store",
+            toThousand
         });
     },
 
     detail: (req, res) => {
-        const product = productJson.find(prod => prod.id === +req.params.id);
-
+        const prod = productJson.findIndex(prod => prod.id === +req.params.id);
+        console.log(productJson[prod].discount);
+        
         return res.render('products/productDetail', {
-            ...objTienda,
-            ...product
+            product: productJson[prod],
+            dataBasic,
+            title: prod.name,
+            toThousand
         })
     },
 
     create: (req, res) => { // GET
         return res.render('products/productAdd',{
-            ...objTienda
-            // title: "lalala"
+            ...dataBasic,
+            title: "Vender producto"
         })
     }, 
 

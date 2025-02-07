@@ -1,11 +1,11 @@
 
     <article class="article-product">
-        <img src=" <%- img1 %> " alt="img-prod-art" class="img-article">
-        <a href="<%- productDetail %>">
+        <img src="/images/products/<%- image %>" alt="img-prod-art" class="img-article">
+        <a href="products/<%- id %>">
             <div class="description-article">
-                <h3 class="title-article-product">Titulo producto</h3>
-                <p class="precio-article">$9999</p>
-                <p class="description-product">producto generado automaticamente para corroborar el funcionamiento de la pagina <br> aa<p>
+                <h3 class="title-article-product"><%= name %></h3>
+                <p class="precio-article">$<%= toThousand(price) %></p>
+                <p class="description-product"><%= description %><p>
             </div>
         </a>
         </article>

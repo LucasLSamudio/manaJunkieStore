@@ -2,10 +2,21 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header') %>
+        <%- include('../partial/header',{...dataBasic}) %>
         <main>
             <h1> <%= title %></h1>
             
+            <section class="article-product-section">
+
+                <% productJson.forEach((product) => { %>
+                    <%- include('../partial/articleProduct', {
+                        ...product,
+                        ...dataBasic
+                    }) %>
+                <% }) %>
+
+            </section>
+
         </main>
         <%- include('../partial/footer') %>
     </body>

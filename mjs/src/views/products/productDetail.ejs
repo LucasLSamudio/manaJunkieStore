@@ -2,15 +2,30 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header') %>
+        <%- include('../partial/header',{...dataBasic}) %>
         <main>
-            <%- include('../partial/boxProductDetail') %>
+            <%- include('../partial/boxProductDetail',{
+                ...product,
+                ...dataBasic
+            }) %>
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
-                <%- include('../partial/articleProduct') %>
+                <%- include('../partial/articleProduct',{
+                    ...product,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...product,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...product,
+                    ...dataBasic
+                }) %>
+                <%- include('../partial/articleProduct',{
+                    ...product,
+                    ...dataBasic
+                }) %>
             </section>
         </main>
         <%- include('../partial/footer') %>
