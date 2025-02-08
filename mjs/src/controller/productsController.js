@@ -5,6 +5,7 @@ const path = require('path')
 const {toThousand, } = require('../../utils')
 
 const productJson = require('../../db/products.json');
+const categories = require('../../db/categories.json')
 
 const productsController = {
     list:(req, res) => {
@@ -31,33 +32,29 @@ const productsController = {
     create: (req, res) => { // GET
         return res.render('products/productAdd',{
             ...dataBasic,
+            categories,
             title: "Vender producto"
         })
     }, 
 
     add: (req, res) => { // POST
-        let info = req.body;
-        return res.send(info, {
-            ...objTienda,
-            title: "lalala"
-        })
-        // let agregarProd = JSON.parse(fs.readFileSync[productJson]);
-        
-        // const newProduct = {
-        //     id: req.params.id,
-        //     name: req.params.name,
-        //     description: req.params.description,
-        //     image: req.params.image,
-        //     category: req.params.category,
-        //     price: req.params.price,
-        //     discount: req.params.discount,
-        // }
-        // agregarProd.push(newProduct);
-        // fs.writeFileSync(productJson.stringify(agregarProd, null, 2))
-        
-        // res.redirect('products/productAdd',{
-        //     title: "lalala"
-        // })
+        const {name, price, discount, description, category} = req.body
+
+        const newProduct = {
+            id : products[products.length - 1].id + 1,
+            name : name.trim(),
+            description : description.trim(),
+            price : +price,
+            discount : +discount,
+            image : "default-image.png",
+            category
+        }
+
+        productJson.push(newProduct)
+
+        fs.writeFileSync(path.join(__dirname, '../../db/products.json'),JSON.stringify(productJson, null, 3),'utf-8')
+
+        return res.redirect('/products/' + newProduct.id)
     },
 
     edit: (req, res) => {
@@ -66,6 +63,10 @@ const productsController = {
 
     delete: (req, res) => {
 
+    },
+
+    search: (req, res) => {
+        
     }
 }
 
