@@ -9,12 +9,14 @@ router.get('/', productsController.list);
 router.get('/create', productsController.create);
 router.get('/:id', productsController.detail);
 
-router.post('/',productsController.add);
+router.post('/add',productsController.add);
 
-router.get('/:id/edit', productsController.edit);
+router.get('/edit/:id', productsController.edit);
 
 router.put('/:id', productsController.edit);
 
 router.delete('/:id', productsController.delete);
+
+router.get('/search',productsController.search);
 
 module.exports = router;

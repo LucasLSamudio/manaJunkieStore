@@ -6,48 +6,43 @@
         <main class="main-register">
             <div class="div-forms-register">
 
-                <form action="" method="get" class="forms-register"> 
+                <form action="/products/create" method="POST" class="forms-register"> 
                     
                     <h2 class="titulo-register">Agregar producto</h2>
                     
                     <div class="div-register">
-                        <label for="nameProd" class="label-register">Nombre del producto</label>
-                        <input type="text" placeholder="Notebook Dell G15" name="nameProd" id="nameProd" class="input-register">
+                        <label for="name" class="label-register">Nombre del producto</label>
+                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" class="input-register">
                     </div>
                     <div class="div-register">
                         <label for="price" class="label-register" >Precio del producto</label>
-                        <input type="number" name="precio" id="price" placeholder="$100000" class="input-register">
+                        <input type="number" name="price" id="price" placeholder="$100000" class="input-register">
                     </div>
 
                     <div class="div-register">
-                        <label for="categoria" class="label-register">Categoría del producto</label>
-                        <input type="button" name="categoria" id="categoria" required class="input-register">
-                    </div>
-                    
-                    <div class="div-register">
-                        <label for="marca" class="label-register" >Marca</label>
-                        <input type="text" placeholder="Dell" name="marca" id="marca" class="input-register">
-                    </div>
-                    
-                    <div class="div-register">
-                        <label for="modelo" class="label-register" >Modelo</label>
-                        <input type="text" placeholder="G15" name="modelo" id="modelo" class="input-register">
+                        <label for="category" class="label-register">Categoría del producto</label>
+                        <select name="category" id="category" class="input-register">
+                            <option value="" hidden selected>Elegí la categoría</option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category %>" ><%= category %></option>
+                            <% }) %>
+                        </select>
                     </div>
                     
                     <div class="div-register div-reg-imgProd">
                         <p class="label-register">Fotos del producto</p>
-                        <label for="imgProd" class="label-register btn-mas-menos label-reg-file">Agregar</label>
-                        <input multiple type="file" name="imgProd" id="imgProd" class="input-register input-reg-file" accept=".png, .jpg">
+                        <label for="image" class="label-register btn-mas-menos label-reg-file">Agregar</label>
+                        <input multiple type="file" name="image" id="image" class="input-register input-reg-file" accept=".png, .jpg">
                     </div>
                     
                     <div class="div-register">
-                        <label for="cantProd" class="label-register" >Cantidad de productos a vender</label>
-                        <input type="number" placeholder="5" name="cantProd" id="cantProd" class="input-register">
+                        <label for="discount" class="label-register" >Descuento</label>
+                        <input type="number" placeholder="20" name="discount" id="discount" class="input-register">
                     </div>
 
                     <div class="div-register">
                         <label for="description" class="label-register">Descripción del producto</label>
-                        <textarea name="txta-reg-desc" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..."></textarea>
+                        <textarea name="description" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..."></textarea>
                     </div>
                     
                     <div class="div-button-register">
