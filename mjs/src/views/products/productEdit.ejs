@@ -12,43 +12,43 @@
                 
                 <div class="div-register">
                     <label for="producto" class="label-register">Nombre del producto</label>
-                    <input type="text" placeholder="producto" name="producto" id="producto" class="input-register">
+                    <input type="text" value="<%= name %>" name="producto" id="producto" class="input-register">
                 </div>
                 
                 <div class="div-register">
                     <label for="precio" class="label-register">Precio</label>
-                    <input type="number" name="precio" id="precio"placeholder="$10.000" class="input-register">
+                    <input type="number" name="precio" id="precio" value="<%= price %>" class="input-register">
                 </div>
                 
                 <div class="div-register">
-                    <label for="categoria" class="label-register">Categoría del producto</label>
-                    <input type="button" name="categoria" id="categoria" required class="input-register">
+                    <label for="discount" class="label-register">Descuento</label>
+                    <input type="number" value="<%= discount %>" name="discount" id="discount" class="input-register">
                 </div>
                 
                 <div class="div-register">
-                    <label for="marca" class="label-register">Marca</label>
-                    <input type="text" placeholder="AMD" name="marca" id="marca" class="input-register">
+                    <label for="category" class="label-register">Categoría del producto</label>
+                    <select name="category" id="category" class="input-register">
+                        <option value="" hidden selected>Elegí la categoría</option>
+                        <% categories.forEach(selectedCategory => { %>
+                            <option value="<%= selectedCategory %>" <%= selectedCategory == category && 'selected' %>><%= category %></option>
+                        <% }) %>
+                    </select>
                 </div>
-                
-                <div class="div-register">
-                    <label for="modelo" class="label-register">Modelo</label>
-                    <input type="text" placeholder="AMD" name="modelo" id="modelo" class="input-register">
-                </div>
-                
+
                 <div class="div-register div-reg-imgProd">
                     <p class="label-register">Fotos del producto</p>
                     <label for="imgProd" class="label-register btn-mas-menos label-reg-file">Agregar o cambiar</label>
-                    <input multiple type="file" name="imgProd" id="imgProd" class="input-register input-reg-file" accept=".png, .jpg">
+                    <input multiple type="file" name="imgProd" id="imgProd" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
                 </div>
 
-                <div class="div-register">
+                <!-- <div class="div-register">
                     <label for="cantidadDeProductos" class="label-register" >Cantidad de productos disponibles</label>
-                    <input type="number" name="cantidadDeProductos" id="cantidadDeProductos" class="input-register">
-                </div>
+                    <input type="number" name="cantidadDeProductos" value="1" id="cantidadDeProductos" class="input-register">
+                </div> -->
                 
                 <div class="div-register">
                     <label for="description" class="label-register">Descripción del producto</label>
-                    <textarea name="txta-reg-desc" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..."></textarea>
+                    <textarea name="txta-reg-desc" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
                 </div>
                 
                 <div class="div-button-register">

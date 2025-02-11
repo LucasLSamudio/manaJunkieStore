@@ -1,5 +1,6 @@
 const objTienda = require('../../db/logo');
 const {readFile, writeFile, parseFile, stringifyFile, dataBasic} = require('../../utils/fileSystem')
+const fs = require('fs');
 
 const path = require('path')
 const {toThousand, } = require('../../utils')
@@ -19,8 +20,7 @@ const productsController = {
 
     detail: (req, res) => {
         const prod = productJson.findIndex(prod => prod.id === +req.params.id);
-        console.log(productJson[prod].discount);
-        
+
         return res.render('products/productDetail', {
             product: productJson[prod],
             dataBasic,
@@ -38,10 +38,10 @@ const productsController = {
     }, 
 
     add: (req, res) => { // POST
-        const {name, price, discount, description, category} = req.body
-
+        const {name, price, discount, description, category} = req.body;
+        let newID = productJson[productJson.length - 1].id + 1;
         const newProduct = {
-            id : products[products.length - 1].id + 1,
+            id : newID,
             name : name.trim(),
             description : description.trim(),
             price : +price,
@@ -49,16 +49,25 @@ const productsController = {
             image : "default-image.png",
             category
         }
-
+        
         productJson.push(newProduct)
-
+        
         fs.writeFileSync(path.join(__dirname, '../../db/products.json'),JSON.stringify(productJson, null, 3),'utf-8')
+        console.log("Lalala "+newProduct.id);
 
-        return res.redirect('/products/' + newProduct.id)
+        return res.redirect('/products/' + newProduct.id,)
     },
 
     edit: (req, res) => {
+        const { id } = req.params;
+        const prod = productJson.find(product => product.id === +id);
 
+        return res.render('products/productEdit',{
+            ...prod,
+            categories,
+            title: "Edición de producto",
+            dataBasic
+        })
     },
 
     delete: (req, res) => {
