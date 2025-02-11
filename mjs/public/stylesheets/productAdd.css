@@ -30,7 +30,8 @@
 }
 
 .txta-reg-desc{
-    field-sizing: content;
+    field-sizing: fixed;
+    resize: none;
 }
 
 .btn-mas-menos:hover{

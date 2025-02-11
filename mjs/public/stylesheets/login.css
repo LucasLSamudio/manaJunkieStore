@@ -13,9 +13,15 @@
     align-items: center;
     gap: 1rem;
 }
+
 .titulo-login{
     font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1rem;
 }
+
 .label-login-email{
     font-weight: bold;
     font-size: 1.5rem;
@@ -28,19 +34,23 @@
     font-size: 1.5rem;
     justify-items: center;
 }
+
 .label-login-password{
     font-weight: bold;
     font-size: 1.5rem;
 }
+
 #password {
     padding: 0.5rem;
     border: 0.2rem solid black;
     border-radius: 0.5rem;
     font-size: 1.5rem;
 }
+
 .a-login{
     font-size: 1.5rem;
 }
+
 .button-login{
     padding: 0.5rem;
     border: 0.2rem solid black;

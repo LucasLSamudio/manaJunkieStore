@@ -1,11 +1,10 @@
 
     <article class="article-product">
         <img src="/images/products/<%- image %>" alt="img-prod-art" class="img-article">
-        <a href="products/<%- id %>">
-            <div class="description-article">
-                <h3 class="title-article-product"><%= name %></h3>
-                <p class="precio-article">$<%= toThousand(price) %></p>
-                <p class="description-product"><%= description %><p>
+        <div class="description-article">
+            <h3 class="title-article-product"><%= name %></h3>
+            <p class="precio-article">$<%= toThousand(price) %></p>
+            <p class="description-product"><%= description %><p>        
+            <a href="/products/<%- id %>" class="btn-see-more">Ver más</a>
             </div>
-        </a>
         </article>
