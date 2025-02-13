@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partial/head') %>
+<body>
+        <%- include('../partial/header',{...dataBasic}) %>
+        <ul>
+            <% categories.forEach((cat) => { %>
+            <li>
+                    <p class=""><%= cat %> </p>
+            </li>
+            <% }) %>
+        </ul>
+        
+    <%- include('../partial/footer') %> 
+</body>
+</html>

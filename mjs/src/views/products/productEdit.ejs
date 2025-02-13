@@ -6,18 +6,18 @@
     <main class="main-register">
         <div class="div-forms-register">
 
-            <form action="" method="get" class="forms-register"> 
+            <form action="/products/update/<%= id %>?_method=PUT" method="POST" class="forms-register"> 
                 
                 <h2 class="titulo-register">Editar producto</h2>
                 
                 <div class="div-register">
-                    <label for="producto" class="label-register">Nombre del producto</label>
-                    <input type="text" value="<%= name %>" name="producto" id="producto" class="input-register">
+                    <label for="name" class="label-register">Nombre del producto</label>
+                    <input type="text" value="<%= name %>" name="name" id="name" class="input-register">
                 </div>
                 
                 <div class="div-register">
-                    <label for="precio" class="label-register">Precio</label>
-                    <input type="number" name="precio" id="precio" value="<%= price %>" class="input-register">
+                    <label for="price" class="label-register">Precio</label>
+                    <input type="number" name="price" id="price" value="<%= price %>" class="input-register">
                 </div>
                 
                 <div class="div-register">
@@ -30,15 +30,15 @@
                     <select name="category" id="category" class="input-register">
                         <option value="" hidden selected>Elegí la categoría</option>
                         <% categories.forEach(selectedCategory => { %>
-                            <option value="<%= selectedCategory %>" <%= selectedCategory == category && 'selected' %>><%= category %></option>
+                            <option value="<%= selectedCategory %>" <%= selectedCategory == category && 'selected' %>><%= selectedCategory %></option>
                         <% }) %>
                     </select>
                 </div>
 
                 <div class="div-register div-reg-imgProd">
                     <p class="label-register">Fotos del producto</p>
-                    <label for="imgProd" class="label-register btn-mas-menos label-reg-file">Agregar o cambiar</label>
-                    <input multiple type="file" name="imgProd" id="imgProd" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
+                    <label for="image" class="label-register btn-mas-menos label-reg-file">Agregar o cambiar</label>
+                    <input multiple type="file" name="image" id="image" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
                 </div>
 
                 <!-- <div class="div-register">
@@ -48,17 +48,20 @@
                 
                 <div class="div-register">
                     <label for="description" class="label-register">Descripción del producto</label>
-                    <textarea name="txta-reg-desc" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
+                    <textarea name="description" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
                 </div>
                 
                 <div class="div-button-register">
-                    <button type="submit" class="btn-mas-menos button-register-submit">Publicar producto</button>
+                    <button type="submit" id="btn-guardar" class="btn-mas-menos button-register-submit">Publicar producto</button>
                     <button type="reset" class="btn-mas-menos button-register-reset">Cancelar</button>
                 </div>
             </form>
+            <button id="btn-guardar">Guardar</button>
+            <button id="btn-normal">Btn normal</button>
         </div>
     </div>
     </main>
     <%- include('../partial/footer') %>
+    <script src="/javascripts/main.js"></script>
 </body>
 </html>
