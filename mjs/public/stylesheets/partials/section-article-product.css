@@ -30,7 +30,7 @@
     border-top: .1rem solid black;
     border-radius: 1.1rem;
     width: 100%;
-    height: auto;
+    height: 30rem;
     background: linear-gradient(#088192, #051218);
 }
 
@@ -52,6 +52,18 @@
     padding: .5rem 1rem;
     text-transform: uppercase;
     color: #bf930d;
+}
+.div-btn-see-more{
+    display: flex;
+    flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3rem;
+}
+.btn-see-more{
+    text-decoration: none;
+    color: gold;
+    font-size: 2rem;
 }
 
 @media (min-width: 600px){
@@ -98,8 +110,16 @@
     .precio-article{
         font-size: 1.3rem;
     }
-
+    .description-article{
+        height: 20rem;
+    }
     .description-product{
         font-size: 1rem;
+    }
+    .div-btn-see-more{
+        margin-top: .3rem;
+    }
+    .btn-see-more{
+        font-size: 1.3rem;
     }
 }
