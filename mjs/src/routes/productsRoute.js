@@ -13,9 +13,9 @@ router.post('/add',productsController.add);
 
 router.get('/edit/:id', productsController.edit);
 
-router.put('/:id', productsController.edit);
+router.put('/update/:id', productsController.update);
 
-router.delete('/:id', productsController.delete);
+router.delete('/delete/:id', productsController.delete);
 
 router.get('/search',productsController.search);
 
