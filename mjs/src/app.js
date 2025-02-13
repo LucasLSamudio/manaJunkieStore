@@ -9,7 +9,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/indexRoute');
 
 const usersRouter = require('./routes/usersRoute');
-const productsRouter= require('./routes/productsRoute');
+const productsRouter = require('./routes/productsRoute');
+const adminRouter = require('./routes/adminRoute');
 
 const carritoRouter = require('./routes/carritoRoute');
 const allProductsRouter = require('./routes/allProductsRoute');
@@ -39,7 +40,7 @@ app.use('/', indexRouter);
 
 app.use('/users', usersRouter);
 app.use('/products', productsRouter)
-
+app.use('/admin',adminRouter)
 app.use('/carrito',carritoRouter)
 // app.use('/store', allProductsRouter)
 

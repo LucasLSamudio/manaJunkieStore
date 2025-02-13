@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partial/head',{title:"Administrador"}) %>
+    <body class="admin-body-div-table">
+        
+        <div class="contenedor-main">
+        
+        <div class="div-producto-nuevoProducto">
+            <div class="div-contenedor-h2">
+                <h2 class="">Productos</h2>
+                
+                <div class="div-contenedor-i">
+                    <button class="btn-nuevo-producto" type="submit">
+                        <i class="fa fa-plus"></i> Nuevo producto
+                    </button>
+                </div>
+                
+            </div>
+            <div class="contenedor-search-filter">
+
+                <div class="div-form-search">
+    
+                    <form class="" role="search">
+                        <input class="input-search" type="search" placeholder="Escriba..." aria-label="Search">
+                        <button class="btn-lupa-search"  type="submit">
+                            <i class="fa fa-search"></i> Buscar
+                        </button>
+                    </form>
+    
+                </div>
+                
+                <div class="div-form-filter">
+                    
+                    <form class="" role="search">
+                        <select class="select-filter">
+                            <option value="">Seleccione...</option>
+                        </select>
+                        <button class="btn-filter" type="submit"><i class="fa fa-filter"></i> 
+                            Filtrar
+                        </button>
+                    </form>
+                    
+                </div>
+
+            </div>
+            
+        </div>
+        
+        <div class="div-table">
+            <table class="table-tr-th">
+                <thead class="thead-tr-th">
+                    <tr>
+                        <th class="th-fila">ID</th>
+                        <th class="th-fila">Producto</th>
+                        <th class="th-fila">Precio</th>
+                        <th class="th-fila">Descuento</th>
+                        <th class="th-fila">Categoria</th>
+                        <th class="th-fila">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody-tr-th">
+                    <tr class="tr-contenido">
+                        <th class="th-fila-junior">1</th>
+                        <td class="td-fila-junior">Amd ryzen 7</td>
+                        <td class="td-fila-junior">30.000</td>
+                        <td class="td-fila-junior">50</td>
+                        <td class="td-fila-junior">procesadores</td>
+                        <td class="td-fila-junior">
+                            <div class="div-button-acciones">
+                                <button type="submit" class="button-acciones-editar">editar</button>
+                                <button type="submit" class="button-acciones-borrar">borrar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </body>
+</html>
