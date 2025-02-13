@@ -11,7 +11,10 @@ const session = require('express-session')
 var indexRouter = require('./routes/indexRoute');
 
 const usersRouter = require('./routes/usersRoute');
-const productsRouter= require('./routes/productsRoute');
+const productsRouter = require('./routes/productsRoute');
+const adminRouter = require('./routes/adminRoute');
+
+
 const carritoRouter = require('./routes/carritoRoute');
 const categoryRouter = require('./routes/categoriesRoute')
 
@@ -48,7 +51,7 @@ app.use('/', indexRouter);
 
 app.use('/users', usersRouter);
 app.use('/products', productsRouter)
-
+app.use('/admin',adminRouter)
 app.use('/carrito',carritoRouter)
 app.use('/categorias',categoryRouter)
 // app.use('/store', allProductsRouter)

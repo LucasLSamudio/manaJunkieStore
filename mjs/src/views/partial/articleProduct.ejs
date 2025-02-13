@@ -4,7 +4,9 @@
         <div class="description-article">
             <h3 class="title-article-product"><%= name %></h3>
             <p class="precio-article">$<%= toThousand(price) %></p>
-            <p class="description-product"><%= description %><p>        
-            <a href="/products/<%- id %>" class="btn-see-more">Ver más</a>
+            <p class="description-product"><%= description %><p> 
+                <div class="div-btn-see-more">
+                <a href="/products/<%- id %>" class="btn-see-more">Ver más</a>
+                </div>       
             </div>
         </article>
