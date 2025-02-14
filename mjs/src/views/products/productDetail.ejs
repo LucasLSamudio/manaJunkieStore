@@ -2,29 +2,24 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header',{...dataBasic}) %>
+        <%- include('../partial/header') %>
         <main>
             <%- include('../partial/boxProductDetail',{
                 ...product,
-                ...dataBasic
             }) %>
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
                 <%- include('../partial/articleProduct',{
                     ...product,
-                    ...dataBasic
                 }) %>
                 <%- include('../partial/articleProduct',{
                     ...product,
-                    ...dataBasic
                 }) %>
                 <%- include('../partial/articleProduct',{
                     ...product,
-                    ...dataBasic
                 }) %>
                 <%- include('../partial/articleProduct',{
                     ...product,
-                    ...dataBasic
                 }) %>
             </section>
         </main>

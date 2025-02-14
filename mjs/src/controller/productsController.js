@@ -1,43 +1,39 @@
 const fs = require('fs');
 const path = require('path')
+const {toThousand, } = require('../../utils')
 
-const {toThousand, dataBasic} = require('../../utils')
-
-// const productJson = require('../../db/products.json');
 const categories = require('../../db/categories.json')
 
 const productsController = {
     list:(req, res) => {
-        const productJson = require('../../db/products.json');
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'));
         res.render('products/allProducts', { 
-            dataBasic,
             productJson,
             title: "Mana Junkie Store",
             toThousand
         });
     },
-
+    
     detail: (req, res) => {
-        const productJson = require('../../db/products.json');
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'));
         const prod = productJson.findIndex(prod => prod.id === +req.params.id);
-
+        
         return res.render('products/productDetail', {
             product: productJson[prod],
-            dataBasic,
             title: prod.name,
             toThousand
         })
     },
-
+    
     create: (req, res) => { // GET
         return res.render('products/productAdd',{
-            ...dataBasic,
             categories,
             title: "Vender producto"
         })
     }, 
-
+    
     add: (req, res) => { // POST
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'))
         const {name, price, discount, description, category} = req.body;
         let newID = productJson[productJson.length - 1].id + 1;
         const newProduct = {
@@ -57,7 +53,7 @@ const productsController = {
     },
 
     edit: (req, res) => {
-        const productJson = require('../../db/products.json');
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'));
         const { id } = req.params;
         const prod = productJson.find(product => product.id === +id);
 
@@ -65,12 +61,11 @@ const productsController = {
             ...prod,
             categories,
             title: "Edición de producto",
-            dataBasic
         })
     },
 
     update: (req, res) => {
-        const productJson = require('../../db/products.json');
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'));
         const { name, price, discount, description, category } = req.body;
     
         const productModify = productJson.map(prod => {
@@ -89,17 +84,17 @@ const productsController = {
         // const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
         // await delay(500);
     
-        return res.redirect('/products');
+        return res.redirect('/admin');
     },
     
     
     delete: (req, res) => {
-        const productJson = require('../../db/products.json');
+        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../../db/products.json'),'utf-8'));
         const {id} = req.params;
 
-        const newArray = productJson.filter(prod => prod.id !== id);
+        const newArray = productJson.filter(prod => prod.id !== +id);
         fs.writeFileSync(path.join(__dirname,'../../db/products.json'),JSON.stringify(newArray,null,2),'utf-8')
-        return res.redirect('/products');
+        return res.redirect('/admin');
     },
 
     search: (req, res) => {

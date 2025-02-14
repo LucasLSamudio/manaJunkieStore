@@ -13,19 +13,8 @@ var indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/usersRoute');
 const productsRouter = require('./routes/productsRoute');
 const adminRouter = require('./routes/adminRoute');
-
-
 const carritoRouter = require('./routes/carritoRoute');
 const categoryRouter = require('./routes/categoriesRoute')
-
-const allProductsRouter = require('./routes/allProductsRoute');
-
-// const loginRouter = require('./routes/loginRoute');
-// const registerRouter = require('./routes/registerRoute');
-
-// const productDetailRouter = require('./routes/producDetailRoute');
-// const productAddRouter = require('./routes/productAddRoute');
-// const productEditRouter = require('./routes/productEditRoute');
 
 var app = express();
 
@@ -48,21 +37,12 @@ app.use(session({
 /* RUTAS USE */
 
 app.use('/', indexRouter);
-
 app.use('/users', usersRouter);
 app.use('/products', productsRouter)
 app.use('/admin',adminRouter)
 app.use('/carrito',carritoRouter)
 app.use('/categorias',categoryRouter)
-// app.use('/store', allProductsRouter)
 
-// app.use('/login', loginRouter)
-// app.use('/register', registerRouter)
-// **********************
-// app.use('/productDetail', productDetailRouter)
-// app.use('/productAdd', productAddRouter)
-// app.use('/productEdit', productEditRouter)
-// **********************
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
