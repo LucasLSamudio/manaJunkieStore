@@ -1,4 +1,4 @@
-const {toThousand, dataBasic} = require('../../utils')
+const {toThousand} = require('../../utils')
 // const path = require('path')
 
 
@@ -9,7 +9,6 @@ const indexController = {
         prod = productJson[9]
         prod2 = productJson[15]
         res.render('index',{
-            dataBasic,
             prod,
             prod2,
             title: "Mana Junkie Store", 

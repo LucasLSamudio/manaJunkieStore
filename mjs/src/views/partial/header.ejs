@@ -1,13 +1,13 @@
 <header id="id-header">
     <div class="img-logo-div">
-        <img src="/images/<%-logo%>" alt="MJS Foto" class="img-logo">
+        <img src="/images/logoMJS.jpeg" alt="MJS Foto" class="img-logo">
     </div>
     <nav class="nav-bar-header">
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/products">Productos</a></li>
             <li><a href="/products/create">Vender</a></li>
-            <li><a href="#">Categorías</a></li>
+            <li><a href="/admin">Administrador</a></li>
         </ul>
     </nav>
 
@@ -20,14 +20,14 @@
     </div>
     <div class="user-button">
         <div class="lupa">
-            <a href=" <%- carrito %> ">
+            <a href="/carrito">
                 <button class="btn-header"><i class="fa-solid fa-cart-plus"></button></i>
             </a>
         </div>
-        <a href=" <%- login %> ">
+        <a href="/users/login">
             <button class="btn-header login-button" id="ingresar">Ingresar</button>
         </a>
-        <a href=" <%- register %> ">
+        <a href="/users/register">
             <button class="btn-header register-button" id="registrar">Registrarse</button>
         </a>
         <button class="btn-header user-button-icon"><i class="fa-solid fa-user"></i></button>

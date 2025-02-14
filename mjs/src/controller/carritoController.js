@@ -1,4 +1,4 @@
-const {toThousand, dataBasic} = require('../../utils')
+const {toThousand} = require('../../utils')
 
 const carritoController = {
     index:(req, res) => {
@@ -6,7 +6,7 @@ const carritoController = {
         const prod = productJson[0];
         res.render('cart/carrito',{
             prod,
-            title: prod.name,
+            title: "Carrito",
             toThousand
         })
     }
