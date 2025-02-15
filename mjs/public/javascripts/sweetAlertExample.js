@@ -1,46 +1,48 @@
 (async () => {
     const {value: rol} = await Swal.fire({
-        title: '¡Bienvenido al panel de control de administrador!',
-        text: 'Puedes agregar, editar y borrar productos.',
-        // icon: 'success',
+        // title: 'Recuerda aceptar nuestros términos y condiciones.',
+        // text: 'Todos los productos relacionados al gaming a un click de distancia.',
+        html: 'Recuerda aceptar nuestros <a target="blank" style="color: black" href="#">términos y condiciones</a> antes de continuar.',
+        icon: 'warning',
         // width: '60%',
         confirmButtonText: '¡De acuerdo!',
         // background: '#bf930d',
         // grow: 'column', // row || fullscreen || column (Grow solo funciona sin width.)
         // timer: 5000,
         // timerProgressBar: true,
+        // backdrop: false,
         // toast: true,
-        position: 'center',
+        position: 'bottom',
         allowOutsideClick: false,
         allowEscapeKey: false,
-        allowEnterKey: true,
+        allowEnterKey: false,
         stopKeydownPropagation: false,
     
         // input: "text",
         // inputPlaceholder: "Tremendo mi panamera" ,
         
-        input: "select",
-        inputPlaceholder: "Rol",
-        inputValue: "",
-        inputOptions: {
-            admin: 'Administrador',
-            vendedor: 'Vendedor',
-            comprador: 'Comprador',
-            visit: 'Visitante'
-        },
+        // input: "select",
+        // inputPlaceholder: "Rol",
+        // inputValue: "",
+        // inputOptions: {
+        //     admin: 'Administrador',
+        //     vendedor: 'Vendedor',
+        //     comprador: 'Comprador',
+        //     visit: 'Visitante'
+        // },
 
         // Boton cancelar
-        showCancelButton: true,
-        cancelButtonText: 'Borrar',
-        cancelButtonColor: 'red',
-        cancelButtonAriaLabel: 'Borrar'
+        // showCancelButton: true,
+        // cancelButtonText: 'Borrar',
+        // cancelButtonColor: 'red',
+        // cancelButtonAriaLabel: 'Borrar'
     })
     
-    if(rol){
-        Swal.fire({
-            title: `Seleccionaste ${rol}`
-        })
-    }
+    // if(rol){
+    //     Swal.fire({
+    //         title: `Seleccionaste ${rol}`
+    //     })
+    // }
 
 })();    
 

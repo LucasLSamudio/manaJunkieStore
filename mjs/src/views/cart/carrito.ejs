@@ -2,7 +2,7 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header',{...dataBasic}) %>
+        <%- include('../partial/header') %>
         <main>
             <div class="div-carrito-principal">
 
@@ -50,20 +50,16 @@
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
                 <%- include('../partial/articleProduct',{
-                    ...prod,
-                    ...dataBasic
+                    ...prod
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod,
-                    ...dataBasic
+                    ...prod
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod,
-                    ...dataBasic
+                    ...prod
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod,
-                    ...dataBasic
+                    ...prod
                 }) %>
             </section>
         </main>

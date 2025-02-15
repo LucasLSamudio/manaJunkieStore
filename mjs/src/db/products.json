@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1,
+    "name": "Memoria Ram DDR4 - 32Gb",
+    "description": "Memoria RAM de 16 GB para mejorar rendimiento en juegos\r\nVelocidad de 3200 MHz para mayor fluidez en tus partidas\r\nCompatible con sistemas AMD e Intel, fácil instalación\r\nCertificación Intel XMP para un rendimiento óptimo y estable\r\nLatencia CAS de 16 y voltaje de 1.35V para eficiencia energética\r\nDiseño Fury Beast en color negro, ideal para gamers",
+    "image": "Memoria-Ram-DDR4-32Gb-2x16-3600-Mhz-Kingston-Fury-Beast-Rgb_48065_1.jpeg",
+    "category": "Memoria RAM",
+    "price": 100000,
+    "discount": 15
+  },
+  {
+    "id": 2,
+    "name": "Microprocesador AMD Ryzen 3 3200G 4MB 3.60GHz Socket AM4 - 3ra Gen",
+    "description": "tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi",
+    "image": "Microprocesador AMD Ryzen 3 3200G 4MB 3.60GHz Socket AM4 - 3ra Gen.jpeg",
+    "category": "Procesadores",
+    "price": 111222,
+    "discount": 40
+  },
+  {
+    "id": 3,
+    "name": "Disco Duro Interno Wd 1Tb 3.5″ Purple Sata 64Mb 6G",
+    "description": "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere",
+    "image": "Disco Duro Interno Wd 1Tb 3.5″ Purple Sata 64Mb 6G.webp",
+    "category": "Almacenamiento",
+    "price": 21726,
+    "discount": 71
+  },
+  {
+    "id": 4,
+    "name": "Mouse Logitech G203 Lightsync RGB Black",
+    "description": "mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis",
+    "image": "Mouse Logitech G203 Lightsync RGB Black.webp",
+    "category": "Periféricos",
+    "price": 18006,
+    "discount": 29
+  },
+  {
+    "id": 5,
+    "name": "Memoria Ram Kingston Fury Beast 8GB 3200 Mhz DDR4",
+    "description": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum",
+    "image": "Memoria Ram Kingston Fury Beast 8GB 3200 Mhz DDR4.webp",
+    "category": "Memoria RAM",
+    "price": 34437,
+    "discount": 19
+  },
+  {
+    "id": 6,
+    "name": "Placa de Vídeo ASUS Nvidia RTX 4080 TUF Gaming 16GB",
+    "description": "ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices",
+    "image": "Placa de Vídeo ASUS Nvidia RTX 4080 TUF Gaming 16GB.jpg",
+    "category": "Placas de video",
+    "price": 38877,
+    "discount": 71
+  },
+  {
+    "id": 7,
+    "name": "Microprocesador Amd Ryzen 5 5600 3.5ghz",
+    "description": "eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget",
+    "image": "Microprocesador Amd Ryzen 5 5600 3.5ghz.webp",
+    "category": "Procesadores",
+    "price": 1756,
+    "discount": 41
+  },
+  {
+    "id": 8,
+    "name": "Disco Duro SSD 1TB Crucial Sata 2.5″ (Sólido)",
+    "description": "donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id",
+    "image": "Disco Duro SSD 1TB Crucial Sata 2.5″ (Sólido).webp",
+    "category": "Almacenamiento",
+    "price": 2913,
+    "discount": 21
+  },
+  {
+    "id": 9,
+    "name": "Teclado HyperX Alloy Core RGB",
+    "description": "blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo",
+    "image": "Teclado HyperX Alloy Core RGB.webp",
+    "category": "Periféricos",
+    "price": 37425,
+    "discount": 34
+  },
+  {
+    "id": 10,
+    "name": "Disco Duro SSD WD Green WDS100T3G0A - 1000GB · SATA III",
+    "description": "felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed",
+    "image": "Disco Duro SSD WD Green WDS100T3G0A - 1000GB · SATA III.png",
+    "category": "Almacenamiento",
+    "price": 41113,
+    "discount": 55
+  },
+  {
+    "id": 11,
+    "name": "Disco Rigido 1Tb Wd Blue",
+    "description": "curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec",
+    "image": "Disco Rigido 1Tb Wd Blue.jpg",
+    "category": "Almacenamiento",
+    "price": 29145,
+    "discount": 48
+  },
+  {
+    "id": 12,
+    "name": "Memoria Ram DDR4 - 8Gb 3200 Mhz Corsair Vengeance RS Rgb Negro",
+    "description": "mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante",
+    "image": "Memoria Ram DDR4 - 8Gb 3200 Mhz Corsair Vengeance RS Rgb Negro.webp",
+    "category": "Memoria RAM",
+    "price": 35020,
+    "discount": 21
+  },
+  {
+    "id": 13,
+    "name": "Microprocesador Intel Core i5 10400F",
+    "description": "ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi",
+    "image": "Microprocesador Intel Core i5 10400F.jpeg",
+    "category": "Procesadores",
+    "price": 44301,
+    "discount": 77
+  },
+  {
+    "id": 14,
+    "name": "Placa De Video Gigabyte Geforce RTX 3050 Windforce Oc 6Gb",
+    "description": "sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel",
+    "image": "Placa De Video Gigabyte Geforce RTX 3050 Windforce Oc 6Gb.jpg",
+    "category": "Placas de video",
+    "price": 1980,
+    "discount": 20
+  },
+  {
+    "id": 15,
+    "name": "Monitor-Gamer-24-Daewoo-165Hz",
+    "description": "id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue",
+    "image": "Monitor-Gamer-24-Daewoo-165Hz.jpeg",
+    "category": "Monitores",
+    "price": 19599,
+    "discount": 74
+  },
+  {
+    "id": 16,
+    "name": "Teclado Mecanico Gamer Redragon Vata Pro K580RGB Switch Brown",
+    "description": "quisque ut erat curabitur gravida nisi at nibh in hac habitasse",
+    "image": "Teclado Mecanico Gamer Redragon Vata Pro K580RGB Switch Brown.jpg",
+    "category": "Periféricos",
+    "price": 32481,
+    "discount": 64
+  },
+  {
+    "id": 17,
+    "name": "Placa de video gigabyte rtx 4070 super gaming oc 12gb ddr6",
+    "description": "tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi",
+    "image": "Placa de video gigabyte rtx 4070 super gaming oc 12gb ddr6.jpg",
+    "category": "Placas de video",
+    "price": 16623,
+    "discount": 57
+  },
+  {
+    "id": 18,
+    "name": "Memoria Ram Ddr5 32 Gb 2x16gb 6000mhz Corsair Vengeance",
+    "description": "in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante",
+    "image": "Memoria Ram Ddr5 32 Gb 2x16gb 6000mhz Corsair Vengeance.jpg",
+    "category": "Memoria RAM",
+    "price": 15244,
+    "discount": 70
+  },
+  {
+    "id": 19,
+    "name": "Microprocesador Intel Core i9 14900F",
+    "description": "pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare",
+    "image": "Microprocesador Intel Core i9 14900F.webp",
+    "category": "Procesadores",
+    "price": 24599,
+    "discount": 77
+  },
+  {
+    "id": 20,
+    "name": "Placa De Video Msi Nvidia Geforce Gtx 1050 Ti Gaming X 4gb",
+    "description": "eget tincidunt eget tempus vel pede morbi porttitor lorem id",
+    "image": "Placa De Video Msi Nvidia Geforce Gtx 1050 Ti Gaming X 4gb.jpg",
+    "category": "Placas de video",
+    "price": 4291,
+    "discount": 41
+  },
+  {
+    "id": 21,
+    "name": "Producto Generico 1",
+    "description": "aaaaa",
+    "price": 202020,
+    "discount": 1,
+    "image": "default-image.png",
+    "category": "Almacenamiento"
+  },
+  {
+    "id": 23,
+    "name": "Producto Generico 3",
+    "description": "aaaaa",
+    "price": 900000,
+    "discount": 30,
+    "image": "default-image.png",
+    "category": "Periféricos"
+  },
+  {
+    "id": 25,
+    "name": "Monitor 30'",
+    "description": "aaaa",
+    "price": 5220000,
+    "discount": 20,
+    "image": "default-image.png",
+    "category": "Monitores"
+  }
+]
