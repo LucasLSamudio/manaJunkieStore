@@ -2,19 +2,24 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header',{...dataBasic}) %>
+        <%- include('../partial/header') %>
         <main class="main main-login">
             <div class="div-form-login">
-                <form action="" method="get" class="forms-login">
-                <h2 class="titulo-login">Iniciar sesion</h2>
-                <label for="correo" class="label-login-email">Ingrese su correo</label>
-                <input type="email" placeholder="micorreo@gmail.com" name="correo" id="correo">
-                <label for="password" class="label-login-password">Ingrese su contraseña</label>
-                <input type="password" name="password" placeholder="MiContraseña123" id="password">
-                <a href="/users/register" class="a-login">¿No tenés cuenta? ¡Registrate!</a>
-                <a href="#" class="a-login" >Olvidé mi contraseña </a>
-                <button type="submit" class="btn-mas-menos button-login">Iniciar sesión</button>
-            </form>
+
+                <form action="/users/processLogin" method="POST" class="forms-login">
+                    
+                    <h2 class="titulo-login">Iniciar sesion</h2>
+                        <label for="email" class="label-login-email">Ingrese su correo</label>
+                        <input type="email" placeholder="micorreo@gmail.com" name="email" class="correo" id="email">
+                        <label for="password" class="label-login-password">Ingrese su contraseña</label>
+                        <input type="password" name="password" placeholder="MiContraseña123" id="password">
+                        <a href="/users/register" class="a-login">¿No tenés cuenta? ¡Registrate!</a>
+                        <a href="#" class="a-login" >Olvidé mi contraseña </a> 
+                        <% if(error) {%>
+                            <p> Error en el inicio de sesión </p>
+                        <% } %>
+                        <button type="submit" class="btn-mas-menos button-login">Iniciar sesión</button>
+                </form>
             </div>
         </main>
         <%- include('../partial/footer') %>

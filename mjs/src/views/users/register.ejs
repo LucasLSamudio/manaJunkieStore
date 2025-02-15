@@ -2,21 +2,21 @@
 <html>
     <%- include('../partial/head') %>
     <body>
-        <%- include('../partial/header',{...dataBasic}) %>
+        <%- include('../partial/header') %>
         <main class="main main-register">
             <div class="div-forms-register">
-                <form action="" method="get" class="forms-register"> 
+                <form action="/users/processRegister" method="POST" class="forms-register"> 
                     
                     <h2 class="titulo-register">Registro De Usuario</h2>
 
-                    <label for="nombre" class="label-register" >Ingrese su nombre</label>
-                    <input type="text" placeholder="Matías" name="nombre" id="nombre" class="input-register">
+                    <label for="firstName" class="label-register" >Ingrese su nombre</label>
+                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-register">
                     
-                    <label for="apellido" class="label-register" >Ingrese su apellido</label>
-                    <input type="text" placeholder="Espíndola" name="apellido" id="apellido" class="input-register">
+                    <label for="lastName" class="label-register" >Ingrese su apellido</label>
+                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-register">
 
-                    <label for="correo" class="label-register">Ingrese su correo</label>
-                    <input type="email" placeholder="ejemplo@gmail.com" name="correo" id="correo" class="input-register">
+                    <label for="email" class="label-register">Ingrese su correo</label>
+                    <input type="email" placeholder="ejemplo@gmail.com" name="email" id="email" class="input-register">
                     
                     <label for="password" class="label-register" >Ingrese una contraseña</label>
                     <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-register">
@@ -24,8 +24,8 @@
                     <label for="password2" class="label-register" >Confirmar contraseña</label>
                     <input type="password" placeholder="MiContraseña123" name="password2" id="password2" required class="input-register">
                     
-                    <label for="telefono" class="label-register">Ingrese su número de telefono</label>
-                    <input type="number" name="telefono" id="telefono" class="input-register" placeholder="11-2345-6789">
+                    <label for="phone" class="label-register">Ingrese su número de teléfono</label>
+                    <input type="number" name="phone" id="phone" class="input-register" placeholder="11-2345-6789">
                     
                     <div class="div-button-register">
                         <button type="submit" class="btn-mas-menos button-register-submit">Registrarse</button>

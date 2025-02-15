@@ -1,4 +1,4 @@
-const categories = require('../../db/categories.json');
+const categories = require('../db/categories.json');
 
 const categoriesController = {
     index:(req, res) => {
