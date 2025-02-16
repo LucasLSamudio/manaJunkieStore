@@ -91,11 +91,11 @@ const userController = {
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         console.log(users);
         
-        req.session.visitas = req.session.visitas ? ++req.session.visitas : 1;
+        req.session.userLogin.countVisited = req.session.userLogin.countVisited ? ++req.session.userLogin.countVisited : 1;
         res.send(`
-            El usuario <strong> ${req.session.usuario} </strong>
-            con rol <strong> ${req.session.rol} </strong>
-            ha visitado la página <strong> ${req.session.visitas} vez/veces. </strong>
+            El usuario <strong> ${req.session.userLogin.name} </strong>
+            con rol <strong> ${req.session.userLogin.type} </strong>
+            ha visitado la página <strong> ${req.session.userLogin.countVisited} vez/veces. </strong>
             `)
     }
 }

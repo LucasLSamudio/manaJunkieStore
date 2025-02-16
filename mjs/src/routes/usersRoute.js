@@ -14,7 +14,8 @@ router.get('/profile', userController.profile);
 router.put('/update', userController.update);
 router.get('/logout', userController.logout);
 
-router.get('/a',userController.cookiePrueba);
 
+
+router.get('/a',userController.cookiePrueba);
 
 module.exports = router;
