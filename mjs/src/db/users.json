@@ -7,7 +7,7 @@
     "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
     "phone": "1123456789",
     "type": "user",
-    "avatar": "/images/avatars/pletzale.jpg"
+    "avatar": "defaultAvatar.jpg"
   },
   {
     "id": "2",
@@ -17,7 +17,7 @@
     "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
     "phone": "1123456789",
     "type": "admin",
-    "avatar": "/images/avatars/pretzel.jpg"
+    "avatar": "defaultAvatar.jpg"
   },
   {
     "id": "3",
@@ -27,6 +27,26 @@
     "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
     "phone": "1123456789",
     "type": "admin",
-    "avatar": "/images/avatars/polloCorazon.jpg"
+    "avatar": "defaultAvatar.jpg"
+  },
+  {
+    "id": "bb42cd2b-76ea-4221-a885-7403dafff5e4",
+    "firstName": "Chanchito",
+    "lastName": "Feliz",
+    "email": "$2b$05$cDZF3be5Otf.AT30clMb2uROvyB9nyny6f81L2r5I5DKw3kkdTVzm",
+    "password": "$2b$05$IB4nUMWqzyXRu3Mtnd2rLeouR3Jg5dChM1jEBL.NELXfO9tcTXTeq",
+    "phone": "1122334455",
+    "type": "user",
+    "avatar": "1739819205658-f20cba6a-662c-461b-a01f-8dca8b256cd3mikel2.jpg"
+  },
+  {
+    "id": "615cbf45-cc18-43a3-8ad0-64e414609cd7",
+    "firstName": "Barney",
+    "lastName": "Jamaica",
+    "email": "$2b$05$FHFW3Rirk8Ytg/wGL/GpqOG4Yc4Gm5HhAkKn7WMSkIbpDNEc2V62q",
+    "password": "$2b$05$anf1UJM6ncKP.WoDQziTEeEqeW4gmaXrn/1c5WBM9MWrpOVS2IF7m",
+    "phone": "1122334455",
+    "type": "user",
+    "avatar": "1739819478525-7405d4cc-1ae0-4cbe-bc01-04a540922ed0Captura de pantalla 2024-10-29 190950.png"
   }
 ]

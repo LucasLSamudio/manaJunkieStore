@@ -38,9 +38,12 @@
         <button class="btn-header"><i class="fa-solid fa-bars"></i></button>
     </div>
     <% if(locals.usuarioLogueado){ %>
-        <div>
-            <p>¡Hola, <a href="/users/profile/<%= usuarioLogueado.id %>" style="color: #bf930d;"><%= usuarioLogueado.firstName %></a>! </p>
-            <p>Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a>! </p>
+        <div class="user-logueado">
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: .5rem; gap: .4rem;">
+                <img src="/images/users/<%= usuarioLogueado.avatar %>" alt="imagenPerfil" style="width: 3rem;">
+                <p>¡Hola, <a href="/users/profile/<%= usuarioLogueado.id %>" style="color: #bf930d;"><%= usuarioLogueado.firstName %></a>! </p>
+            </div>
+            <p>Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a>. </p>
         </div>
     <% } %>
 </header>

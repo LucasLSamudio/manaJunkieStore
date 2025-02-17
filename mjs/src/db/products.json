@@ -180,15 +180,6 @@
     "discount": 41
   },
   {
-    "id": 21,
-    "name": "Producto Generico 1",
-    "description": "aaaaa",
-    "price": 202020,
-    "discount": 1,
-    "image": "default-image.png",
-    "category": "Almacenamiento"
-  },
-  {
     "id": 23,
     "name": "Producto Generico 3",
     "description": "aaaaa",
