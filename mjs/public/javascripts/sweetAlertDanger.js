@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 title: `¿Estás seguro de borrar ${productName}?`,
                 text: "Esta acción no se puede revertir.",
                 icon: "warning",
+                background: "#bcac79",
                 showCancelButton: true,
                 confirmButtonColor: "#d33",
                 cancelButtonColor: "#3085d6",

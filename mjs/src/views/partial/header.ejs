@@ -24,15 +24,23 @@
                 <button class="btn-header"><i class="fa-solid fa-cart-plus"></button></i>
             </a>
         </div>
-        <a href="/users/login">
-            <button class="btn-header login-button" id="ingresar">Ingresar</button>
-        </a>
-        <a href="/users/register">
-            <button class="btn-header register-button" id="registrar">Registrarse</button>
-        </a>
+        <% if(!locals.usuarioLogueado){ %>
+            <a href="/users/login">
+                <button class="btn-header login-button" id="ingresar">Ingresar</button>
+            </a>
+            <a href="/users/register">
+                <button class="btn-header register-button" id="registrar">Registrarse</button>
+            </a>
         <button class="btn-header user-button-icon"><i class="fa-solid fa-user"></i></button>
     </div>
+        <% } %>
     <div class="burguer-button">
         <button class="btn-header"><i class="fa-solid fa-bars"></i></button>
     </div>
+    <% if(locals.usuarioLogueado){ %>
+        <div>
+            <p>¡Hola, <a href="/users/profile/<%= usuarioLogueado.id %>" style="color: #bf930d;"><%= usuarioLogueado.firstName %></a>! </p>
+            <p>Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a>! </p>
+        </div>
+    <% } %>
 </header>

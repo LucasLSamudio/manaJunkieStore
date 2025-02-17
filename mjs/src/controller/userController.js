@@ -2,6 +2,7 @@ const { v4: uuidv4, validate } = require('uuid'); // id : uuidv4(),
 const bcrypt = require('bcrypt'); // password : bcrypt.hashSync(password, 10)  |  const user = users.find(user => user.email === email && bcrypt.compareSync(password, user.password))
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 
 const userController = {
     login: (req, res) => {
@@ -12,51 +13,32 @@ const userController = {
         })
     },
     processLogin: (req, res) => {
-        let error = "";
+        console.log(res.cookie);
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const {email, password} = req.body
-
         const user = users.find(u => u.email === email && bcrypt.compareSync(password, u.password)) 
-        
         if(!user){
             return res.render('users/login',{
-                error: "Credenciales inválidas",
-                title: "Iniciar sesión"
-            })
+                title:"Iniciar Sesión",
+                error: "Error al iniciar sesión. Datos incorrectos.",
+            });
+        }else{
+            const { id, firstName, type, avatar} = user;
+            console.log("Log del req.session.user:\n",req.session.user);
+            req.session.user = { email, firstName, id, type, avatar };
+            res.locals.usuarioLogueado = {...req.session.user}
+            res.cookie("user", { email, firstName, id, avatar}, {maxAge: 1000*60*30})
+            return res.redirect(`/`)
         }
-
-        
-        
-        req.session.userLogin = {
-            id : user.id,
-            name : user.firstName,
-            type : user.type,
-            countVisited : user.countVisited
-        };
-
-        user.countVisited++;
-        const modifyUser = users.map(u => {
-            if (u.id === +user.id) {
-                u.countVisited = user.countVisited;
-            }
-            return u;
-        });
-
-        res.cookie('usuario', user.firstName,{maxAge: 1000*60*10000});
-        req.session.userLogin.countVisited = user.countVisited;
-    
-        // fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(modifyUser, null, 3),'utf-8')
-
-        return res.redirect('/');
-        },
+    },
 
     register: (req, res) => {
         res.render('users/register', {
-            
             title: "Registrarse"
         })
     },
     processRegister: (req, res) => {
+        return res.send(req.params);
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const {firstName, lastName, password, email, phone} = req.body;
 
@@ -64,12 +46,12 @@ const userController = {
             id : uuidv4(),
             firstName: firstName.trim(),
             lastName : lastName.trim(),
-            email : email.trim(),
-            password : bcrypt.hashSync(password,10),
+            emailNoHash : email.trim(),
+            email : bcrypt.hashSync(emailNoHash,5),
+            password : bcrypt.hashSync(password,5),
             phone : phone,
             type : 'Customer',
             avatar : "defaultAvatar.jpg",
-            countVisited : 0
         }
         
         users.push(newUser);
@@ -78,24 +60,35 @@ const userController = {
         return res.redirect('/users/login')
     },
     profile: (req, res) => {
-
+        res.render('users/profile',{title: "Perfil"})
     },
     update: (req, res) => {
+        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
 
-    },
-    logout: (req, res) => {
+        const id = req.params.id;
+        const user = users.find((user) => user.id === id);
+        req.body.avatar = req.file ? req.file.filename : user.avatar;
+        // avatarUser
         
+        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(users, null, 2),'utf-8');
+        res.send(req.body);
+    },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        res.clearCookie("user");
+        res.redirect("/users/login");
     },
 
     cookiePrueba: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        console.log(users);
+        // console.log(users);
+        console.log("Log del session desde cookiePrueba: \n",req.session.user);
         
-        req.session.userLogin.countVisited = req.session.userLogin.countVisited ? ++req.session.userLogin.countVisited : 1;
+        // req.session.user.countVisited = req.session.user.countVisited ? ++req.session.user.countVisited : 1;
         res.send(`
-            El usuario <strong> ${req.session.userLogin.name} </strong>
-            con rol <strong> ${req.session.userLogin.type} </strong>
-            ha visitado la página <strong> ${req.session.userLogin.countVisited} vez/veces. </strong>
+            El usuario <strong> ${req.session.user.firstName} </strong>
+            con rol <strong> ${req.session.user.type} </strong>
             `)
     }
 }

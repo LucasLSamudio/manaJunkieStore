@@ -20,47 +20,6 @@ const categoryRouter = require('./routes/categoriesRoute');
 
 const app = express();
 
-const upload = multer({
-  dest: 'public/images/users',
-  fileFilter: ff
-}
-  // (req: express.Request, file: Express.Multer.File, callback: multer.FileFilterCallback): void
-);
-
-
-// FUNCIONA GRACIAS A POSTMAN Y NO GRACIAS A THUNDER CLIENT
-
-app.post('/images/single', upload.single('imagenPerfil'), (req, res) => {
-  console.log(req.file);
-  saveImage(req.file);
-  res.send('No sé cómo pero funcioné.')
-})
-
-app.post('/images/multi', upload.array('photos', 5), (req, res) => {
-  req.files.map(saveImage);
-  res.send('No se como pero funcioné x2 (ahora en multi)')
-})
-
-function ff (req, res, cb){
-  const filtro = /\.(jpg|jpeg|png|gif)$/;
-  if(filtro.test(req.files.originalname)){
-    console.log(filtro.test(req.files.originalname));
-    cb(null, true);
-  }else{
-    console.log(filtro.test(req.files.originalname));
-    req.errorValidationImage = "No se acepta este formato de imagenes."
-    cb(null, false);
-  }
-}
-
-function saveImage (file) {
-  const filtro = /\.(jpg|jpeg|png|gif)$/;
-  const newPath = `public/images/users/${file.originalname}`;
-  fs.renameSync(file.path, newPath);
-  return newPath;
-}
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -75,9 +34,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({
   secret : 'miSecreto',
-  resave : false,
+  resave : true,
   saveUninitialized : true
 }));
+
+app.use((req, res, next) => {
+  res.locals.usuarioLogueado = req.session.user || null;
+  next();
+});
 
 /* RUTAS USE */
 

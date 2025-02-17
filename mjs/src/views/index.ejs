@@ -4,7 +4,7 @@
   <body>
     <%- include('partial/header') %>
     <main class="div-main">
-        
+      <% if(usuarioLogueado){console.log("Log del res.locals:\n", usuarioLogueado)}; %>
         <h1> <%= title %></h1>
             
         <div class="banner-index">

@@ -1,6 +1,6 @@
 const adminCheck = (req, res, next) => {
-    console.log("Sesión en adminCheck:", req.session.userLogin);
-    if (req.session.userLogin && req.session.userLogin.type == 'admin'){
+    console.log("Sesión en adminCheck:", req.session.user);
+    if (req.session.user && req.session.user.type == 'admin'){
         return next();
     }    
     res.redirect('/');
