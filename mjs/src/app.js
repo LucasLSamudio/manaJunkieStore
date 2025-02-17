@@ -22,7 +22,7 @@ const app = express();
 
 const upload = multer({
   dest: 'public/images/users',
-  // fileFilter: ff
+  fileFilter: ff
 }
   // (req: express.Request, file: Express.Multer.File, callback: multer.FileFilterCallback): void
 );
@@ -41,19 +41,20 @@ app.post('/images/multi', upload.array('photos', 5), (req, res) => {
   res.send('No se como pero funcioné x2 (ahora en multi)')
 })
 
-// function ff (req, res, cb){
-//   const filtro = /\.(jpg|jpeg|png|gif)$/;
-//   if(filtro.test(req.files.originalname)){
-//     console.log(filtro.test(req.files.originalname));
-//     cb(null, true);
-//   }else{
-//     console.log(filtro.test(req.files.originalname));
-//     req.errorValidationImage = "No se acepta este formato de imagenes."
-//     cb(null, false);
-//   }
-// }
+function ff (req, res, cb){
+  const filtro = /\.(jpg|jpeg|png|gif)$/;
+  if(filtro.test(req.files.originalname)){
+    console.log(filtro.test(req.files.originalname));
+    cb(null, true);
+  }else{
+    console.log(filtro.test(req.files.originalname));
+    req.errorValidationImage = "No se acepta este formato de imagenes."
+    cb(null, false);
+  }
+}
 
 function saveImage (file) {
+  const filtro = /\.(jpg|jpeg|png|gif)$/;
   const newPath = `public/images/users/${file.originalname}`;
   fs.renameSync(file.path, newPath);
   return newPath;
