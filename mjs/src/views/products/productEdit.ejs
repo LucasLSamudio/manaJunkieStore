@@ -2,7 +2,12 @@
 <html lang="en">
 <%- include('../partial/head') %>
 <body>
-    <%- include('../partial/header') %>
+    
+    <% if(usuarioLogueado.type == 'admin'){ %>
+
+    <% } %>
+
+    <%- include('../partial/headerAdmin') %>
     <main class="main-register">
         <div class="div-forms-register">
 
@@ -56,8 +61,7 @@
                     <button type="reset" class="btn-mas-menos button-register-reset">Cancelar</button>
                 </div>
             </form>
-            <button id="btn-guardar">Guardar</button>
-            <button id="btn-normal">Btn normal</button>
+            <button style="display: none;" id="btn-guardar">Guardar</button>
         </div>
     </div>
     </main>
