@@ -3,6 +3,8 @@ const {toThousand} = require('../utils')
 
 const indexController = {
     index:(req, res) =>{
+        console.log("Log del res.locals.usuarioLogueado:\n",res.locals.usuarioLogueado);
+        console.log("Log del res.cookie:\n",res.cookie);
 
         const productJson = require('../db/products.json');
         prod = productJson[9]

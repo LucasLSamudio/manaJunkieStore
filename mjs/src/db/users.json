@@ -1,46 +1,32 @@
 [
-   {
-      "id": "1",
-      "firstName": "Roselin",
-      "lastName": "Joel",
-      "email": "user1@mjs.com",
-      "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
-      "phone": "1123456789",
-      "type": "user",
-      "avatar": "/images/avatars/pletzale.jpg",
-      "countVisited": 0
-   },
-   {
-      "id": "2",
-      "firstName": "Mendel",
-      "lastName": "Van der Merwe",
-      "email": "mvandermerwe1@irs.gov",
-      "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
-      "phone": "1123456789",
-      "type": "admin",
-      "avatar": "/images/avatars/pretzel.jpg",
-      "countVisited": 0
-   },
-   {
-      "id": "3",
-      "firstName": "Terrijo",
-      "lastName": "Peer",
-      "email": "tpeer2@joomla.org",
-      "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
-      "phone": "1123456789",
-      "type": "admin",
-      "avatar": "/images/avatars/polloCorazon.jpg",
-      "countVisited": 0
-   },
-   {
-      "id": "b8758e86-1fd6-4188-9249-a0f8d2a27cef",
-      "firstName": "Chanchito",
-      "lastName": "Feliz",
-      "email": "invadanPolonia@mjs.com",
-      "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
-      "phone": "1122334455",
-      "type": "admin",
-      "avatar": "defaultAvatar.jpg",
-      "countVisited": 0
-   }
+  {
+    "id": "1",
+    "firstName": "Roselin",
+    "lastName": "Joel",
+    "email": "user1@mjs.com",
+    "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
+    "phone": "1123456789",
+    "type": "user",
+    "avatar": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": "2",
+    "firstName": "Mendel",
+    "lastName": "Van der Merwe",
+    "email": "mvandermerwe1@irs.gov",
+    "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
+    "phone": "1123456789",
+    "type": "admin",
+    "avatar": "/images/avatars/pretzel.jpg"
+  },
+  {
+    "id": "3",
+    "firstName": "Terrijo",
+    "lastName": "Peer",
+    "email": "tpeer2@joomla.org",
+    "password": "$2b$10$GlsIZwi9HmdI.LFt9gkSk.rTlWTOIXy4xi7C5iHDtNtP9kmD4lJm2",
+    "phone": "1123456789",
+    "type": "admin",
+    "avatar": "/images/avatars/polloCorazon.jpg"
+  }
 ]

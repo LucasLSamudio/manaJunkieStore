@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partial/head') %>
+<body>
+    <%- include('../partial/header') %>
+    <main> 
+        <div>
+            <div class="article-product-section">
+                <h2 class="titulo"> Bienvenido al perfil de <strong> <%= usuarioLogueado.firstName %> </strong></h2>    
+            </div>
+            <div>
+                <form action="/users/update/<%= usuarioLogueado.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <label for="avatar">Actualizar foto de perfil</label>
+                    <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.png " value="<%= locals.user && locals.user.avatar ? user.avatar : ""%>">
+                    
+                    <button type="submit">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <%- include('../partial/footer') %>
+</body>
+</html>
