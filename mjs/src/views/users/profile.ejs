@@ -11,7 +11,7 @@
             <div>
                 <form action="/users/update/<%= usuarioLogueado.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <label for="avatar">Actualizar foto de perfil</label>
-                    <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.png " value="<%= locals.user && locals.user.avatar ? user.avatar : ""%>">
+                    <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.png">
                     
                     <button type="submit">Actualizar</button>
                 </form>

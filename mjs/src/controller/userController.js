@@ -16,7 +16,7 @@ const userController = {
         console.log(res.cookie);
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const {email, password} = req.body
-        const user = users.find(u => u.email === email && bcrypt.compareSync(password, u.password)) 
+        const user = users.find(u => bcrypt.compareSync(email, u.email) && bcrypt.compareSync(password, u.password)) 
         if(!user){
             return res.render('users/login',{
                 title:"Iniciar Sesión",
@@ -38,7 +38,7 @@ const userController = {
         })
     },
     processRegister: (req, res) => {
-        return res.send(req.params);
+        // return res.send(req.body);
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const {firstName, lastName, password, email, phone} = req.body;
 
@@ -46,11 +46,10 @@ const userController = {
             id : uuidv4(),
             firstName: firstName.trim(),
             lastName : lastName.trim(),
-            emailNoHash : email.trim(),
-            email : bcrypt.hashSync(emailNoHash,5),
+            email : bcrypt.hashSync(email,5),
             password : bcrypt.hashSync(password,5),
             phone : phone,
-            type : 'Customer',
+            type : 'user',
             avatar : "defaultAvatar.jpg",
         }
         
@@ -66,12 +65,15 @@ const userController = {
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
 
         const id = req.params.id;
-        const user = users.find((user) => user.id === id);
-        req.body.avatar = req.file ? req.file.filename : user.avatar;
-        // avatarUser
-        
-        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(users, null, 2),'utf-8');
-        res.send(req.body);
+        req.body.avatar = req.file ? req.file.filename : user.avatar
+        const user = users.map(user => {
+            if(user.id === id){
+                user.avatar = req.body.avatar
+            };
+            return user
+        });
+        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(user, null, 2),'utf-8');
+        res.redirect('/');
     },
 
     logout: (req, res) => {

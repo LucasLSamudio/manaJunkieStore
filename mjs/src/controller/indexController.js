@@ -1,11 +1,11 @@
 const {toThousand} = require('../utils')
+const fs = require('fs')
+const path = require('path')
 
 
 const indexController = {
     index:(req, res) =>{
-        console.log("Log del res.locals.usuarioLogueado:\n",res.locals.usuarioLogueado);
-        console.log("Log del res.cookie:\n",res.cookie);
-
+        JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const productJson = require('../db/products.json');
         prod = productJson[9]
         prod2 = productJson[15]

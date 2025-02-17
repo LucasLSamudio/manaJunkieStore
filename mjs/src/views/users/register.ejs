@@ -5,7 +5,7 @@
         <%- include('../partial/header') %>
         <main class="main main-register">
             <div class="div-forms-register">
-                <form action="/users/processRegister" method="POST" class="forms-register" enctype="multipart/form-data"> 
+                <form action="/users/processRegister" method="POST" class="forms-register"> 
                     
                     <h2 class="titulo-register">Registro De Usuario</h2>
 
@@ -27,11 +27,11 @@
                     <label for="phone" class="label-register">Ingrese su número de teléfono</label>
                     <input type="number" name="phone" id="phone" class="input-register" placeholder="11-2345-6789">
                     
-                    <div class="div-register div-reg-imgProd">
+                    <!-- <div class="div-register div-reg-imgProd">
                         <p class="label-register">Foto de perfil</p>
                         <label for="avatar" class="label-register btn-mas-menos label-reg-file">Agregar</label>
                         <input multiple type="file" name="avatar" id="avatar" class="input-register input-reg-file" multiple="false" accept=".png, .jpg">
-                    </div>
+                    </div> -->
 
                     <div class="div-button-register">
                         <button type="submit" class="btn-mas-menos button-register-submit">Registrarse</button>
