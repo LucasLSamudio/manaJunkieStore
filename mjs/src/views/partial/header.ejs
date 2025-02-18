@@ -26,6 +26,7 @@
                 <button class="btn-header"><i class="fa-solid fa-cart-plus"></button></i>
             </a>
         </div>
+        <button class="btn-header user-button-icon"><i class="fa-solid fa-user"></i></button>
         <% if(!locals.usuarioLogueado){ %>
             <a href="/users/login">
                 <button class="btn-header login-button" id="ingresar">Ingresar</button>
@@ -33,19 +34,18 @@
             <a href="/users/register">
                 <button class="btn-header register-button" id="registrar">Registrarse</button>
             </a>
-        <button class="btn-header user-button-icon"><i class="fa-solid fa-user"></i></button>
-    </div>
+        </div>
         <% } %>
     <div class="burguer-button">
         <button class="btn-header"><i class="fa-solid fa-bars"></i></button>
     </div>
     <% if(locals.usuarioLogueado){ %>
         <div class="user-logueado">
-            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: .5rem; gap: .4rem;">
+            <div class="contenedor-user-logueado">
                 <img src="/images/users/<%= usuarioLogueado.avatar %>" alt="imagenPerfil" style="width: 3rem;">
-                <p>¡Hola, <a href="/users/profile/<%= usuarioLogueado.id %>" style="color: #bf930d;"><%= usuarioLogueado.firstName %></a>! </p>
+                <p class="user-name">¡Hola, <a href="/users/profile/<%= usuarioLogueado.id %>"><%= usuarioLogueado.firstName %></a>! </p>
             </div>
-            <p>Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a>. </p>
+            <p class="session-logout">Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a> </p>
         </div>
     <% } %>
 </header>

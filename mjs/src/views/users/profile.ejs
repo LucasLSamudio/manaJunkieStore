@@ -3,19 +3,36 @@
 <%- include('../partial/head') %>
 <body>
     <%- include('../partial/header') %>
-    <main> 
+    <main class="main main-profile"> 
         <div>
-            <div class="article-product-section">
-                <h2 class="titulo"> Bienvenido al perfil de <strong> <%= usuarioLogueado.firstName %> </strong></h2>    
-            </div>
-            <div>
-                <form action="/users/update/<%= usuarioLogueado.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <label for="avatar">Actualizar foto de perfil</label>
-                    <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.png">
+            <div class="div-forms-profile">
+                <h2 class="titulo-profile"> Bienvenido al perfil de  <%= firstName %> </h2>    
+                <form action="/users/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="forms-profile"> 
+                    <label for="firstName" class="label-profile" >Ingrese su nombre</label>
+                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-profile" value="<%= firstName %>">
                     
-                    <button type="submit">Actualizar</button>
-                </form>
-            </div>
+                    <label for="lastName" class="label-profile" >Ingrese su apellido</label>
+                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-profile" value="<%= lastName %>">
+
+                    <label for="email" class="label-profile">Ingrese su correo</label>
+                    <input type="email" placeholder="ejemplo@gmail.com" name="email" id="email" class="input-profile" value="">
+                    
+                    <label for="password" class="label-profile" >Ingrese una contraseña</label>
+                    <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-profile" >
+                    
+                    <label for="password2" class="label-profile" >Confirmar contraseña</label>
+                    <input type="password" placeholder="MiContraseña123" name="password2" id="password2" required class="input-profile">
+                    
+                    <label for="phone" class="label-profile">Ingrese su número de teléfono</label>
+                    <input type="number" name="phone" id="phone" class="input-profile" placeholder="11-2345-6789" value="<%= phone %>">
+                    
+                    <div class="contenedor-button-profile">
+                        <label for="avatar" class="label-profile">Actualizar foto de perfil</label>
+                        <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.png" class="" >
+                        <button class="btn-mas-menos button-register-submit button-profile" type="submit">Actualizar</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </main>
     <%- include('../partial/footer') %>

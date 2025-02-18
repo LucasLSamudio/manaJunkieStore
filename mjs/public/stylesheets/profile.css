@@ -1,0 +1,57 @@
+.main-profile{
+    padding: 2rem;
+}
+
+.div-forms-profile{
+    padding: 1rem;
+    border: 0.2rem solid black;
+    border-radius: 1.5rem;
+}
+
+.forms-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.titulo-profile{
+    padding: 1rem;
+}
+
+.label-profile{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.input-profile{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid black;
+}
+.div-button-profile{
+    display: flex;
+    gap: 1.5rem;
+}
+.button-profile-submit{
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+}
+.button-profile-reset{
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+    transition: all .3s ease;
+}
+.contenedor-button-profile{
+    display: flex;
+        flex-direction: column;
+}
+.button-profile{
+    display: flex;
+    justify-content: center;
+}
