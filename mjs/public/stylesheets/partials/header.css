@@ -161,6 +161,10 @@
     .btn-header:active{
         transform: scale(0.9);
     }
+    .user-button{
+        width: 30%;
+        gap: 1.4rem;
+    }
 }
 @media (min-width: 1024px){
     .user-logueado{
