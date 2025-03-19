@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    
+    if(params.has('remove')){
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "¡Producto eliminado con éxito!",
+            showConfirmButton: false,
+            timer: 1500
+            });
+    }
+
     document.querySelectorAll(".borrarProd").forEach(button => {
         button.addEventListener("click", function () {
             let productId = this.getAttribute("data-id");
