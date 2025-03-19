@@ -91,7 +91,7 @@ const productsController = {
 
         const newArray = productJson.filter(prod => prod.id !== +id);
         fs.writeFileSync(path.join(__dirname,'../db/products.json'),JSON.stringify(newArray,null,2),'utf-8')
-        return res.redirect('/admin');
+        return res.redirect('/admin?remove=true');
     },
 
     search: (req, res) => {

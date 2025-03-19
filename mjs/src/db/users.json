@@ -37,7 +37,7 @@
     "password": "$2b$05$IB4nUMWqzyXRu3Mtnd2rLeouR3Jg5dChM1jEBL.NELXfO9tcTXTeq",
     "phone": "1122334455",
     "type": "admin",
-    "avatar": "defaultAvatar.jpg"
+    "avatar": "1742329918887-ace37aae-f0b0-4dbf-b2d0-2f49fa0ec5b62019-01-18.png"
   },
   {
     "id": "615cbf45-cc18-43a3-8ad0-64e414609cd7",
@@ -47,6 +47,16 @@
     "password": "$2b$05$anf1UJM6ncKP.WoDQziTEeEqeW4gmaXrn/1c5WBM9MWrpOVS2IF7m",
     "phone": "1122334455",
     "type": "admin",
+    "avatar": "defaultAvatar.jpg"
+  },
+  {
+    "id": "afcc00c2-b52e-4e06-a9f8-d12dd59f1e78",
+    "firstName": "Chanchito",
+    "lastName": "Feliz",
+    "email": "$2b$05$yj2nJDdOBvJLK9JpRSdxfOpEACqDBSuS7Ya.06ucTVJPPv7ETXVrq",
+    "password": "$2b$05$yF6RCq69Vz0S2ulUxRrIzOGEB8gjPQPWeE/atQpmbKyi5GQeOqqM6",
+    "phone": "",
+    "type": "user",
     "avatar": "defaultAvatar.jpg"
   }
 ]
