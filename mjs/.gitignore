@@ -1,5 +1,6 @@
 /node_modules
 /src/modules
-package-lock.json
+.package-lock.json
+.env
 
 clear
