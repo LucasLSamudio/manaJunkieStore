@@ -36,7 +36,6 @@ const userController = {
         })
     },
     processRegister: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
         const {firstName, lastName, password, email, phone} = req.body;
 
         const newUser = {
