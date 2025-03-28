@@ -1,6 +1,6 @@
 
     <article class="article-product">
-        <img src="/images/products/<%- images[0].name %>" alt="img-prod-art" class="img-article">
+        <img src="/images/products/<%- images.length ? images[0].name : 'default-image.png' %>" alt="img-prod-art" class="img-article">
         <div class="description-article">
             <h3 class="title-article-product"><%= name %></h3>
             <p class="precio-article">$<%= toThousand(price) %></p>
