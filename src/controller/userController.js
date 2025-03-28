@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
+const {User} = require('../database/models')
+
 const userController = {
     login: (req, res) => {
         let error = "";
@@ -35,24 +37,44 @@ const userController = {
             title: "Registrarse"
         })
     },
-    processRegister: (req, res) => {
-        const {firstName, lastName, password, email, phone} = req.body;
+    processRegister: async (req, res) => {
 
-        const newUser = {
-            id : uuidv4(),
-            firstName: firstName.trim(),
-            lastName : lastName.trim(),
-            email : bcrypt.hashSync(email,5),
-            password : bcrypt.hashSync(password,5),
-            phone : phone,
-            type : 'user',
-            avatar : "defaultAvatar.jpg",
+        try {
+            const {firstName, lastName, password, email, phone} = req.body;
+
+            if([firstName, lastName, password, email].includes('')){
+                return res.render('users/register',{
+                    title : 'Registrarse',
+                    error : 'Todos los campos señalados con "*" son obligatorios'
+                })
+            }
+
+            const user = await User.findOne({ where: { email } })
+
+            if(user) return res.render('users/register',{
+                title : 'Registrarse',
+                error : 'El email ya se encuentra registrado'
+            });
+
+            const newUser = await User.create({
+                firstName: firstName.trim(),
+                surname: lastName.trim(),
+                email: email.trim(),
+                password: bcrypt.hashSync(password, 10),
+                token: null, 
+                validate: true, 
+                lock: false,
+                idRol: 2,
+            });
+
+            return res.redirect('/users/login');
+
+
+        } catch (error) {
+            console.log(error);
+            
         }
-        
-        users.push(newUser);
-        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(users, null, 3),'utf-8')
-        
-        return res.redirect('/users/login')
+
     },
     profile: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
