@@ -24,7 +24,7 @@
                         <select name="category" id="category" class="input-register">
                             <option value="" hidden selected>Elegí la categoría</option>
                             <% categories.forEach(category => { %>
-                                <option value="<%= category %>" ><%= category %></option>
+                                <option value="<%= category.id %>" ><%= category.name %></option>
                             <% }) %>
                         </select>
                     </div>
