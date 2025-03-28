@@ -30,8 +30,8 @@ const userController = {
                 });
             }
 
-            const { id, firstName, idRol} = user;
-            req.session.user = { email, firstName, id, idRol };
+            const { id, firstName, rol} = user;
+            req.session.user = { email, firstName, id, rol };
 
             res.locals.usuarioLogueado = {...req.session.user}
             res.cookie("user", { email, firstName, id}, {maxAge: 1000*60*30})
