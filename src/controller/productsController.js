@@ -22,15 +22,23 @@ const productsController = {
         
     },
     
-    detail: (req, res) => {
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'));
-        const prod = productJson.findIndex(prod => prod.id === +req.params.id);
-        
-        return res.render('products/productDetail', {
-            product: productJson[prod],
-            title: prod.name,
-            toThousand
-        })
+    detail: async (req, res) => {
+
+        try {
+            const product = await Product.findByPk(req.params.id,{
+                include : ['images']
+            })
+
+            return res.render('products/productDetail', {
+                product,
+                title: product.name,
+                toThousand
+            })
+        } catch (error) {
+            console.log(error);
+            
+        }
+    
     },
     
     create: (req, res) => { // GET

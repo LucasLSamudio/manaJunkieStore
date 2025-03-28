@@ -5,21 +5,21 @@
         <%- include('../partial/header') %>
         <main>
             <%- include('../partial/boxProductDetail',{
-                ...product,
+                ...product.dataValues,
             }) %>
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
                 <%- include('../partial/articleProduct',{
-                    ...product,
+                    ...product.dataValues,
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...product,
+                    ...product.dataValues,
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...product,
+                    ...product.dataValues,
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...product,
+                    ...product.dataValues,
                 }) %>
             </section>
         </main>
