@@ -66,10 +66,11 @@ const userController = {
                 error : 'El email ya se encuentra registrado'
             });
 
-            const newUser = await User.create({
+            await User.create({
                 firstName: firstName.trim(),
                 surname: lastName.trim(),
                 email: email.trim(),
+                phone,
                 password: bcrypt.hashSync(password, 10),
                 token: null, 
                 validate: true, 
@@ -102,18 +103,34 @@ const userController = {
             console.log(error);
         }
     },
-    update: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const id = req.params.id;
-        req.body.avatar = req.file ? req.file.filename : user.avatar
-        const user = users.map(user => {
-            if(user.id === id){
-                user.avatar = req.body.avatar
-            };
-            return user
-        });
-        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(user, null, 2),'utf-8');
-        res.redirect('/');
+    update: async (req, res) => {
+        try {
+            const {id} = req.session.user
+            // TODO: VALIDAR QUE EL USUARIO EXISTA
+
+            const {firstName, lastName, email, phone} = req.body;
+
+            await User.update(
+                {
+                    firstName: firstName.trim(),
+                    surname: lastName.trim(),
+                    email: email.trim(),
+                    phone,
+                },
+                {
+                    where : {
+                        id
+                    }
+                }
+            )
+            res.redirect('/users/profile');
+
+           
+        } catch (error) {
+            console.log(error);
+            
+        }
+      
     },
 
     logout: (req, res) => {
