@@ -1,3 +1,4 @@
+require('dotenv').config()
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -70,8 +71,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-let puerto = "http://localhost:3001/"
-console.log(`Página corriendo en: ${puerto}`);
+console.log(`Página corriendo en: http://localhost:${process.env.PORT}`);
 
 
 module.exports = app;

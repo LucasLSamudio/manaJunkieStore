@@ -8,9 +8,9 @@
             
             <section class="article-product-section">
 
-                <% productJson.forEach((product) => { %>
+                <% products.forEach((product) => { %>
                     <%- include('../partial/articleProduct', {
-                        ...product,
+                        ...product.dataValues,
                     }) %>
                 <% }) %>
 

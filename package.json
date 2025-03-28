@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www localhost 3000"
+    "dev": "nodemon ./src/bin/www localhost 3000",
+    "db-reset" : "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cli": "^1.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.7",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.18.1",
@@ -24,6 +26,6 @@
     "uuid": "^11.0.5"
   },
   "devDependencies": {
-    "dotenv": "^16.4.7"
+    "sequelize-cli": "^6.6.2"
   }
 }

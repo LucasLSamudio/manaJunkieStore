@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partial/head') %>
+  <body>
+    <%- include('partial/header') %>
+    <main class="div-main">
+      <% if(usuarioLogueado){console.log("Log del res.locals:\n", usuarioLogueado)}; %>
+        <h1> <%= title %></h1>
+            
+     <!--    <div class="banner-index">
+          <img src="" alt="banner">
+        </div> -->
+        
+        <% categories.forEach(({name, products}) => { %>
+          <h2 class="titulo"><%= name %></h2>
+        
+          <section class="article-product-section">
+            <% products.forEach((product) => { %>
+              <%- include('partial/articleProduct',{
+                ...product.dataValues
+              }) %>
+            <% }) %>
+        
+        
+          </section>
+        <% }) %>
+       
+
+       
+
+      </div>
+
+    </div>
+    </main>
+    <%- include('partial/footer') %>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/javascripts/sweetAlertExample.js"></script> -->
+  </body>
+</html>
