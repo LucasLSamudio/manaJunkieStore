@@ -137,13 +137,23 @@ const productsController = {
     },
     
     
-    delete: (req, res) => {
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'));
-        const {id} = req.params;
+    delete: async (req, res) => {
 
-        const newArray = productJson.filter(prod => prod.id !== +id);
-        fs.writeFileSync(path.join(__dirname,'../db/products.json'),JSON.stringify(newArray,null,2),'utf-8')
-        return res.redirect('/admin?remove=true');
+        try {
+            const {id} = req.params;
+            Product.destroy({
+                where : {
+                    id
+                }
+            });
+            // TODO: eliminar las imágenes asociadas
+            return res.redirect('/admin?remove=true');
+
+        } catch (error) {
+            console.log(error);
+            
+        }
+
     },
 
     search: (req, res) => {
