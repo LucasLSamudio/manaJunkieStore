@@ -1,17 +1,30 @@
-const {toThousand} = require('../utils')
-const fs = require('fs');
-const path = require('path');
+const { toThousand } = require("../utils");
+const fs = require("fs");
+const path = require("path");
 
-const adminController  = {
-    index:(req,res) =>{
-        const products = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'))
-        const categories = require('../db/categories.json')
-        res.render('admin',{
-            categories,
-            products,
-            toThousand
-        })
-    }
-}
+const { Product, Category } = require("../database/models");
 
-module.exports = adminController
+const adminController = {
+    index: async (req, res) => {
+        try {
+
+            const [products, categories] = await Promise.all([
+                Product.findAll({
+                    include : ['images', 'category'] 
+                }),
+                Category.findAll(),
+            ]);
+
+            return res.render("admin", {
+                products,
+                categories,
+                title: "Mana Junkie Store",
+                toThousand,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+};
+
+module.exports = adminController;

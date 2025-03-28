@@ -40,7 +40,7 @@
                 <select class="select-filter">
                   <option value="" hidden selected>Elegí la categoría</option>
                             <% categories.forEach(category => { %>
-                                <option><%= category %></option>
+                                <option><%= category.name %></option>
                             <% }) %>
                 </select>
 
@@ -66,13 +66,13 @@
               </tr>
             </thead>
             <tbody class="tbody-tr-th">
-              <% products.forEach(({id, name, price, discount, description, image, category}) => { %>
+              <% products.forEach(({id, name, price, discount, description, images, category}) => { %>
               <tr>
                   <th><%= id %></th>
                   <td class="th-fila-junior"><%= name %></td>
                   <td class="th-fila-junior">$<%= toThousand(price) %></td>
                   <td class="th-fila-junior"><%= discount %>%</td>
-                  <td class="th-fila-junior"><%= category %></td>
+                  <td class="th-fila-junior"><%= category.name %></td>
                   <td class="td-fila-junior">
                       <div class="div-button-acciones">
 
