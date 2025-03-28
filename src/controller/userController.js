@@ -14,21 +14,31 @@ const userController = {
             title: "Iniciar Sesión"
         })
     },
-    processLogin: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const {email, password} = req.body
-        const user = users.find(u => bcrypt.compareSync(email, u.email) && bcrypt.compareSync(password, u.password)) 
-        if(!user){
-            return res.render('users/login',{
-                title:"Iniciar Sesión",
-                error: "Error al iniciar sesión. Datos incorrectos.",
+    processLogin: async (req, res) => {
+
+        try {
+            const {email, password} = req.body
+
+            const user = await User.findOne({ 
+                where: { email },
+                include : ['rol'] 
             });
-        }else{
-            const { id, firstName, type, avatar} = user;
-            req.session.user = { email, firstName, id, type, avatar };
+            if (!user || !bcrypt.compareSync(password, user.password)) {
+                return res.render('users/login', {
+                    title:"Iniciar Sesión",
+                    error: "Error al iniciar sesión. Datos incorrectos.",
+                });
+            }
+
+            const { id, firstName, idRol} = user;
+            req.session.user = { email, firstName, id, idRol };
+
             res.locals.usuarioLogueado = {...req.session.user}
-            res.cookie("user", { email, firstName, id, avatar}, {maxAge: 1000*60*30})
+            res.cookie("user", { email, firstName, id}, {maxAge: 1000*60*30})
             return res.redirect(`/`)
+
+        } catch (error) {
+            console.log(error);
         }
     },
 
@@ -76,14 +86,21 @@ const userController = {
         }
 
     },
-    profile: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const {id} = req.session.user
-        const u = users.find(user => user.id === id)
-        res.render('users/profile',{ 
-            title: "Perfil",
-            ...u
-        })
+    profile: async (req, res) => {
+
+        try {
+            const {id} = req.session.user
+            const user = await User.findByPk(id);
+            console.log(user);
+            
+            res.render('users/profile',{ 
+                title: "Perfil",
+                ...user.dataValues
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
     },
     update: (req, res) => {
         const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
