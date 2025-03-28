@@ -1,17 +1,25 @@
 const fs = require('fs');
 const path = require('path')
 const {toThousand, } = require('../utils')
+const {Product} = require('../database/models')
 
 const categories = require('../db/categories.json')
 
 const productsController = {
-    list:(req, res) => {
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'));
-        res.render('products/allProducts', { 
-            productJson,
-            title: "Mana Junkie Store",
-            toThousand
-        });
+    list: async (req, res) => {
+        try {
+            const products = await Product.findAll({
+                include : ['images']
+            })
+            res.render('products/allProducts', { 
+                products,
+                title: "Mana Junkie Store",
+                toThousand
+            });
+        } catch (error) {
+            console.log(error);
+        }
+        
     },
     
     detail: (req, res) => {

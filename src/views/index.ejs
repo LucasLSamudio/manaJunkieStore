@@ -7,45 +7,26 @@
       <% if(usuarioLogueado){console.log("Log del res.locals:\n", usuarioLogueado)}; %>
         <h1> <%= title %></h1>
             
-        <div class="banner-index">
+     <!--    <div class="banner-index">
           <img src="" alt="banner">
-        </div>
+        </div> -->
         
-        <h2 class="titulo">Productos Recomendados</h2>
+        <% categories.forEach(({name, products}) => { %>
+          <h2 class="titulo"><%= name %></h2>
         
-        <section class="article-product-section">
+          <section class="article-product-section">
+            <% products.forEach((product) => { %>
+              <%- include('partial/articleProduct',{
+                ...product.dataValues
+              }) %>
+            <% }) %>
+        
+        
+          </section>
+        <% }) %>
+       
 
-          <%- include('partial/articleProduct',{
-            ...prod
-          }) %>
-          <%- include('partial/articleProduct',{
-            ...prod
-          }) %>
-          <%- include('partial/articleProduct',{
-            ...prod
-          }) %>
-          <%- include('partial/articleProduct',{
-            ...prod
-          }) %>
-        </section>
-
-        <h2 class="titulo">Opiniones de nuestros clientes</h4>
-
-
-        <section class="article-opinion-section">
-            <%- include('partial/articleOpinion',{
-              ...prod2
-            }) %>
-            <%- include('partial/articleOpinion',{
-              ...prod2
-            }) %>
-            <%- include('partial/articleOpinion',{
-              ...prod2
-            }) %>
-            <%- include('partial/articleOpinion',{
-              ...prod2
-            }) %>
-        </section>          
+       
 
       </div>
 
