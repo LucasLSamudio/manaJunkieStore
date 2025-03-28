@@ -14,7 +14,7 @@ router.post('/processLogin', userController.processLogin);
 router.get('/register', userController.register);
 router.post('/processRegister', userController.processRegister);
 
-router.get('/profile/:id',userSessionCheck, userController.profile);
+router.get('/profile',userSessionCheck, userController.profile);
 router.put('/update/:id', userSessionCheck, upload.single('avatar'), userController.update);
 
 router.get('/logout', userController.logout);

@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
+const {User} = require('../database/models')
+
 const userController = {
     login: (req, res) => {
         let error = "";
@@ -12,21 +14,31 @@ const userController = {
             title: "Iniciar Sesión"
         })
     },
-    processLogin: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const {email, password} = req.body
-        const user = users.find(u => bcrypt.compareSync(email, u.email) && bcrypt.compareSync(password, u.password)) 
-        if(!user){
-            return res.render('users/login',{
-                title:"Iniciar Sesión",
-                error: "Error al iniciar sesión. Datos incorrectos.",
+    processLogin: async (req, res) => {
+
+        try {
+            const {email, password} = req.body
+
+            const user = await User.findOne({ 
+                where: { email },
+                include : ['rol'] 
             });
-        }else{
-            const { id, firstName, type, avatar} = user;
-            req.session.user = { email, firstName, id, type, avatar };
+            if (!user || !bcrypt.compareSync(password, user.password)) {
+                return res.render('users/login', {
+                    title:"Iniciar Sesión",
+                    error: "Error al iniciar sesión. Datos incorrectos.",
+                });
+            }
+
+            const { id, firstName, rol} = user;
+            req.session.user = { email, firstName, id, rol };
+
             res.locals.usuarioLogueado = {...req.session.user}
-            res.cookie("user", { email, firstName, id, avatar}, {maxAge: 1000*60*30})
+            res.cookie("user", { email, firstName, id}, {maxAge: 1000*60*30})
             return res.redirect(`/`)
+
+        } catch (error) {
+            console.log(error);
         }
     },
 
@@ -35,46 +47,90 @@ const userController = {
             title: "Registrarse"
         })
     },
-    processRegister: (req, res) => {
-        const {firstName, lastName, password, email, phone} = req.body;
+    processRegister: async (req, res) => {
 
-        const newUser = {
-            id : uuidv4(),
-            firstName: firstName.trim(),
-            lastName : lastName.trim(),
-            email : bcrypt.hashSync(email,5),
-            password : bcrypt.hashSync(password,5),
-            phone : phone,
-            type : 'user',
-            avatar : "defaultAvatar.jpg",
+        try {
+            const {firstName, lastName, password, email, phone} = req.body;
+
+            if([firstName, lastName, password, email].includes('')){
+                return res.render('users/register',{
+                    title : 'Registrarse',
+                    error : 'Todos los campos señalados con "*" son obligatorios'
+                })
+            }
+
+            const user = await User.findOne({ where: { email } })
+
+            if(user) return res.render('users/register',{
+                title : 'Registrarse',
+                error : 'El email ya se encuentra registrado'
+            });
+
+            await User.create({
+                firstName: firstName.trim(),
+                surname: lastName.trim(),
+                email: email.trim(),
+                phone,
+                password: bcrypt.hashSync(password, 10),
+                token: null, 
+                validate: true, 
+                lock: false,
+                idRol: 2,
+            });
+
+            return res.redirect('/users/login');
+
+
+        } catch (error) {
+            console.log(error);
+            
         }
-        
-        users.push(newUser);
-        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(users, null, 3),'utf-8')
-        
-        return res.redirect('/users/login')
+
     },
-    profile: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const {id} = req.session.user
-        const u = users.find(user => user.id === id)
-        res.render('users/profile',{ 
-            title: "Perfil",
-            ...u
-        })
+    profile: async (req, res) => {
+
+        try {
+            const {id} = req.session.user
+            const user = await User.findByPk(id);
+            console.log(user);
+            
+            res.render('users/profile',{ 
+                title: "Perfil",
+                ...user.dataValues
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
     },
-    update: (req, res) => {
-        const users = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/users.json'),'utf-8'));
-        const id = req.params.id;
-        req.body.avatar = req.file ? req.file.filename : user.avatar
-        const user = users.map(user => {
-            if(user.id === id){
-                user.avatar = req.body.avatar
-            };
-            return user
-        });
-        fs.writeFileSync(path.join(__dirname, '../db/users.json'),JSON.stringify(user, null, 2),'utf-8');
-        res.redirect('/');
+    update: async (req, res) => {
+        try {
+            const {id} = req.session.user
+            // TODO: VALIDAR QUE EL USUARIO EXISTA
+
+            const {firstName, lastName, email, phone} = req.body;
+
+            await User.update(
+                {
+                    firstName: firstName.trim(),
+                    surname: lastName.trim(),
+                    email: email.trim(),
+                    phone,
+                },
+                {
+                    where : {
+                        id
+                    }
+                }
+            )
+            res.redirect('/users/profile');
+
+           
+        } catch (error) {
+            console.log(error);
+            
+        }
+      
     },
 
     logout: (req, res) => {
