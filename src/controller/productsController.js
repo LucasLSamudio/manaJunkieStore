@@ -84,36 +84,56 @@ const productsController = {
         }
     },
 
-    edit: (req, res) => {
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'));
-        const { id } = req.params;
-        const prod = productJson.find(product => product.id === +id);
+    edit: async (req, res) => {
 
-        return res.render('products/productEdit',{
-            ...prod,
-            categories,
-            title: "Edición de producto",
-        })
+        try {
+            const { id } = req.params;
+
+            const [product, categories] = await Promise.all([
+                Product.findByPk(id,{
+                    include : ['images', 'category'] 
+                }),
+                Category.findAll(),
+            ]);
+
+            return res.render("products/productEdit", {
+                ...product.dataValues,
+                categories,
+                title: "Edición de producto",
+                toThousand,
+            });
+
+        } catch (error) {
+            console.log(error);   
+        }
     },
 
-    update: (req, res) => {
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'));
-        const { name, price, discount, description, category } = req.body;
+    update: async (req, res) => {
+
+        try {
+            const {name, price, discount, description, category} = req.body;
+
+            await Product.update(
+                {
+                    name : name.trim(),
+                    description : description.trim(),
+                    price,
+                    discount,
+                    idCategory : category
+                },
+                {
+                    where : {
+                        id : req.params.id
+                    }
+                }
+            )
+            return res.redirect('/admin');
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
     
-        const productModify = productJson.map(prod => {
-            if (prod.id === +req.params.id) {
-                prod.name = name.trim();
-                prod.price = +price;
-                prod.discount = +discount;
-                prod.description = description.trim();
-                prod.category = category;
-            }
-            return prod;
-        });
-    
-        fs.writeFileSync(path.join(__dirname, '../db/products.json'),JSON.stringify(productModify, null, 2),'utf-8');
-    
-        return res.redirect('/admin');
     },
     
     

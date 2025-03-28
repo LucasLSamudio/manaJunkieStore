@@ -35,7 +35,7 @@
                     <select name="category" id="category" class="input-register">
                         <option value="" hidden selected>Elegí la categoría</option>
                         <% categories.forEach(selectedCategory => { %>
-                            <option value="<%= selectedCategory %>" <%= selectedCategory == category && 'selected' %>><%= selectedCategory %></option>
+                            <option value="<%= selectedCategory.id %>" <%= selectedCategory.id == idCategory && 'selected' %>><%= selectedCategory.name %></option>
                         <% }) %>
                     </select>
                 </div>
