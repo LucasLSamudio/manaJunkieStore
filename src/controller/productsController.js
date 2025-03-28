@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 const {toThousand, } = require('../utils')
-const {Product} = require('../database/models')
+const {Product, Category} = require('../database/models')
 
 const categories = require('../db/categories.json')
 
@@ -41,31 +41,47 @@ const productsController = {
     
     },
     
-    create: (req, res) => { // GET
-        return res.render('products/productAdd',{
-            categories,
-            title: "Vender producto"
-        })
-    }, 
-    
-    add: (req, res) => { // POST
-        const productJson = JSON.parse(fs.readFileSync(path.join(__dirname,'../db/products.json'),'utf-8'))
-        const {name, price, discount, description, category} = req.body;
-        let newID = productJson[productJson.length - 1].id + 1;
-        const newProduct = {
-            id : newID,
-            name : name.trim(),
-            description : description.trim(),
-            price : +price,
-            discount : +discount,
-            image : "default-image.png",
-            category
+    create: async (req, res) => { // GET
+        
+        try {
+            const categories = await Category.findAll();
+
+            return res.render('products/productAdd',{
+                categories,
+                title: "Vender producto"
+            })
+
+        } catch (error) {
+            console.log(error);
         }
         
-        productJson.push(newProduct)
-        fs.writeFileSync(path.join(__dirname, '../db/products.json'),JSON.stringify(productJson, null, 3),'utf-8')
+    }, 
+    
+    add: async (req, res) => { // POST
 
-        return res.redirect('/products/' + newProduct.id,)
+        try {
+            const {name, price, discount, description, category} = req.body;
+
+            const product = await Product.create({
+                name : name.trim(),
+                description : description.trim(),
+                price,
+                discount,
+                idCategory : category
+            })
+
+            if(req.file) {
+                await ImageProduct.create({
+                    name : req.file.filename,
+                    idProduct : product.id
+                })
+            }
+
+            return res.redirect('/admin')
+
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     edit: (req, res) => {
