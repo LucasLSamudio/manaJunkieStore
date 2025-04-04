@@ -229,7 +229,7 @@
 .texto-detail{
     width: 100%;
     text-align: justify;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
     /* MEDIA QUERIES  */
@@ -276,16 +276,16 @@
         font-size: 2rem;
     }
     .box-texto-especificacion{
-        width: 32%;
+        /* width: 32%; */
         border-bottom: 0;
         padding-right: 1rem;
-        border-right: .2rem dotted black;
+        /* border-right: .2rem dotted black; */
     }
     .box-txt-spec-none-border{
         border-right: none;
     }
     .txt-d-1{
-        padding-left: 1rem;
+        padding: 1.3rem;
     }
     .icon-heart{
         left: 2.1rem;
