@@ -9,7 +9,7 @@
                 <div class="div-img-prod-price">
 
                     <div class="carrito-img-btn">
-                            <img class="img-carrito" src="/images/products/<%-prod.image %>" alt="">
+                            <img class="img-carrito" src="/public/images/products" alt="">
                             <div class="div-btn-span">
                                 <button class="btn-mas-menos btn-carrito"><span>Seguir comprando</span></button>
                                 <button class="btn-mas-menos btn-carrito"><span>Eliminar</span></button>
@@ -49,18 +49,18 @@
             </div>
             <h3 class="titulo">Productos recomendados</h3>
             <section class="article-product-section">
-                <%- include('../partial/articleProduct',{
-                    ...prod
+                <!-- <%- include('../partial/articleProduct',{
+                    ...prod.dataValues
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod
+                    ...prod.dataValues
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod
+                    ...prod.dataValues
                 }) %>
                 <%- include('../partial/articleProduct',{
-                    ...prod
-                }) %>
+                    ...prod.dataValues
+                }) %> -->
             </section>
         </main>
         <%- include('../partial/footer') %>
