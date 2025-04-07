@@ -1,9 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 const {toThousand, } = require('../utils')
-const {Product, Category} = require('../database/models')
-
-const categories = require('../db/categories.json')
+const {Product, Category, ImageProduct} = require('../database/models')
 
 const productsController = {
     list: async (req, res) => {
@@ -58,7 +56,6 @@ const productsController = {
     }, 
     
     add: async (req, res) => { // POST
-
         try {
             const {name, price, discount, description, category} = req.body;
 
@@ -70,11 +67,14 @@ const productsController = {
                 idCategory : category
             })
 
-            if(req.file) {
-                await ImageProduct.create({
-                    name : req.file.filename,
-                    idProduct : product.id
+            if(req.files.length) {
+                req.files.forEach(async (file) => {
+                    await ImageProduct.create({
+                        name : file.filename,
+                        idProduct : product.id
+                    })
                 })
+               
             }
 
             return res.redirect('/admin')
@@ -112,7 +112,7 @@ const productsController = {
 
         try {
             const {name, price, discount, description, category} = req.body;
-
+            const {id} = req.params;path
             await Product.update(
                 {
                     name : name.trim(),
@@ -123,10 +123,41 @@ const productsController = {
                 },
                 {
                     where : {
-                        id : req.params.id
+                        id
                     }
                 }
             )
+
+            // si cargo imagenes en el input fipo file
+            if(req.files.length){
+                // obtengo las imágenes de la base de datos
+                const images = await ImageProduct.findAll({
+                    where : {
+                        idProduct : id
+                    }
+                });
+                // elimino los archivos (físicos)
+                images.forEach(image => {
+                    const pathFile = path.join(__dirname,`../../public/images/products/${image.name}`)
+                    fs.existsSync(pathFile) && fs.unlinkSync(pathFile)
+                });
+
+                // elimino los registros de las imágenes asociadas al producto
+                await ImageProduct.destroy({
+                    where :{
+                        idProduct : id
+                    }
+                });
+
+                // agrego las 'nuevas' imágenes
+                req.files.forEach(async (file) => {
+                    await ImageProduct.create({
+                        name : file.filename,
+                        idProduct : id
+                    })
+                });
+            }
+
             return res.redirect('/admin');
             
         } catch (error) {

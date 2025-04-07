@@ -88,7 +88,6 @@ const userController = {
 
     },
     profile: async (req, res) => {
-
         try {
             const {id} = req.session.user
             const user = await User.findByPk(id);
@@ -104,6 +103,7 @@ const userController = {
         }
     },
     update: async (req, res) => {
+        return res.send(req.file)
         try {
             const {id} = req.session.user
             // TODO: VALIDAR QUE EL USUARIO EXISTA

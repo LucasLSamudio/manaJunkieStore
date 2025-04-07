@@ -4,7 +4,7 @@
         <div class="box-img-producto">
             <div class="img-principal-icon">
                 <div class="img-wrapper">
-                    <img src=" /images/products/<%- images.length ? images[0].name : 'default-image.png' %> " alt="">
+                    <img id="imagePreview" src=" /images/products/<%- images.length ? images[0].name : 'default-image.png' %> " alt="">
 
                 </div>
                 <button class="icon-heart"><i class="fa-regular fa-heart"></i></button>
@@ -12,7 +12,7 @@
 
             <div class="slider-box-img">
                 <% images.length && images.forEach(image => { %>
-                    <img src="/images/products/<%- image.name %>" alt="" class="slider-box-img-min">
+                    <img onclick="document.getElementById('imagePreview').setAttribute('src',this.src)" src="/images/products/<%- image.name %>" alt="" class="slider-box-img-min">
                 <% }) %>
             </div>
         </div>

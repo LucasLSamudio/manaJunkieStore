@@ -6,7 +6,7 @@
         <main class="main-register">
             <div class="div-forms-register">
 
-                <form action="/products/add" method="POST" class="forms-register"> 
+                <form action="/products/add" method="POST" class="forms-register" enctype="multipart/form-data"> 
                     
                     <h2 class="titulo-register">Agregar producto</h2>
                     
@@ -31,8 +31,11 @@
                     
                     <div class="div-register div-reg-imgProd">
                         <p class="label-register">Fotos del producto</p>
-                        <label for="image" class="label-register btn-mas-menos label-reg-file">Agregar</label>
-                        <input multiple type="file" name="image" id="image" class="input-register input-reg-file" accept=".png, .jpg">
+                        <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar</label>
+                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg">
+                        <div id="previewImages">
+
+                        </div>
                     </div>
                     
                     <div class="div-register">
@@ -53,5 +56,31 @@
             </div>
         </main>
         <%- include('../partial/footer') %> 
+        <script>
+            const fileInput = document.getElementById('productImage');
+            const previewImages = document.getElementById('previewImages');
+
+            // Manejador del evento de cambio
+            fileInput.addEventListener('change', function(e) {
+                previewImages.innerHTML = null;
+                const files = e.target.files;
+                console.log(files);
+                
+                for (let i = 0; i < files.length; i++) {
+                    const objectUrl = URL.createObjectURL(files[i]);
+                    
+                    // Crear un etiqueta img
+                    const img = document.createElement('img')
+
+                    // Cargar la url 
+                    img.src = objectUrl
+
+                    previewImages.appendChild(img)
+                    
+                }
+             
+            });
+
+        </script>
     </body>
 </html>

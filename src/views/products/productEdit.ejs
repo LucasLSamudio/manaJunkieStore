@@ -11,7 +11,7 @@
     <main class="main-register">
         <div class="div-forms-register">
 
-            <form action="/products/update/<%= id %>?_method=PUT" method="POST" class="forms-register"> 
+            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="forms-register"> 
                 
                 <h2 class="titulo-register">Editar producto</h2>
                 
@@ -42,8 +42,17 @@
 
                 <div class="div-register div-reg-imgProd">
                     <p class="label-register">Fotos del producto</p>
-                    <label for="image" class="label-register btn-mas-menos label-reg-file">Agregar o cambiar</label>
-                    <input multiple type="file" name="image" id="image" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
+                    <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar o cambiar</label>
+                    <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
+                    <div>
+                        <% if (images.length) { %>
+                            <% images.forEach(image => { %>
+                                <img style="width: 100px;" src="/images/products/<%= image.name %>" alt="<%= name %>">
+                            <% }) %>
+                        <% } else { %>
+                            <p>No hay imágenes</p>
+                        <% } %>
+                    </div>
                 </div>
 
                 <!-- <div class="div-register">
