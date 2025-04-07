@@ -5,12 +5,12 @@ const path = require('path')
 // V1
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, path.join(__dirname,'../../public/images/users'));
+    destination: function(req, file, cb){        
+        cb(null, path.join(__dirname,`../../public/images/${file.fieldname == 'avatar' ? 'users' : 'products'}`));
     },
 
     filename: function(req, file, cb){
-        const uniqueSuffix = Date.now() + "-" + uuidv4() + file.originalname;
+        const uniqueSuffix = `${uuidv4()}${path.extname(file.originalname)}`
         cb(null, uniqueSuffix);
     },
 });
