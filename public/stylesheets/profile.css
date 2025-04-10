@@ -16,11 +16,18 @@
 }
 .titulo-profile{
     padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
 }
 
 .label-profile{
     font-weight: bold;
     font-size: 1.5rem;
+    }
+    
+.label-profile-image{
+    text-align: center;
+    padding-bottom: 1rem;
 }
 
 .input-profile{
@@ -39,6 +46,12 @@
     border: 0.2rem solid black;
     border-radius: 0.3rem;
     font-size: 1.5rem;
+}
+.input-reg-file-profile{
+    display: block;
+    background-image: linear-gradient(150deg, #BCAC79, #0A5C68, #051218);
+    margin-bottom: 1rem;
+    color: white;
 }
 .button-profile-reset{
     padding: 0.5rem;
