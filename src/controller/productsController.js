@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path')
 const {toThousand, } = require('../utils')
-const {Product, Category, ImageProduct} = require('../database/models')
+const {Product, Category, ImageProduct} = require('../database/models');
+const { error } = require('console');
 
 const productsController = {
     list: async (req, res) => {
@@ -74,7 +75,6 @@ const productsController = {
                         idProduct : product.id
                     })
                 })
-               
             }
 
             return res.redirect('/admin')
@@ -168,21 +168,23 @@ const productsController = {
     },
     
     
-    delete: async (req, res) => {
-
+    delete: async (req, res) => { // Method DELETE
+        // console.log(error);
         try {
+
             const {id} = req.params;
-            Product.destroy({
-                where : {
-                    id
-                }
+
+            await ImageProduct.destroy({
+                where: { idProduct: id }
+            });
+            await Product.destroy({
+                where : { id : id }
             });
             // TODO: eliminar las imágenes asociadas
             return res.redirect('/admin?remove=true');
 
         } catch (error) {
             console.log(error);
-            
         }
 
     },

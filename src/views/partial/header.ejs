@@ -42,7 +42,7 @@
     <% if(locals.usuarioLogueado){ %>
         <div class="user-logueado">
             <div class="contenedor-user-logueado">
-                <img src="/images/users/defaultAvatar.jpg" alt="imagenPerfil" style="width: 3rem;">
+                <img src="/images/users/<%= usuarioLogueado.avatar %>" alt="imagenPerfil" style="width: 3rem;">
                 <p class="user-name">¡Hola, <a href="/users/profile"><%= usuarioLogueado.firstName %></a>! </p>
             </div>
             <p class="session-logout">Click acá para <a href="/users/logout" style="color: #bf930d;">cerrar sesión</a> </p>
