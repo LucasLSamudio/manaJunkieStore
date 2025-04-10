@@ -103,7 +103,7 @@ const userController = {
         }
     },
     update: async (req, res) => {
-        return res.send(req.file)
+        // return res.send(req.file)
         try {
             const {id} = req.session.user
             // TODO: VALIDAR QUE EL USUARIO EXISTA
