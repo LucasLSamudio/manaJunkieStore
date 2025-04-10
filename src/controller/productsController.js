@@ -75,6 +75,7 @@ const productsController = {
                         idProduct : product.id
                     })
                 })
+
             }
 
             return res.redirect('/admin')
@@ -128,7 +129,7 @@ const productsController = {
                 }
             )
 
-            // si cargo imagenes en el input fipo file
+            // si cargo imagenes en el input tipo file
             if(req.files.length){
                 // obtengo las imágenes de la base de datos
                 const images = await ImageProduct.findAll({
