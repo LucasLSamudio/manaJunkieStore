@@ -30,11 +30,12 @@ const userController = {
                 });
             }
 
-            const { id, firstName, rol} = user;
-            req.session.user = { email, firstName, id, rol };
+            const { id, firstName, rol, avatar} = user;
+            req.session.user = { email, firstName, id, rol, avatar };
 
             res.locals.usuarioLogueado = {...req.session.user}
             res.cookie("user", { email, firstName, id}, {maxAge: 1000*60*30})
+
             return res.redirect(`/`)
 
         } catch (error) {
@@ -71,6 +72,7 @@ const userController = {
                 surname: lastName.trim(),
                 email: email.trim(),
                 phone,
+                avatar: 'defaultAvatar.jpg',
                 password: bcrypt.hashSync(password, 10),
                 token: null, 
                 validate: true, 
@@ -92,7 +94,6 @@ const userController = {
             const {id} = req.session.user
             const user = await User.findByPk(id);
             console.log(user);
-            
             res.render('users/profile',{ 
                 title: "Perfil",
                 ...user.dataValues
@@ -105,10 +106,11 @@ const userController = {
     update: async (req, res) => {
         // return res.send(req.file)
         try {
-            const {id} = req.session.user
+            const {id, avatar} = req.session.user
             // TODO: VALIDAR QUE EL USUARIO EXISTA
 
             const {firstName, lastName, email, phone} = req.body;
+
 
             await User.update(
                 {
@@ -123,14 +125,38 @@ const userController = {
                     }
                 }
             )
-            res.redirect('/users/profile');
 
-           
+            // si cargo imagenes en el input fipo file
+            if(req.file){
+
+                // obtengo las imágenes de la base de datos
+
+                if(avatar != 'defaultAvatar.jpg'){
+                    const pathFile = path.join(__dirname,`../../public/images/users/${avatar}`)
+                    await fs.existsSync(pathFile) && fs.unlinkSync(pathFile)
+                }
+                await User.update(
+                    {
+                        avatar : req.file.filename
+                    },
+                    {
+                        where : {
+                            id
+                        }
+                    }
+                )
+                res.locals.usuarioLogueado.avatar = req.file.filename 
+
+                // elimino los archivos (físicos)
+
+                // agrego las 'nuevas' imágenes
+                // await User.update({ avatar : req.file.filename });
+            }
+            res.redirect('/');
+
         } catch (error) {
             console.log(error);
-            
         }
-      
     },
 
     logout: (req, res) => {
