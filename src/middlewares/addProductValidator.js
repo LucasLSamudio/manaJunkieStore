@@ -1,6 +1,5 @@
 const { body } = require('express-validator');
 const path = require('path')
-// const {Product} = require('../database/models')
 
 module.exports = [
     
