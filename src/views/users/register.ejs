@@ -10,16 +10,16 @@
                     <h2 class="titulo-register">Registro De Usuario</h2>
 
                     <label for="firstName" class="label-register" >Ingrese su nombre *</label>
-                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-register" required>
+                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-register" minlength="2" required>
                     
                     <label for="lastName" class="label-register" >Ingrese su apellido *</label>
-                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-register" required>
+                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-register" minlength="2" required>
 
                     <label for="email" class="label-register">Ingrese su correo *</label>
                     <input type="email" placeholder="ejemplo@gmail.com" name="email" id="email" class="input-register" required>
                     
                     <label for="password" class="label-register" >Ingrese una contraseña *</label>
-                    <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-register" required>
+                    <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-register" minlength="8" maxlength="20" required>
                     
                     <label for="password2" class="label-register" >Confirmar contraseña</label>
                     <input type="password" placeholder="MiContraseña123" name="password2" id="password2" class="input-register" required>

@@ -9,19 +9,18 @@
                 <form action="/products/add" method="POST" class="forms-register" enctype="multipart/form-data"> 
                     
                     <h2 class="titulo-register">Agregar producto</h2>
-                    
                     <div class="div-register">
                         <label for="name" class="label-register">Nombre del producto</label>
-                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" class="input-register">
+                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" minlength="5" class="input-register">
                     </div>
                     <div class="div-register">
                         <label for="price" class="label-register" >Precio del producto</label>
-                        <input type="number" name="price" id="price" placeholder="$100000" class="input-register">
+                        <input type="number" name="price" id="price" placeholder="$100000" class="input-register" required>
                     </div>
 
                     <div class="div-register">
                         <label for="category" class="label-register">Categoría del producto</label>
-                        <select name="category" id="category" class="input-register">
+                        <select name="category" id="category" class="input-register" required>
                             <option value="" hidden selected>Elegí la categoría</option>
                             <% categories.forEach(category => { %>
                                 <option value="<%= category.id %>" ><%= category.name %></option>
@@ -32,20 +31,20 @@
                     <div class="div-register div-reg-imgProd">
                         <p class="label-register">Fotos del producto</p>
                         <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar</label>
-                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg">
+                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg, .jpeg" required>
                         <div id="previewImages">
 
                         </div>
                     </div>
                     
                     <div class="div-register">
-                        <label for="discount" class="label-register" >Descuento</label>
+                        <label for="discount" class="label-register">Descuento</label>
                         <input type="number" placeholder="20" name="discount" id="discount" class="input-register">
                     </div>
 
                     <div class="div-register">
                         <label for="description" class="label-register">Descripción del producto</label>
-                        <textarea name="description" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..."></textarea>
+                        <textarea name="description" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..." minlength="20" required></textarea>
                     </div>
                     
                     <div class="div-button-register">

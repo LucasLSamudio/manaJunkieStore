@@ -35,7 +35,7 @@ const userController = {
 
             res.locals.usuarioLogueado = {...req.session.user}
             res.cookie("user", { email, firstName, id}, {maxAge: 1000*60*30})
-
+            console.log(res.locals.usuarioLogueado);
             return res.redirect(`/`)
 
         } catch (error) {
