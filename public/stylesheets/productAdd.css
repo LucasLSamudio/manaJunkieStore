@@ -9,7 +9,12 @@
     align-items: center;
     text-align: center;
 }
-
+.div-prev-image{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    max-width: 6rem;
+}
 .input-reg-file{
     display: none;
 }
@@ -37,4 +42,24 @@
 .btn-mas-menos:hover{
     background-image: linear-gradient(90deg, #D4AF37, #F8F4E6);
     color: black;
+}
+
+@media(min-width: 1024px){
+    .div-register-addProd{
+        width: 50%;
+    }
+    
+    .div-prev-image{
+        display: flex;
+        width: 100%;
+        height: max-content;
+        gap: 1rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .prev-image{
+        border: .2rem black solid;
+        padding: .2rem;
+        border-radius: .4rem;
+    }
 }
