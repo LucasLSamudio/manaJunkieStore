@@ -44,10 +44,10 @@
                     <p class="label-register">Fotos del producto</p>
                     <label for="productImage" class="label-register btn-mas-menos label-reg-file">Actualizar imagen</label>
                     <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
-                    <div>
+                    <div class="div-prev-image">
                         <% if (images.length) { %>
                             <% images.forEach(image => { %>
-                                <img style="width: 100px;" src="/images/products/<%= image.name %>" alt="<%= name %>">
+                                <img  class="prev-image" src="/images/products/<%= image.name %>" alt="<%= name %>">
                             <% }) %>
                         <% } else { %>
                             <p>No hay imágenes</p>

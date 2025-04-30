@@ -4,7 +4,7 @@
     <body>
         <%- include('../partial/headerAdmin') %>
         <main class="main-register">
-            <div class="div-forms-register">
+            <div class="div-forms-register div-register-addProd">
 
                 <form action="/products/add" method="POST" class="forms-register" enctype="multipart/form-data"> 
                     
@@ -31,8 +31,10 @@
                     <div class="div-register div-reg-imgProd">
                         <p class="label-register">Fotos del producto</p>
                         <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar</label>
-                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg, .jpeg" required>
-                        <div id="previewImages">
+
+                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg">
+                        <div id="previewImages" class="div-prev-image">
+                            
 
                         </div>
                     </div>
@@ -73,11 +75,11 @@
 
                     // Cargar la url 
                     img.src = objectUrl
+                    img.className="prev-image"
 
                     previewImages.appendChild(img)
                     
                 }
-             
             });
 
         </script>
