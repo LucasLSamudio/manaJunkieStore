@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path')
-const {toThousand, } = require('../utils')
+const {toThousand } = require('../utils')
 const {Product, Category, ImageProduct} = require('../database/models');
-const { error } = require('console');
+const { validationResult } = require('express-validator');
 
 const productsController = {
     list: async (req, res) => {
@@ -57,9 +57,24 @@ const productsController = {
     }, 
     
     add: async (req, res) => { // POST
+        // return res.send(req.body)
         try {
             const {name, price, discount, description, category} = req.body;
 
+            const errors = validationResult(req);
+            console.log('Log de errors:\n\n',errors);
+            console.log('Log de req.body:\n\n',req.body);
+            console.log('Log de name, price:\n\n',name, price);
+            if (!errors.isEmpty()) {
+                // Si hay errores, deberías volver al formulario con los errores y los datos viejos
+                const categories = await Category.findAll();
+                return res.render('products/productAdd', {
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    categories,
+                    title: "Vender producto"
+                });
+            }
             const product = await Product.create({
                 name : name.trim(),
                 description : description.trim(),
@@ -67,6 +82,7 @@ const productsController = {
                 discount,
                 idCategory : category
             })
+            
 
             if(req.files.length) {
                 req.files.forEach(async (file) => {
@@ -75,7 +91,6 @@ const productsController = {
                         idProduct : product.id
                     })
                 })
-
             }
 
             return res.redirect('/admin')

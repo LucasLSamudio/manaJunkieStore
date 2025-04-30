@@ -17,12 +17,12 @@
                 
                 <div class="div-register">
                     <label for="name" class="label-register">Nombre del producto</label>
-                    <input type="text" value="<%= name %>" name="name" id="name" class="input-register">
+                    <input type="text" value="<%= name %>" name="name" id="name" class="input-register" minlength="5" required>
                 </div>
                 
                 <div class="div-register">
                     <label for="price" class="label-register">Precio</label>
-                    <input type="number" name="price" id="price" value="<%= price %>" class="input-register">
+                    <input type="number" name="price" id="price" value="<%= price %>" class="input-register" required>
                 </div>
                 
                 <div class="div-register">
@@ -54,15 +54,10 @@
                         <% } %>
                     </div>
                 </div>
-
-                <!-- <div class="div-register">
-                    <label for="cantidadDeProductos" class="label-register" >Cantidad de productos disponibles</label>
-                    <input type="number" name="cantidadDeProductos" value="1" id="cantidadDeProductos" class="input-register">
-                </div> -->
                 
                 <div class="div-register">
                     <label for="description" class="label-register">Descripción del producto</label>
-                    <textarea name="description" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
+                    <textarea name="description" id="description" class="input-register txta-reg-desc" minlength="20" required><%= description %></textarea>
                 </div>
                 
                 <div class="div-button-register">

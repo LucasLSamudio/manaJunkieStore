@@ -14,7 +14,7 @@ const adminController = {
                 }),
                 Category.findAll(),
             ]);
-
+            
             return res.render("admin", {
                 products,
                 categories,
