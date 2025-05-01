@@ -9,8 +9,14 @@ module.exports = [
     .bail()
     .trim()
     .isLength({min: 5})
-    .withMessage('El campo debe tener al menos 5 carácteres.')
-    .bail(),
+    .withMessage('El campo debe tener al menos 5 carácteres.'),
+
+    body('price')
+    .notEmpty()
+    .withMessage('El precio del producto es obligatorio.')
+    .bail()
+    .isInt()
+    .withMessage('El campo debe tener al menos 5 carácteres.'),
 
     body('description')
     .notEmpty()
@@ -18,8 +24,7 @@ module.exports = [
     .bail()
     .trim()
     .isLength({min: 20, max: 500})
-    .withMessage('La descripción del producto debe tener al menos 20 carácteres.')
-    .bail(),
+    .withMessage('La descripción del producto debe tener al menos 20 carácteres.'),
 
     body('category')
     .notEmpty()
@@ -31,8 +36,7 @@ module.exports = [
             throw new Error('La categoría seleccionada no es válida.');
         }
         return true;
-    })
-    .bail(),
+    }),
 
     body('image')
     .custom((value, { req }) => {
@@ -49,5 +53,4 @@ module.exports = [
     
         return true;
     })
-    .bail()
 ]

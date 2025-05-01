@@ -11,16 +11,18 @@
                     <h2 class="titulo-register">Agregar producto</h2>
                     <div class="div-register">
                         <label for="name" class="label-register">Nombre del producto</label>
-                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" minlength="5" class="input-register">
+                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" minlength="5" class="input-register" value="<%= (locals.oldData && oldData.name) && oldData.name %>">
+                        <span class="text-danger"><%= (locals.errors && errors.name) && errors.name.msg  %></span> 
                     </div>
                     <div class="div-register">
                         <label for="price" class="label-register" >Precio del producto</label>
-                        <input type="number" name="price" id="price" placeholder="$100000" class="input-register" required>
+                        <input type="number" name="price" id="price" placeholder="$100000" class="input-register" value="<%= (locals.oldData && oldData.price) && oldData.price %>">
+                        <span class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
                     </div>
 
                     <div class="div-register">
                         <label for="category" class="label-register">Categoría del producto</label>
-                        <select name="category" id="category" class="input-register" required>
+                        <select name="category" id="category" class="input-register" >
                             <option value="" hidden selected>Elegí la categoría</option>
                             <% categories.forEach(category => { %>
                                 <option value="<%= category.id %>" ><%= category.name %></option>
@@ -46,7 +48,7 @@
 
                     <div class="div-register">
                         <label for="description" class="label-register">Descripción del producto</label>
-                        <textarea name="description" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..." minlength="20" required></textarea>
+                        <textarea name="description" id="description" class="input-register txta-reg-desc" placeholder="Notebook con 8 de RAM, GTX 3050..." minlength="20" ></textarea>
                     </div>
                     
                     <div class="div-button-register">
@@ -65,7 +67,6 @@
             fileInput.addEventListener('change', function(e) {
                 previewImages.innerHTML = null;
                 const files = e.target.files;
-                console.log(files);
                 
                 for (let i = 0; i < files.length; i++) {
                     const objectUrl = URL.createObjectURL(files[i]);
