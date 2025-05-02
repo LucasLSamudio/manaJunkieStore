@@ -3,6 +3,7 @@ const path = require('path')
 const {toThousand } = require('../utils')
 const {Product, Category, ImageProduct} = require('../database/models');
 const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
 
 const productsController = {
     list: async (req, res) => {
@@ -27,10 +28,19 @@ const productsController = {
             const product = await Product.findByPk(req.params.id,{
                 include : ['images']
             })
+            
+            const relationalProducts = await Product.findAll({
+                where : {
+                    idCategory : product.idCategory,
+                    id : {[Op.not]: product.id}
+                },
+                include : ['images']
+            })
 
             return res.render('products/productDetail', {
                 product,
                 title: product.name,
+                relationalProducts,
                 toThousand
             })
         } catch (error) {

@@ -7,20 +7,13 @@
             <%- include('../partial/boxProductDetail',{
                 ...product.dataValues,
             }) %>
-            <h3 class="titulo">Productos recomendados</h3>
+            <h3 class="titulo">Productos relacionados</h3>
             <section class="article-product-section">
-                <%- include('../partial/articleProduct',{
-                    ...product.dataValues,
-                }) %>
-                <%- include('../partial/articleProduct',{
-                    ...product.dataValues,
-                }) %>
-                <%- include('../partial/articleProduct',{
-                    ...product.dataValues,
-                }) %>
-                <%- include('../partial/articleProduct',{
-                    ...product.dataValues,
-                }) %>
+                <% relationalProducts.forEach(product => { %>
+                    <%- include('../partial/articleProduct',{
+                        ...product.dataValues,
+                    }) %>
+                <% }) %>
             </section>
         </main>
         <%- include('../partial/footer') %>
