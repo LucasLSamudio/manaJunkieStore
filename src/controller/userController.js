@@ -23,7 +23,9 @@ const userController = {
                 where: { email },
                 include : ['rol'] 
             });
-            if (!user || !bcrypt.compareSync(password, user.password)) {
+            if (user && !bcrypt.compareSync(password, user.password)|| !user ) {
+                console.log("fallo con exito");
+                
                 return res.render('users/login', {
                     title:"Iniciar Sesión",
                     error: "Error al iniciar sesión. Datos incorrectos.",
