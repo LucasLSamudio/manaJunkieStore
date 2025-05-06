@@ -16,7 +16,8 @@ module.exports = [
     .withMessage('El precio del producto es obligatorio.')
     .bail()
     .isInt()
-    .withMessage('El campo debe tener al menos 5 carácteres.'),
+    .isLength({min: 3})
+    .withMessage('El campo debe tener al menos 3 carácteres.'),
 
     body('description')
     .notEmpty()
@@ -39,6 +40,8 @@ module.exports = [
     }),
 
     body('image')
+    // .notEmpty()
+    // .withMessage("Debe agregar al menos una imagen.")
     .custom((value, { req }) => {
         if (!req.file) {
             return true;

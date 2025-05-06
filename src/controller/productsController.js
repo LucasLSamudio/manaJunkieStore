@@ -67,14 +67,11 @@ const productsController = {
     }, 
     
     add: async (req, res) => { // POST
-        // return res.send(req.body)
         try {
             const {name, price, discount, description, category} = req.body;
 
             const errors = validationResult(req);
-            console.log('Log de errors:\n\n',errors);
-            console.log('Log de req.body:\n\n',req.body);
-            console.log('Log de name, price:\n\n',name, price);
+
             if (!errors.isEmpty()) {
                 // Si hay errores, deberías volver al formulario con los errores y los datos viejos
                 const categories = await Category.findAll();
@@ -138,7 +135,19 @@ const productsController = {
 
         try {
             const {name, price, discount, description, category} = req.body;
-            const {id} = req.params;path
+            const {id} = req.params;
+
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                const categories = await Category.findAll();
+                return res.render('products/productEdit', {
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    categories,
+                    title: "Editar producto"
+                });
+            }
             await Product.update(
                 {
                     name : name.trim(),

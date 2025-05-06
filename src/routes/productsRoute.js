@@ -5,18 +5,19 @@ const productsController = require('../controller/productsController');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 const uploadFile = require('../middlewares/uploadFile');
 const addProductValidator = require('../middlewares/addProductValidator')
+const editProductValidator = require('../middlewares/editProductValidator')
 
-// localhost:3000/products/...
+// localhost:3001/products/...
 
 router.get('/', productsController.list);
 router.get('/create',userSessionCheck, productsController.create);
 router.get('/:id', productsController.detail);
 
-router.post('/add', uploadFile.array('productImage'), addProductValidator, productsController.add);
+router.post('/add', userSessionCheck, uploadFile.array('productImage'), addProductValidator, productsController.add);
 
 router.get('/edit/:id', userSessionCheck, productsController.edit);
 
-router.put('/update/:id', userSessionCheck, uploadFile.array('productImage'),productsController.update);
+router.put('/update/:id', userSessionCheck, uploadFile.array('productImage'), editProductValidator, productsController.update);
 
 router.delete('/delete/:id', userSessionCheck, productsController.delete);
 
