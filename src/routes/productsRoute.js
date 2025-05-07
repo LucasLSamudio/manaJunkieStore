@@ -4,8 +4,8 @@ const router = express.Router();
 const productsController = require('../controller/productsController');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 const uploadFile = require('../middlewares/uploadFile');
-const addProductValidator = require('../middlewares/addProductValidator')
-const editProductValidator = require('../middlewares/editProductValidator')
+const addProductValidator = require('../middlewares/validations/addProductValidator')
+const editProductValidator = require('../middlewares/validations/editProductValidator')
 
 // localhost:3001/products/...
 

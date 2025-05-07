@@ -19,6 +19,18 @@ const userController = {
         try {
             const {email, password} = req.body
 
+            const errors = validationResult(req);
+            // console.log("\\nLog de errors", errors);
+            
+            if (!errors.isEmpty()) {
+                // Si hay errores, deberías volver al formulario con los errores y los datos viejos
+                return res.render('user/login', {
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    title: "Iniciar sesión"
+                });
+            }
+
             const user = await User.findOne({ 
                 where: { email },
                 include : ['rol'] 

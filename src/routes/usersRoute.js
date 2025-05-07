@@ -5,8 +5,8 @@ const userController = require('../controller/userController');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 const upload = require('../middlewares/uploadFile');
 
-const loginUserValidator = require('../middlewares/loginUserValidator')
-const registerUserValidator = require('../middlewares/registerUserValidator')
+const loginUserValidator = require('../middlewares/validations/loginUserValidator')
+const registerUserValidator = require('../middlewares/validations/registerUserValidator')
 
 
 // localhost:3001/users/...
