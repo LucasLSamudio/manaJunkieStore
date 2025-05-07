@@ -73,7 +73,7 @@ const productsController = {
             const {name, price, discount, description, category} = req.body;
 
             const errors = validationResult(req);
-            console.log("\\nLog de errors", errors);
+            // console.log("\\nLog de errors", errors);
             
             if (!errors.isEmpty()) {
                 // Si hay errores, deberías volver al formulario con los errores y los datos viejos
