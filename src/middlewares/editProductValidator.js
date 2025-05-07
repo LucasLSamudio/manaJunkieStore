@@ -10,7 +10,7 @@ module.exports = [
     .trim()
     .isLength({min: 5})
     .withMessage('El campo debe tener al menos 5 carácteres.')
-    .bail()
+    .bail(),
 
     // body('description')
     // .notEmpty()

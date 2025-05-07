@@ -22,20 +22,21 @@
 
                     <div class="div-register">
                         <label for="category" class="label-register">Categoría del producto</label>
-                        <select name="category" id="category" class="input-register" >
+                        <select name="category" id="category" class="input-register" value="<%= (locals.oldData && oldData.category) && oldData.category %>">
                             <option value="" hidden selected>Elegí la categoría</option>
                             <% categories.forEach(category => { %>
                                 <option value="<%= category.id %>" ><%= category.name %></option>
                             <% }) %>
                         </select>
+                        <span class="text-danger"><%= (locals.errors && errors.category) && errors.category.msg  %></span> 
                     </div>
                     
                     <div class="div-register div-reg-imgProd">
                         <p class="label-register">Fotos del producto</p>
                         <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar</label>
 
-                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg, .jpeg" value="<%= (locals.oldData && oldData.image) && oldData.image %>">
-                        <span class="text-danger"><%= (locals.errors && errors.image) && errors.image.msg  %></span>
+                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg, .jpeg" value="<%= (locals.oldData && oldData.productImage) && oldData.productImage%>">
+                        <span class="text-danger"><%= (locals.errors && errors.existFile) && errors.existFile.msg  %></span>
                         <div id="previewImages" class="div-prev-image">
                             
                         </div>
@@ -43,7 +44,8 @@
                     
                     <div class="div-register">
                         <label for="discount" class="label-register">Descuento</label>
-                        <input type="number" placeholder="20" name="discount" maxlength="2" id="discount" class="input-register">
+                        <input type="number" placeholder="20" name="discount" maxlength="2" id="discount" class="input-register" value="<%= (locals.oldData && oldData.discount) && oldData.discount %>">
+                        <span class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span>
                     </div>
 
                     <div class="div-register">

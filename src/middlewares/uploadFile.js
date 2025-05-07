@@ -16,10 +16,12 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    const filtro = /\.(jpg|jpeg|png|gif)$/;
+    const filtro = /\.(jpg|jpeg|png)$/;
     if (filtro.test(file.originalname)){
+        req.body.existFile = true
         cb(null, true);
     }else{
+        req.body.existFile = false
         req.errorValidationImage = "No es un tipo de archivo válido.";
         cb(null, false);
     }

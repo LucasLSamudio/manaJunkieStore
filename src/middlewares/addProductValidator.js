@@ -1,5 +1,4 @@
 const { body } = require('express-validator');
-const path = require('path')
 
 module.exports = [
     
@@ -19,14 +18,6 @@ module.exports = [
     .isLength({min: 3})
     .withMessage('El campo debe tener al menos 3 carácteres.'),
 
-    body('description')
-    .notEmpty()
-    .withMessage('La descripción del producto es obligatoria.')
-    .bail()
-    .trim()
-    .isLength({min: 20, max: 500})
-    .withMessage('La descripción del producto debe tener al menos 20 carácteres.'),
-
     body('category')
     .notEmpty()
     .withMessage('Es obligatorio elegir una categoría.')
@@ -39,21 +30,26 @@ module.exports = [
         return true;
     }),
 
-    body('image')
-    // .notEmpty()
-    // .withMessage("Debe agregar al menos una imagen.")
-    .custom((value, { req }) => {
-        if (!req.file) {
-            return true;
+    body('discount')
+    .isNumeric()
+    .withMessage("Debe ingresar un número, no se permiten letras.")
+    .bail()
+    .isLength({ max: 2 })
+    .withMessage("No puede tener más del 99% de descuento."),
+
+    body('description')
+    .notEmpty()
+    .withMessage('La descripción del producto es obligatoria.')
+    .bail()
+    .trim()
+    .isLength({min: 20, max: 500})
+    .withMessage('La descripción del producto debe tener al menos 20 carácteres.'),
+
+    body('existFile')
+    .custom(value => {
+        if(!value){
+            throw new Error('Debe subir por lo menos una imagen.')
         }
-    
-        const fileExtension = path.extname(req.file.originalname).toLowerCase();
-        const allowedExtensions = ['.jpg', '.jpeg', '.png'];
-    
-        if (!allowedExtensions.includes(fileExtension)) {
-            throw new Error('La imagen debe ser un archivo válido (JPG, JPEG, PNG).');
-        }
-    
         return true;
     })
 ]
