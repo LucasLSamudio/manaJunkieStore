@@ -20,12 +20,15 @@ const userController = {
             const {email, password} = req.body
 
             const errors = validationResult(req);
-            // console.log("\\nLog de errors", errors);
+            // // console.log("\\nLog de errors", errors);
             
             if (!errors.isEmpty()) {
-                // Si hay errores, deberías volver al formulario con los errores y los datos viejos
-                return res.render('user/login', {
+                // console.log("\n Log de errors: \n", errors);
+                error = "";
+
+                return res.render('users/login', {
                     errors: errors.mapped(),
+                    error,
                     oldData: req.body,
                     title: "Iniciar sesión"
                 });
@@ -36,7 +39,7 @@ const userController = {
                 include : ['rol'] 
             });
             if (user && !bcrypt.compareSync(password, user.password)|| !user ) {
-                console.log("fallo con exito");
+                // console.log("fallo con exito");
                 
                 return res.render('users/login', {
                     title:"Iniciar Sesión",
@@ -66,13 +69,25 @@ const userController = {
 
         try {
             const {firstName, lastName, password, email, phone} = req.body;
+            
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                // console.log("\n Log de errors: \n", errors);
+                error = "";
 
-            if([firstName, lastName, password, email].includes('')){
-                return res.render('users/register',{
-                    title : 'Registrarse',
-                    error : 'Todos los campos señalados con "*" son obligatorios'
-                })
+                return res.render('users/register', {
+                    errors: errors.mapped(),
+                    error,
+                    oldData: req.body,
+                    title: "Registro De Usuario"
+                });
             }
+            // if([firstName, lastName, password, email].includes('')){
+            //     return res.render('users/register',{
+            //         title : 'Registrarse',
+            //         error : 'Todos los campos señalados con "*" son obligatorios'
+            //     })
+            // }
 
             const user = await User.findOne({ where: { email } })
 
