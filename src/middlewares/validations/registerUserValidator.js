@@ -1,5 +1,4 @@
 const { body } = require('express-validator');
-const { User } = require('../../database/models/user')
 
 module.exports = [
     body('firstName')
@@ -25,20 +24,7 @@ module.exports = [
     .withMessage('El campo no puede estar vacio.')
     .bail()
     .isEmail()
-    .withMessage('Debe de ingresar un email válido.')
-    .bail()
-    .custom(async (value) => {
-        const user = await User.findOne({
-            where: { email: value }
-        });
-        
-        if (user) {
-            throw new Error('Este email ya está registrado');
-        }
-        
-        return true;
-    })
-    .bail(),
+    .withMessage('Debe de ingresar un email válido.'),
     
     body('password')
     .notEmpty()
@@ -54,8 +40,25 @@ module.exports = [
     .matches(/\d/)
     .withMessage('La contraseña debe tener al menos un número.')
     .matches(/[!@#$%^&*(),.?":{}|<>]/)
-    .withMessage('La contraseña debe tener al menos un carácter especial.')
-    .bail(),
+    .withMessage('La contraseña debe tener al menos un carácter especial.'),
+
+    body('password2')
+    .notEmpty()
+    .withMessage('El campo no puede estar vacío.')
+    .bail()
+    .isLength({ min: 8, max: 20})
+    .withMessage('La contraseña debe tener al menos 8 caracteres y un máximo de 20.')
+    .bail()
+    .matches(/[A-Z]/)
+    .withMessage('La contraseña debe tener al menos una letra mayúscula.')
+    .matches(/[a-z]/)
+    .withMessage('La contraseña debe tener al menos una letra minúscula.')
+    .matches(/\d/)
+    .withMessage('La contraseña debe tener al menos un número.')
+    .matches(/[!@#$%^&*(),.?":{}|<>]/)
+    .withMessage('La contraseña debe tener al menos un carácter especial.'),
+
+    // TO DO: Custom para que valide que password coincida con password2
     
     body('phone')
     .notEmpty()
@@ -64,5 +67,7 @@ module.exports = [
     .isNumeric()
     .withMessage('Tiene que ser un número de teléfono válido.')
     .bail()
+    .isLength({min:10, max:10})
+    .withMessage('El número de teléfono debe ser de 10 dígitos, incluyendo el código de área.')
 
 ]

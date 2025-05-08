@@ -9,29 +9,29 @@
                     
                     <h2 class="titulo-register">Registro De Usuario</h2>
 
-                    <label for="firstName" class="label-register" >Ingrese su nombre *</label>
-                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-register" minlength="2" required>
+                    <label for="firstName" class="label-register" >Ingrese su nombre</label>
+                    <input type="text" placeholder="Matías" name="firstName" id="firstName" class="input-register" value="<%= (locals.oldData && oldData.firstName) && oldData.firstName%>">
+                    <span class="text-danger"><%= (locals.errors && errors.firstName) && errors.firstName.msg  %></span>
                     
-                    <label for="lastName" class="label-register" >Ingrese su apellido *</label>
-                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-register" minlength="2" required>
-
-                    <label for="email" class="label-register">Ingrese su correo *</label>
-                    <input type="email" placeholder="ejemplo@gmail.com" name="email" id="email" class="input-register" required>
+                    <label for="lastName" class="label-register" >Ingrese su apellido</label>
+                    <input type="text" placeholder="Espíndola" name="lastName" id="lastName" class="input-register" value="<%= (locals.oldData && oldData.lastName) && oldData.lastName%>">
+                    <span class="text-danger"><%= (locals.errors && errors.lastName) && errors.lastName.msg  %></span>
                     
-                    <label for="password" class="label-register" >Ingrese una contraseña *</label>
-                    <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-register" minlength="8" maxlength="20" required>
+                    <label for="email" class="label-register">Ingrese su correo</label>
+                    <input type="email" placeholder="ejemplo@gmail.com" name="email" id="email" class="input-register" value="<%= (locals.oldData && oldData.email) && oldData.email%>">
+                    <span class="text-danger"><%= (locals.errors && errors.email) && errors.email.msg  %></span>
+                    
+                    <label for="password" class="label-register" >Ingrese una contraseña</label>
+                    <input type="password" name="password" id="password" placeholder="MiContraseña123" class="input-register" value="<%= (locals.oldData && oldData.password) && oldData.password%>">
+                    <span class="text-danger"><%= (locals.errors && errors.password) && errors.password.msg  %></span>
                     
                     <label for="password2" class="label-register" >Confirmar contraseña</label>
-                    <input type="password" placeholder="MiContraseña123" name="password2" id="password2" class="input-register" required>
+                    <input type="password" placeholder="MiContraseña123" name="password2" id="password2" class="input-register" value="<%= (locals.oldData && oldData.password2) && oldData.password2%>">
+                    <span class="text-danger"><%= (locals.errors && errors.password2) && errors.password2.msg  %></span>
                     
                     <label for="phone" class="label-register">Ingrese su número de teléfono</label>
-                    <input type="number" name="phone" id="phone" class="input-register" placeholder="11-2345-6789">
-                    
-                    <!-- <div class="div-register div-reg-imgProd">
-                        <p class="label-register">Foto de perfil</p>
-                        <label for="avatar" class="label-register btn-mas-menos label-reg-file">Agregar</label>
-                        <input multiple type="file" name="avatar" id="avatar" class="input-register input-reg-file" multiple="false" accept=".png, .jpg">
-                    </div> -->
+                    <input type="number" name="phone" id="phone" class="input-register" placeholder="11-2345-6789" value="<%= (locals.oldData && oldData.phone) && oldData.phone%>">
+                    <span class="text-danger"><%= (locals.errors && errors.phone) && errors.phone.msg  %></span>
 
                     <div class="div-button-register">
                         <button type="submit" class="btn-mas-menos button-register-submit">Registrarse</button>
