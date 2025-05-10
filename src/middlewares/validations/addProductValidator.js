@@ -15,6 +15,8 @@ module.exports = [
     .withMessage('El precio del producto es obligatorio.')
     .bail()
     .isInt()
+    .withMessage('Debe ingresar el precio en números, no se permiten letras.')
+    .bail()
     .isLength({min: 3})
     .withMessage('El campo debe tener al menos 3 carácteres.'),
 
@@ -42,9 +44,12 @@ module.exports = [
     .withMessage('La descripción del producto es obligatoria.')
     .bail()
     .trim()
-    .isLength({min: 20, max: 500})
-    .withMessage('La descripción del producto debe tener al menos 20 carácteres.'),
-
+    .isLength({min: 20})
+    .withMessage('La descripción del producto debe tener al menos 20 carácteres.')
+    .bail()
+    .isLength({max:500})
+    .withMessage('La descripción del producto no puede superar los 500 carácteres.'),
+        
     body('existFile')
     .custom(value => {
         if(!value){
