@@ -23,12 +23,14 @@
                 
                 <div class="div-register">
                     <label for="price" class="label-register">Precio</label>
-                    <input type="number" name="price" id="price" value="<%= price %>" class="input-register" required>
+                    <input type="number" name="price" id="price" value="<%= price %>" class="input-register" value="<%= (locals.oldData && oldData.price) && oldData.price %>">
+                    <span class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
                 </div>
                 
                 <div class="div-register">
                     <label for="discount" class="label-register">Descuento</label>
-                    <input type="number" value="<%= discount %>" name="discount" id="discount" class="input-register">
+                    <input type="number" name="discount" id="discount" class="input-register" value="<%= discount ? discount : ((locals.oldData && oldData.discount) && oldData.discount) %>">
+                    <span class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span> 
                 </div>
                 
                 <div class="div-register">
@@ -58,7 +60,8 @@
                 
                 <div class="div-register">
                     <label for="description" class="label-register">Descripción del producto</label>
-                    <textarea name="description" id="description" class="input-register txta-reg-desc" minlength="20" required><%= description %></textarea>
+                    <textarea name="description" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
+                    <span class="text-danger"><%= (locals.errors && errors.description) && errors.description.msg  %></span>
                 </div>
                 
                 <div class="div-button-register">

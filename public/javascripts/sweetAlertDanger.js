@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll(".borrarProd").forEach(button => {
         button.addEventListener("click", function () {
-            let productId = this.getAttribute("data-id");
+            // let productId = this.getAttribute("data-id");
             let productName = this.getAttribute("data-name")
             let form = this.closest("td").querySelector(".delete-form");
 

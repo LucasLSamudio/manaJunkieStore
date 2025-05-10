@@ -68,7 +68,7 @@ const productsController = {
     
     add: async (req, res) => { // POST
         try {
-            console.log("\\nLog del req:\\n\\n", req);
+            // console.log("\\nLog del req:\\n\\n", req);
             
             const {name, price, discount, description, category} = req.body;
 
@@ -76,7 +76,6 @@ const productsController = {
             // console.log("\\nLog de errors", errors);
             
             if (!errors.isEmpty()) {
-                // Si hay errores, deberías volver al formulario con los errores y los datos viejos
                 const categories = await Category.findAll();
                 return res.render('products/productAdd', {
                     errors: errors.mapped(),
@@ -140,14 +139,25 @@ const productsController = {
             const {name, price, discount, description, category} = req.body;
             const {id} = req.params;
 
+            const oldProd = {name, price, discount, description, category, id}
+            const images = await ImageProduct.findAll({
+                    where : {
+                        idProduct : id
+                    }
+                });
+            const categories = await Category.findAll();
+            
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                const categories = await Category.findAll();
+                console.log();
                 return res.render('products/productEdit', {
                     errors: errors.mapped(),
                     oldData: req.body,
                     categories,
+                    images,
+                    idCategory : oldProd.category,
+                    ...oldProd,
                     title: "Editar producto"
                 });
             }
