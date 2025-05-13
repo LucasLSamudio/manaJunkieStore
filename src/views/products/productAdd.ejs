@@ -6,18 +6,18 @@
         <main class="main-register">
             <div class="div-forms-register div-register-addProd">
 
-                <form action="/products/add" method="POST" class="forms-register" enctype="multipart/form-data"> 
+                <form action="/products/add" method="POST" id="idFormAddProduct" class="forms-register" enctype="multipart/form-data"> 
                     
                     <h2 class="titulo-register">Agregar producto</h2>
                     <div class="div-register">
                         <label for="name" class="label-register">Nombre del producto</label>
-                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" minlength="5" class="input-register" value="<%= (locals.oldData && oldData.name) && oldData.name %>">
-                        <span class="text-danger"><%= (locals.errors && errors.name) && errors.name.msg  %></span> 
+                        <input type="text" placeholder="Notebook Dell G15" name="name" id="name" class="input-register"  value="<%= (locals.oldData && oldData.name) && oldData.name %>">
+                        <span id="error-name" class="text-danger"><%= (locals.errors && errors.name) && errors.name.msg %></span> 
                     </div>
                     <div class="div-register">
                         <label for="price" class="label-register" >Precio del producto</label>
                         <input type="number" name="price" id="price" placeholder="$100000" class="input-register" value="<%= (locals.oldData && oldData.price) && oldData.price %>">
-                        <span class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
+                        <span id="error-price" class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
                     </div>
 
                     <div class="div-register">
@@ -28,7 +28,7 @@
                                 <option value="<%= category.id %>" ><%= category.name %></option>
                             <% }) %>
                         </select>
-                        <span class="text-danger"><%= (locals.errors && errors.category) && errors.category.msg  %></span> 
+                        <span id="error-category" class="text-danger"><%= (locals.errors && errors.category) && errors.category.msg  %></span> 
                     </div>
                     
                     <div class="div-register div-reg-imgProd">
@@ -36,7 +36,7 @@
                         <label for="productImage" class="label-register btn-mas-menos label-reg-file">Agregar</label>
 
                         <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpg, .jpeg" value="<%= (locals.oldData && oldData.productImage) && oldData.productImage%>">
-                        <span class="text-danger"><%= (locals.errors && errors.existFile) && errors.existFile.msg  %></span>
+                        <span id="error-image" class="text-danger"><%= (locals.errors && errors.existFile) && errors.existFile.msg  %></span>
                         <div id="previewImages" class="div-prev-image">
                             
                         </div>
@@ -45,13 +45,13 @@
                     <div class="div-register">
                         <label for="discount" class="label-register">Descuento</label>
                         <input type="number" placeholder="20" name="discount" maxlength="2" id="discount" class="input-register" value="<%= (locals.oldData && oldData.discount) && oldData.discount %>">
-                        <span class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span>
+                        <span id="error-discount" class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span>
                     </div>
 
                     <div class="div-register">
                         <label for="description" class="label-register">Descripción del producto</label>
                         <textarea name="description" id="description" class="input-register txta-reg-desc" minlength="20" placeholder="Notebook con 8 de RAM, GTX 3050..." value="<%= (locals.oldData && oldData.description) && oldData.description %>" ></textarea>
-                        <span class="text-danger"><%= (locals.errors && errors.description) && errors.description.msg  %></span>
+                        <span id="error-description" class="text-danger"><%= (locals.errors && errors.description) && errors.description.msg  %></span>
                     </div>
                     
                     <div class="div-button-register">
@@ -63,8 +63,8 @@
         </main>
         <%- include('../partial/footer') %> 
         <script>
-            const fileInput = document.getElementById('productImage');
-            const previewImages = document.getElementById('previewImages');
+            const fileInput = document.getElementById('productImage'); // Input de images
+            const previewImages = document.getElementById('previewImages'); // Contenedor que contiene las imagenes (Div)
 
             // Manejador del evento de cambio
             fileInput.addEventListener('change', function(e) {
@@ -84,7 +84,7 @@
                     previewImages.appendChild(img)
                 }
             });
-
         </script>
+        <script src="/javascripts/validationsProductsAdd.js"></script>
     </body>
 </html>

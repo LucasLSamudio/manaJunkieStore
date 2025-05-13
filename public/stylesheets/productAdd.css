@@ -44,6 +44,18 @@
     color: black;
 }
 
+.is-invalid{
+    border: .25rem solid red;
+}
+
+.is-valid{
+    border: .25rem solid green;
+}
+
+.text-danger{
+    color: rgb(149, 1, 1);
+}
+
 @media(min-width: 1024px){
     .div-register-addProd{
         width: 50%;
