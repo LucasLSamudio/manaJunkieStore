@@ -8,7 +8,10 @@ module.exports = [
     .bail()
     .trim()
     .isLength({min: 5})
-    .withMessage('El campo debe tener al menos 5 carácteres.'),
+    .withMessage('El nombre debe tener al menos 5 carácteres.')
+    .bail()
+    .isLength({max: 100})
+    .withMessage('El nombre no debe superar los 100 carácteres.'),
 
     body('price')
     .notEmpty()
