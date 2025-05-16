@@ -1,4 +1,5 @@
 const { body } = require('express-validator');
+const { MEDIUMINT } = require('sequelize');
 
 module.exports = [
     
@@ -36,12 +37,26 @@ module.exports = [
     }),
 
     body('discount')
-    .isNumeric()
-    .withMessage("Debe ingresar un número, no se permiten letras.")
-    .bail()
-    .isLength({ max: 2 })
-    .withMessage("No puede tener más del 99% de descuento."),
+    .custom(value => {
+        if (value === null || value === '') {
+            return true;
+        }
 
+        const number = +value
+
+        if(isNaN(number)){
+            throw new Error('El descuento debe estar en números.')
+        }
+        if(number < 0 ){
+            throw new Error('El descuento no puede ser negativo.')
+        }
+        if(number > 90){
+            throw new Error('El descuento no puede ser más del 90%.')
+        }
+
+        return true;
+    }),
+    
     body('description')
     .notEmpty()
     .withMessage('La descripción del producto es obligatoria.')
@@ -52,7 +67,7 @@ module.exports = [
     .bail()
     .isLength({max:500})
     .withMessage('La descripción del producto no puede superar los 500 carácteres.'),
-        
+    
     body('existFile')
     .custom(value => {
         if(!value){

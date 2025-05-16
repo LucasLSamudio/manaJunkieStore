@@ -1,14 +1,13 @@
 const errorFrase = (e) => document.getElementById(e);
 
+const formCrear = document.getElementById('idFormEditProduct');
 
-const formCrear = document.getElementById('idFormAddProduct');
 const inputName = document.getElementById('name');
 const inputPrice = document.getElementById('price');
 const selectedCategory = document.getElementById('category');
 const textAreaDescription = document.getElementById('description');
 const inputImage = document.getElementById('productImage');
 const inputDiscount = document.getElementById('discount');
-const inputButton = document.getElementById('id-btn-reset')
 
 inputName.addEventListener('blur' , function() {
     switch (true) {
@@ -54,34 +53,15 @@ inputPrice.addEventListener('blur' , function() {
     }
 })
 
-inputDiscount.addEventListener('blur', function () {
-    const value = this.value.trim();
-
-    // Permitir vacío
-    if (value === '' || value == null || !value) {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-        errorFrase('error-discount').innerHTML = null;
-        return;
-    }
-
-    const number = +value;
-
-    if (isNaN(number)) {
-        this.classList.remove('is-valid');
-        this.classList.add('is-invalid');
-        errorFrase('error-discount').innerHTML = 'El descuento debe ser un número.';
-        return;
-    }
-
+inputDiscount.addEventListener('blur' , function() {
     switch (true) {
-        case number < 0:
+        case this.value < 0:
             this.classList.remove('is-valid');
             this.classList.add('is-invalid');
             errorFrase('error-discount').innerHTML = 'El descuento no puede ser negativo.';
             break;
 
-        case number > 90:
+        case this.value > 90:
             this.classList.remove('is-valid');
             this.classList.add('is-invalid');
             errorFrase('error-discount').innerHTML = 'El descuento no puede superar el 90%.';
@@ -93,8 +73,7 @@ inputDiscount.addEventListener('blur', function () {
             errorFrase('error-discount').innerHTML = null;
             break;
     }
-});
-
+})  
 
 textAreaDescription.addEventListener('blur' , function() {
     switch (true) {
@@ -116,58 +95,33 @@ textAreaDescription.addEventListener('blur' , function() {
             errorFrase('error-description').innerHTML = null;
             break;
     }
-
-})
-selectedCategory.addEventListener('blur' , function() {
-    switch (true) {
-        case this.value.length < 1:
-            this.classList.remove('is-valid');
-            this.classList.add('is-invalid');
-            errorFrase('error-category').innerHTML = 'La categoría no puede estar vacía';
-            break;
-
-        default:
-            this.classList.remove('is-invalid');
-            this.classList.add('is-valid');
-            errorFrase('error-category').innerHTML = null;
-            break;
-    }
-
 })
 
 inputImage.addEventListener('blur' , function() {
-    switch (true) {
-        case this.value.length < 2:
-            this.classList.remove('is-valid');
-            this.classList.add('is-invalid');
-            errorFrase('error-image').innerHTML = 'La imagen no puede estar vacía';
-            break;
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+        errorFrase('error-image').innerHTML = null;
+});
 
-        default:
-            this.classList.remove('is-invalid');
-            this.classList.add('is-valid');
-            errorFrase('error-image').innerHTML = null;
-            break;
-    }
-})
-
-inputButton.addEventListener('blur', function(){
-    return true;
-})
 
 formCrear.addEventListener('submit', function (event) {
     let errors = false;
     const elementForm = this.elements;
-    let x = 0
     for (let i = 0; i < elementForm.length; i++) {
         const el = elementForm[i];
-        console.log("Log de el: ",el);
-        if (el.type === 'reset'){
-            next()
+        if(el.type === 'file'){
+            if(el.classList.contains('is-invalid')){
+                errors = true
+                break;
+            }
+            else{
+                next()
+            }
         }
         if (el.type !== 'submit' && (el.value.trim() === '' || el.classList.contains('is-invalid'))) {
-            console.log("Error numero",x+1,"|",el);
-            x++;
+            console.log(`Error numero ${i+1}`,el.classList);
+            console.log(`Error numero ${i+2}`,el.value);
+            console.log(`Error numero ${i+3}`,el.type);
             errors = true;
             break;
         }

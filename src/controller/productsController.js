@@ -28,6 +28,7 @@ const productsController = {
             const product = await Product.findByPk(req.params.id,{
                 include : ['images']
             })
+            console.log("Producto  o o o o\n",product.dataValues.id);
             
             const relationalProducts = await Product.findAll({
                 where : {
@@ -113,7 +114,8 @@ const productsController = {
 
         try {
             const { id } = req.params;
-
+            // console.log(req.body,"test2");
+            
             const [product, categories] = await Promise.all([
                 Product.findByPk(id,{
                     include : ['images', 'category'] 
@@ -134,12 +136,11 @@ const productsController = {
     },
 
     update: async (req, res) => {
-
         try {
             const {name, price, discount, description, category} = req.body;
             const {id} = req.params;
 
-            const oldProd = {name, price, discount, description, category, id}
+            const oldProd=await Product.findByPk(id)
             const images = await ImageProduct.findAll({
                     where : {
                         idProduct : id
@@ -150,7 +151,6 @@ const productsController = {
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                console.log();
                 return res.render('products/productEdit', {
                     errors: errors.mapped(),
                     oldData: req.body,

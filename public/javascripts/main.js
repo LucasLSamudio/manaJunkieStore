@@ -20,9 +20,9 @@ $(document).on('click', '#btn-guardar', function () {
                 }
             }, 100);
         },
-        willClose: () => {
-            clearInterval(timerInterval);
-        }
+        // willClose: () => {
+        //     clearInterval(timerInterval);
+        // }
     }).then(() => {
         // Aquí continúa el proceso después de la alerta
         console.log("La alerta ha cerrado, continuando proceso...");

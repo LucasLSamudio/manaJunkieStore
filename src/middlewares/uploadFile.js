@@ -16,7 +16,10 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    const filtro = /\.(jpg|jpeg|png)$/;
+    const filtro = /\.(jpg|jpeg|png|JPG|JPEG|PNG)$/;
+    console.log("Original name: |",file.originalname);
+    console.log("Filtro test; | ",filtro.test(file.originalname));
+    
     if (filtro.test(file.originalname)){
         req.body.existFile = true
         cb(null, true);

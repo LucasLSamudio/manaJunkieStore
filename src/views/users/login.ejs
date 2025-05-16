@@ -6,16 +6,24 @@
         <main class="main main-login">
             <div class="div-form-login">
 
-                <form action="/users/processLogin" method="POST" class="forms-login">
+                <form action="/users/processLogin" method="POST" id="idFormUserLogin" class="forms-login">
                     
                     <h2 class="titulo-login">Iniciar sesion</h2>
                         <label for="email" class="label-login-email">Ingrese su correo</label>
-                        <input type="email" placeholder="micorreo@gmail.com" name="email" class="correo" id="email" value="<%= (locals.oldData && oldData.email) && oldData.email%>">
-                        <span class="text-danger"><%= (locals.errors && errors.email) && errors.email.msg  %></span>
-
+                        <div class="input-container">
+                            <input type="email" placeholder="micorreo@gmail.com" name="email" class="correo" id="email" value="<%= (locals.oldData && oldData.email) && oldData.email%>">
+                            <i class="fa-solid fa-xmark input-icon" id="input-icon"></i>
+                            
+                        </div>
+                        <span id="error-email" class="text-danger"><%= (locals.errors && errors.email) && errors.email.msg  %></span>
                         <label for="password" class="label-login-password">Ingrese su contraseña</label>
-                        <input type="password" name="password" placeholder="MiContraseña123" id="password" value="<%= (locals.oldData && oldData.password) && oldData.password%>">
-                        <span class="text-danger"><%= (locals.errors && errors.password) && errors.password.msg  %></span>
+                        <div class="input-container">
+                        
+                        <input type="password" class="password" id="password" name="password" placeholder="MiContraseña123" value="<%= (locals.oldData && oldData.password) && oldData.password%>">
+                        <i class="fa-solid fa-xmark input-icon" id="input-icon"></i>
+                        </input >
+                        </div>
+                        <span id="error-password" class="text-danger"><%= (locals.errors && errors.password) && errors.password.msg  %></span>
 
                         <a href="/users/register" class="a-login">¿No tenés cuenta? ¡Registrate!</a>
                         <a href="#" class="a-login" >Olvidé mi contraseña </a> 
@@ -33,5 +41,6 @@
                     });
             }
         </script>
+        <script src="/javascripts/validationsUserLogin.js"></script>
     </body>
 </html>

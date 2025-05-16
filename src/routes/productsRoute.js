@@ -17,7 +17,7 @@ router.post('/add', userSessionCheck, uploadFile.array('productImage'), addProdu
 
 router.get('/edit/:id', userSessionCheck, productsController.edit);
 
-router.put('/update/:id', userSessionCheck, uploadFile.array('productImage'), editProductValidator, productsController.update);
+router.post('/update/:id', userSessionCheck, uploadFile.array('productImage'), productsController.update);
 
 router.delete('/delete/:id', userSessionCheck, productsController.delete);
 

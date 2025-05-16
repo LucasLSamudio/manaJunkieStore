@@ -25,7 +25,7 @@ module.exports = [
     .bail()
     .isEmail()
     .withMessage('Debe de ingresar un email válido.'),
-    
+
     body('password')
     .notEmpty()
     .withMessage('El campo no puede estar vacío.')

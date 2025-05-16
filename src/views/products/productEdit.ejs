@@ -11,26 +11,26 @@
     <main class="main-register">
         <div class="div-forms-register">
 
-            <form action="/products/update/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="forms-register"> 
+            <form action="/products/update/<%= id %>?_method=POST" id="idFormEditProduct" method="POST" enctype="multipart/form-data" class="forms-register"> 
                 
                 <h2 class="titulo-register">Editar producto</h2>
                 
                 <div class="div-register">
                     <label for="name" class="label-register">Nombre del producto</label>
                     <input type="text" value="<%= name %>" name="name" id="name" class="input-register" value="<%= (locals.oldData && oldData.name) && oldData.name %>">
-                    <span class="text-danger"><%= (locals.errors && errors.name) && errors.name.msg  %></span> 
+                    <span id="error-name" class="text-danger"><%= (locals.errors && errors.name) && errors.name.msg  %></span> 
                 </div>
                 
                 <div class="div-register">
                     <label for="price" class="label-register">Precio</label>
                     <input type="number" name="price" id="price" value="<%= price %>" class="input-register" value="<%= (locals.oldData && oldData.price) && oldData.price %>">
-                    <span class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
+                    <span id="error-price" class="text-danger"><%= (locals.errors && errors.price) && errors.price.msg  %></span> 
                 </div>
                 
                 <div class="div-register">
                     <label for="discount" class="label-register">Descuento</label>
                     <input type="number" name="discount" id="discount" class="input-register" value="<%= discount ? discount : ((locals.oldData && oldData.discount) && oldData.discount) %>">
-                    <span class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span> 
+                    <span id="error-discount" class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span> 
                 </div>
                 
                 <div class="div-register">
@@ -39,15 +39,16 @@
                         <option value="" hidden selected>Elegí la categoría</option>
                         <% categories.forEach(selectedCategory => { %>
                             <option value="<%= selectedCategory.id %>" <%= selectedCategory.id == idCategory && 'selected' %>><%= selectedCategory.name %></option>
-                        <% }) %>
-                    </select>
-                </div>
-
-                <div class="div-register div-reg-imgProd">
-                    <p class="label-register">Fotos del producto</p>
-                    <label for="productImage" class="label-register btn-mas-menos label-reg-file">Actualizar imagen</label>
-                    <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
-                    <div class="div-prev-image">
+                            <% }) %>
+                        </select>
+                    </div>
+                    
+                    <div class="div-register div-reg-imgProd">
+                        <p class="label-register">Fotos del producto</p>
+                        <label for="productImage" class="label-register btn-mas-menos label-reg-file">Actualizar imagen</label>
+                        <input multiple type="file" name="productImage" id="productImage" class="input-register input-reg-file" accept=".png, .jpeg, .jpg">
+                        <span id="error-image" class="text-danger"><%= (locals.errors && errors.productImage) && errors.productImage.msg  %></span> 
+                    <div id="previewImages" class="div-prev-image">
                         <% if (images.length) { %>
                             <% images.forEach(image => { %>
                                 <img  class="prev-image" src="/images/products/<%= image.name %>" alt="<%= name %>">
@@ -61,13 +62,14 @@
                 <div class="div-register">
                     <label for="description" class="label-register">Descripción del producto</label>
                     <textarea name="description" id="description" class="input-register txta-reg-desc"><%= description %></textarea>
-                    <span class="text-danger"><%= (locals.errors && errors.description) && errors.description.msg  %></span>
+                    <span id="error-description" class="text-danger"><%= (locals.errors && errors.description) && errors.description.msg  %></span>
                 </div>
                 
                 <div class="div-button-register">
                     <button type="submit" id="btn-guardar" class="btn-mas-menos button-register-submit">Publicar producto</button>
                     <button type="reset" class="btn-mas-menos button-register-reset">Cancelar</button>
                 </div>
+                <span id="errorForm"><%= (locals.errors && errors.idFormEditProduct) && errors.idFormEditProduct.msg  %></span>
             </form>
             <button style="display: none;" id="btn-guardar">Guardar</button>
         </div>
@@ -75,5 +77,7 @@
     </main>
     <%- include('../partial/footer') %>
     <script src="/javascripts/main.js"></script>
+    <script src="/javascripts/previewImages.js"></script>
+    <script src="/javascripts/validationsProductsEdit.js"></script>
 </body>
 </html>

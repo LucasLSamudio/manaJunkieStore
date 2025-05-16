@@ -37,8 +37,12 @@ module.exports = [
     .bail()
     .isLength({max:500})
     .withMessage('La descripción del producto no puede superar los 500 carácteres.')    ,
-    
-    body('category'),
 
-    body('productImage'),
+    body('existFile')
+    .custom(value => {
+        if(!value){
+            throw new Error('Debe subir por lo menos una imagen.')
+        }
+        return true;
+    })
 ]

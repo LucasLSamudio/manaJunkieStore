@@ -51,6 +51,15 @@
 .is-valid{
     border: .25rem solid green;
 }
+.fa-xmark{
+    color: red;
+}
+.is-invisible{
+    opacity: 0;
+}
+.is-visible{
+    opacity: 1;
+}
 
 .text-danger{
     color: rgb(149, 1, 1);

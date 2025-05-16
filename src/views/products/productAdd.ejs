@@ -44,7 +44,7 @@
                     
                     <div class="div-register">
                         <label for="discount" class="label-register">Descuento</label>
-                        <input type="number" placeholder="20" name="discount" maxlength="2" id="discount" class="input-register" value="<%= (locals.oldData && oldData.discount) && oldData.discount %>">
+                        <input type="number" placeholder="20" name="discount" maxlength="2" id="discount" class="input-register" value="<%= (locals.oldData && oldData.discount) ? oldData.discount : 0%>">
                         <span id="error-discount" class="text-danger"><%= (locals.errors && errors.discount) && errors.discount.msg  %></span>
                     </div>
 
@@ -56,35 +56,14 @@
                     
                     <div class="div-button-register">
                         <button type="submit" class="btn-mas-menos button-register-submit">Publicar</button>
-                        <button type="reset" class="btn-mas-menos button-register-reset">Cancelar</button>
+                        <button type="reset" class="btn-mas-menos button-register-reset" id="btn-reset">Cancelar</button>
                     </div>
+                    <span id="errorForm"><%= (locals.errors && errors.idFormAddProduct) && errors.idFormAddProduct.msg  %></span>
                 </form>
             </div>
         </main>
         <%- include('../partial/footer') %> 
-        <script>
-            const fileInput = document.getElementById('productImage'); // Input de images
-            const previewImages = document.getElementById('previewImages'); // Contenedor que contiene las imagenes (Div)
-
-            // Manejador del evento de cambio
-            fileInput.addEventListener('change', function(e) {
-                previewImages.innerHTML = null;
-                const files = e.target.files;
-                
-                for (let i = 0; i < files.length; i++) {
-                    const objectUrl = URL.createObjectURL(files[i]);
-                    
-                    // Crear un etiqueta img
-                    const img = document.createElement('img')
-
-                    // Cargar la url 
-                    img.src = objectUrl
-                    img.className="prev-image"
-
-                    previewImages.appendChild(img)
-                }
-            });
-        </script>
+        <script src="/javascripts/previewImages.js"></script>
         <script src="/javascripts/validationsProductsAdd.js"></script>
     </body>
 </html>
